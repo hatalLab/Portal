@@ -28,13 +28,12 @@
                 </div>
             </div>
         </div> <!-- End of topnav -->
-        
-
     
         <div class="container">
+            <div class="form_container">
     <form class="DefaultForm UserForm" action="" method="post">
         <input type="hidden" name="csrfmiddlewaretoken" value="a6fV1GWOrKvskTbs1y4mc90ju5F158omx4K4g4RZlrNXhptHMsDu5FFRuZ2dh1KZ">
-        <tr><th><label for="id_id">Mispar Ishi:</label></th><br><td><input type="number" name="id" required id="id_id"></td></tr><br>
+        <tr><th><label for="id_id">Mispar Ishi:</label></th><br><td><input type="text" name="id" required id="id_id"></td></tr><br>
 <tr><th><label for="id_name">Name:</label></th><br><td><input type="text" name="name" maxlength="64" required id="id_name"></td></tr><br>
 <tr><th><label for="id_rank">Rank:</label></th><br><td><select name="rank" id="id_rank">
   <option value="1">rabat</option>
@@ -54,10 +53,12 @@
   <option value="8">alam</option>
 
 </select></td></tr><br>
-<tr><th><label for="id_bio">Biography:</label></th><br><td><textarea name="bio" cols="40" rows="10" maxlength="512" required id="id_bio">
+<tr><th><label for="id_bio">Biography:</label></th><br><td><textarea name="bio" cols="5" rows="5" required id="id_bio">
 </textarea><br></td></tr>
-<tr><th><label for="id_mail">Mail:</label></th><td><input type="email" name="mail" maxlength="128" required id="id_mail"></td></tr>
-        <input type="submit" value="Sign up">
+<tr><th><label for="id_mail">Mail:</label></th><br><td><input type="email" name="mail" maxlength="128" required id="id_mail"></td></tr>
+        <input type="submit" value="Sign up"></div>
+    
     </form>
+</div>
     </body>
 </html>
