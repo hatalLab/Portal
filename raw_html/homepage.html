@@ -1,8 +1,35 @@
-{% extends "portal/base.jin" %}
-{% load static %}
 
 
-{% block main %}
+
+<!doctype html>
+<html>
+    <head>
+        
+            <title>Projects Portal</title>
+        
+
+    
+        <link rel="stylesheet" href="static/portal/css/style_harry.css"  />
+        <link rel="stylesheet" href="static/portal/css/style_david.css"  />
+        <link rel="stylesheet" href="static/portal/css/style_eyal.css"  />
+    
+    <link rel="stylesheet" href="static/portal/css/style.css"  />
+
+    </head>
+
+    <body>
+
+        
+        <div class="topnav">
+            <div>
+                <img src="/static/portal/images/Hatallogo.png"  alt="logo" width="60">
+            </div>
+            <a class="active" href="/portal_app/">Main</a>
+        </div> <!-- End of topnav -->
+        
+
+        <div class="main_container">
+            
     <div class="controllers_container">
        <div class="drop1 ">
                 <button class="btn" onclick="filtercategory('all')">הכל</button>
@@ -16,55 +43,52 @@
     <div class="projects_container">
         <ul class="projects_list">
             <li class="filterDiv engineering physics">
-                <a href="http://google.com"><img src="{% static 'portal/images/pistols.jpg' %}"  alt="pistols"></a>
+                <a href="http://google.com"><img src="/static/portal/images/pistols.jpg"  alt="pistols"></a>
                 <p>פרויקט <br>הנדסה פיזיקה</p>
-                <v class="modal">lorem ipsum sofaiejfoaiwjer aijer oaijer </v>
             </li>
             <li class="filterDiv seismology">
-                <a href="http://google.com"><img src="{% static 'portal/images/underground.jpg' %}"  alt="tunnel"></a>
+                <a href="http://google.com"><img src="/static/portal/images/underground.jpg"  alt="tunnel"></a>
                 <p>פרויקט <br> סייסמיקה</p>
             </li>
             <li class="filterDiv chemistry">
-                <a href="http://google.com"><img src="{% static 'portal/images/science.jpg' %}"  alt="tunnel"></a>
+                <a href="http://google.com"><img src="/static/portal/images/science.jpg"  alt="tunnel"></a>
                 <p>פרויקט <br> כימיה</p>
             </li>
             <li class="filterDiv seismology">
-                <a href="http://google.com"><img src="{% static 'portal/images/underground.jpg' %}"  alt="tunnel"></a>
+                <a href="http://google.com"><img src="/static/portal/images/underground.jpg"  alt="tunnel"></a>
                 <p>פרויקט <br> סייסמיקה</p>
             </li>
             <li class="filterDiv seismology">
-                <a href="http://google.com"><img src="{% static 'portal/images/underground.jpg' %}"  alt="tunnel"></a>
+                <a href="http://google.com"><img src="/static/portal/images/underground.jpg"  alt="tunnel"></a>
                 <p>פרויקט <br> סייסמיקה</p>
             </li>
             <li class="filterDiv seismology">
-                <a href="http://google.com"><img src="{% static 'portal/images/underground.jpg' %}"  alt="tunnel"></a>
+                <a href="http://google.com"><img src="/static/portal/images/underground.jpg"  alt="tunnel"></a>
                 <p>פרויקט <br> סייסמיקה</p>
             </li>
             <li class="filterDiv seismology">
-                <a href="http://google.com"><img src="{% static 'portal/images/underground.jpg' %}"  alt="tunnel"></a>
+                <a href="http://google.com"><img src="/static/portal/images/underground.jpg"  alt="tunnel"></a>
                 <p>פרויקט <br> סייסמיקה</p>
             </li>
             <li class="filterDiv seismology">
-                <a href="http://google.com"><img src="{% static 'portal/images/underground.jpg' %}"  alt="tunnel"></a>
+                <a href="http://google.com"><img src="/static/portal/images/underground.jpg"  alt="tunnel"></a>
                 <p>פרויקט <br> סייסמיקה</p>
             </li>
 
         </ul>
     </div>
     <div class="caftor">
-        <button id="search" class="search" data-toggle="modal" data-target=".your-modal"><img src="{% static 'portal/images/magdilet.png' %}"
+        <button id="search" class="search" data-toggle="modal" data-target=".your-modal"><img src="/static/portal/images/magdilet.png"
                                                                                               alt="magnifying glass">
         </button>
-        <button id="plus" class="plus" data-toggle="modal" data-target=".your-modal"><img src="{% static 'portal/images/backgroundbutton.jpg' %}"
+        <button id="plus" class="plus" data-toggle="modal" data-target=".your-modal"><img src="/static/portal/images/backgroundbutton.jpg"
                                                                                           alt="background"></button>
     </div>
-{% endblock %}
+
+        </div>
+
+    
 
 
-{% block footer %}
-
-{% endblock %}
-
-{% block scripts %}
-
-{% endblock %}
+    </body>
+</html>

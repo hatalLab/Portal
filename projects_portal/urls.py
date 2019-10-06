@@ -19,6 +19,6 @@ from . import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    urls.path('portal_app/', urls.include('portal_app.urls')),
+    urls.path('portal_app/', urls.include('portal_app.urls', namespace="portal")),
     urls.path('admin/', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

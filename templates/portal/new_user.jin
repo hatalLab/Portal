@@ -2,12 +2,14 @@
 
 
 {% block main %}
-
-    <form class="DefaultForm UserForm" action="" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Sign up">
-    </form>
+    <h1>Sign up:</h1>
+    <div class="form_container">
+        <form class="DefaultForm UserForm" action="" method="post" autocomplete="off">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Sign up">
+        </form>
+    </div>
 
 {% endblock %}
 
