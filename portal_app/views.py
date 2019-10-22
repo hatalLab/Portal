@@ -6,7 +6,7 @@ from . import models, forms, urls
 
 def homepage(request):
     projects = models.Project.objects.all()
-    return render(request, 'portal/homepage.jin')
+    return render(request, 'portal/homepage.jin', context={'projects':projects})
 
 @urls.route('sign-up')
 def sign_up(request):

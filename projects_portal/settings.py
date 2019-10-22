@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions'
 ]
 
 MIDDLEWARE = [
@@ -122,3 +123,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static_cdn")
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
+
+MEDIA_ROOT   = os.path.join(BASE_DIR, 'media/')
+MEDIA_URL       = '/media/'

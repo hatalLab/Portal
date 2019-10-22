@@ -1,30 +1,41 @@
 from django.db import models
+from django.contrib.auth import models as auth_models
+
 
 class Rank(models.Model):
+
     name            = models.CharField(max_length=32)
 
-class User(models.Model):
+class User(auth_models.AbstractBaseUser):
 
-    id      = models.IntegerField(verbose_name="Mispar Ishi",
-                                                                primary_key=True,
-                                )
-
-    name            = models.CharField(max_length=128)
+    military_id = models.CharField(max_length=32,verbose_name="Mispar Ishi", unique=True)
+    mail               = models.EmailField(max_length=256)
     rank              = models.ForeignKey(Rank, on_delete=models.PROTECT)
     bio                 = models.TextField(default="")
-    mail               = models.EmailField(max_length=256)
-    pwd_hash  = models.CharField(max_length=512)
+    password   = models.CharField(max_length=512)
 
+    USERNAME_FIELD = 'military_id'
+    EMAIL_FIELD             = 'mail'
+    REQUIRED_FIELDS  = ['mail', 'rank']
+
+    def set_default_pwd(self):
+        self.set_password("chocolate")
 
 class Project(models.Model):
 
     name = models.CharField(max_length=256)
     description = models.TextField(max_length=512, default="")
+    img_path      = models.ImageField(upload_to='images', default="project-default.png")
+
     # Participants
     creator     = models.ForeignKey(User,
                                     on_delete=models.CASCADE,
                                     related_name='projects',
                                     )
+
+    @property
+    def html_categories(self):
+        return " ".join([c.name.lower() for c in self.categories.all()])
 
 class Category(models.Model):
 
@@ -33,3 +44,7 @@ class Category(models.Model):
                                             Project,
                                             related_name="categories",
                              )
+
+    def html_name(self):
+        name = self.name.lower()
+        return name.replace(' ', '_')

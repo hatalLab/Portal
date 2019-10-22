@@ -15,7 +15,8 @@
         <link rel="stylesheet" href="{% static "portal/css/style_eyal.css" %}"  />
     {#  Delete them on deployement  #}
     <link rel="stylesheet" href="{% static "portal/css/style.css" %}"  />
-
+    {% block header_scripts %}
+    {% endblock %}
     </head>
 
     <body>
@@ -34,7 +35,7 @@
             {% endblock %}
         </div>
 
-    {% block scripts %}
+    {% block footer_scripts %}
         <script src="{% static 'javascript/portal.js' %}" >  </script>
     {% endblock %}
     </body>

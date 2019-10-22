@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3f31981-2bd2-480e-b2b6-0e226df8883c" name="Default Changelist" comment="" />
+    <list default="true" id="f3f31981-2bd2-480e-b2b6-0e226df8883c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/raw_html/static/images/Hatallogo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/raw_html/static/images/backgroundbutton.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/raw_html/static/images/magdilet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/raw_html/static/images/pistols.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/raw_html/static/images/science.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/raw_html/static/images/underground.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal_app/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal_app/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal_app/migrations/0002_auto_20191002_1053.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal_app/migrations/0003_auto_20191002_1112.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal_app/populate.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal_app/populate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal_app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects_portal/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects_portal/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects_portal/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects_portal/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_html/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/raw_html/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_html/sign-up.html" beforeDir="false" afterPath="$PROJECT_DIR$/raw_html/sign-up.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/portal/base.jin" beforeDir="false" afterPath="$PROJECT_DIR$/templates/portal/base.jin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/portal/homepage.jin" beforeDir="false" afterPath="$PROJECT_DIR$/templates/portal/homepage.jin" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,27 +42,31 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1RKHOtZOpZ7CxHuyiJz7spbfSVW" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/portal/javascript" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/raw_html" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Python" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\tshl\projects\portal\Portal\static\portal" />
       <recent name="C:\tshl\projects\portal\projects_portal\static\portal\javascript" />
       <recent name="C:\tshl\projects\portal\projects_portal\static\portal\images" />
       <recent name="C:\tshl\projects\portal\projects_portal\static\admin\img" />
       <recent name="C:\tshl\projects\portal\projects_portal\static\admin\js" />
-      <recent name="C:\tshl\projects\portal\projects_portal\static\javascript" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\tshl\projects\portal\Portal\media" />
+      <recent name="C:\tshl\projects\portal\Portal\raw_html\static\uploads" />
+      <recent name="C:\tshl\projects\portal\Portal\raw_html\static" />
+      <recent name="C:\tshl\projects\portal\Portal\media\images" />
       <recent name="C:\tshl\projects\portal\projects_portal\static\portal\css" />
-      <recent name="C:\tshl\projects\portal\projects_portal\static\portal" />
-      <recent name="C:\tshl\projects\portal\projects_portal\static\admin\css" />
-      <recent name="C:\tshl\projects\portal\projects_portal\projects_portal" />
-      <recent name="C:\tshl\projects\portal\projects_portal" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -93,10 +119,25 @@
       <workItem from="1569408852950" duration="5578000" />
       <workItem from="1569417202520" duration="4384000" />
       <workItem from="1570000716367" duration="6781000" />
+      <workItem from="1570688816352" duration="11075000" />
+      <workItem from="1571728355486" duration="883000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -15,40 +15,12 @@
     </div>
     <div class="projects_container">
         <ul class="projects_list">
-            <li class="filterDiv engineering physics">
-                <a href="http://google.com"><img src="{% static 'portal/images/pistols.jpg' %}"  alt="pistols"></a>
-                <p>פרויקט <br>הנדסה פיזיקה</p>
-                <v class="modal">lorem ipsum sofaiejfoaiwjer aijer oaijer </v>
-            </li>
-            <li class="filterDiv seismology">
-                <a href="http://google.com"><img src="{% static 'portal/images/underground.jpg' %}"  alt="tunnel"></a>
-                <p>פרויקט <br> סייסמיקה</p>
-            </li>
-            <li class="filterDiv chemistry">
-                <a href="http://google.com"><img src="{% static 'portal/images/science.jpg' %}"  alt="tunnel"></a>
-                <p>פרויקט <br> כימיה</p>
-            </li>
-            <li class="filterDiv seismology">
-                <a href="http://google.com"><img src="{% static 'portal/images/underground.jpg' %}"  alt="tunnel"></a>
-                <p>פרויקט <br> סייסמיקה</p>
-            </li>
-            <li class="filterDiv seismology">
-                <a href="http://google.com"><img src="{% static 'portal/images/underground.jpg' %}"  alt="tunnel"></a>
-                <p>פרויקט <br> סייסמיקה</p>
-            </li>
-            <li class="filterDiv seismology">
-                <a href="http://google.com"><img src="{% static 'portal/images/underground.jpg' %}"  alt="tunnel"></a>
-                <p>פרויקט <br> סייסמיקה</p>
-            </li>
-            <li class="filterDiv seismology">
-                <a href="http://google.com"><img src="{% static 'portal/images/underground.jpg' %}"  alt="tunnel"></a>
-                <p>פרויקט <br> סייסמיקה</p>
-            </li>
-            <li class="filterDiv seismology">
-                <a href="http://google.com"><img src="{% static 'portal/images/underground.jpg' %}"  alt="tunnel"></a>
-                <p>פרויקט <br> סייסמיקה</p>
-            </li>
-
+            {% for project in projects %}
+                <li class="filterDiv {{ project.html_categories }}">
+                    <a href="http://google.com"><img src="{{ project.img_path.url }}"></a>
+                    <p><br>{{ project.name }}</br></p>
+                </li>
+            {% endfor %}
         </ul>
     </div>
     <div class="caftor">
@@ -62,9 +34,5 @@
 
 
 {% block footer %}
-
-{% endblock %}
-
-{% block scripts %}
 
 {% endblock %}

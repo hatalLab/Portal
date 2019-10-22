@@ -1,10 +1,21 @@
+
+
+
 <!doctype html>
 <html>
     <head>
         
-    <title>Projects Portal</title>
+            <title>Projects Portal</title>
         
-    <link rel="stylesheet" href="static/portal/css/style.css"/>
+
+    
+        <link rel="stylesheet" href="static/portal/css/style_harry.css"  />
+        <link rel="stylesheet" href="static/portal/css/style_david.css"  />
+        <link rel="stylesheet" href="static/portal/css/style_eyal.css"  />
+    
+    <link rel="stylesheet" href="static/portal/css/style.css"  />
+    
+    
     </head>
 
     <body>
@@ -14,28 +25,19 @@
             <div>
                 <img src="static/portal/images/Hatallogo.png"  alt="logo" width="60">
             </div>
-            <a class="active" href="#home">ראשי</a>
-            <a href="#news">פרויקטים אחרונים</a>
-            <div class="drop0">
-                <button class="dropb">קטגוריות</button>
-                <div id="myBtnContainer" class="drop1">
-                    <button class="btn" onclick="filtercategory('all')">הכל</button>
-                    <button class="btn" onclick="filtercategory('physics')">פיזיקה</button>
-                    <button class="btn" onclick="filtercategory('programing')">תכנות</button>
-                    <button class="btn" onclick="filtercategory('seismology')">סייסמיקה</button>
-                    <button class="btn" onclick="filtercategory('engineering')">הנדסה</button>
-                    <button class="btn" onclick="filtercategory('chemistry')">כימיה</button>
-                </div>
-            </div>
+            <a class="active" href="/portal_app/">Main</a>
         </div> <!-- End of topnav -->
-    
+        
+
         <div class="main_container">
-            <div class="form_container">
-    <form class="DefaultForm UserForm" action="" method="post">
-        <input type="hidden" name="csrfmiddlewaretoken" value="a6fV1GWOrKvskTbs1y4mc90ju5F158omx4K4g4RZlrNXhptHMsDu5FFRuZ2dh1KZ">
-        <tr><th><label for="id_id">Mispar Ishi:</label></th><br><td><input type="text" name="id" required id="id_id"></td></tr><br>
-<tr><th><label for="id_name">Name:</label></th><br><td><input type="text" name="name" maxlength="64" required id="id_name"></td></tr><br>
-<tr><th><label for="id_rank">Rank:</label></th><br><td><select name="rank" id="id_rank">
+            
+    <h1>Sign up:</h1>
+    <div class="form_container">
+        <form class="DefaultForm UserForm" action="" method="post" autocomplete="off">
+            <input type="hidden" name="csrfmiddlewaretoken" value="hDFqUuecGj1wOEHnN0HTwEKSGIBBDtP146JU8weNt0AD02iIV9qEQoEYhNig1AP5">
+            <tr><th><label for="id_id">Mispar Ishi:</label></th><td><input type="text" name="id" required id="id_id"></td></tr>
+<tr><th><label for="id_name">Name:</label></th><td><input type="text" name="name" maxlength="64" required id="id_name"></td></tr>
+<tr><th><label for="id_rank">Rank:</label></th><td><select name="rank" id="id_rank">
   <option value="1">rabat</option>
 
   <option value="2">samal</option>
@@ -52,15 +54,21 @@
 
   <option value="8">alam</option>
 
-  <option value="9">aluf</option>
+</select></td></tr>
+<tr><th><label for="id_bio">Biography:</label></th><td><textarea name="bio" cols="40" rows="10" maxlength="512" required id="id_bio">
+</textarea></td></tr>
+<tr><th><label for="id_mail">Mail:</label></th><td><input type="email" name="mail" maxlength="128" required id="id_mail"></td></tr>
+<tr><th><label for="id_pwd">Password:</label></th><td><input type="password" name="pwd" required id="id_pwd"></td></tr>
+<tr><th><label for="id_re_pwd">Confirm password:</label></th><td><input type="password" name="re_pwd" required id="id_re_pwd"></td></tr>
+            <input type="submit" value="Sign up">
+        </form>
+    </div>
 
-</select></td></tr><br>
-<tr><th><label for="id_bio">Biography:</label></th><br><td><textarea name="bio" cols="5" rows="5" required id="id_bio">
-</textarea><br></td></tr>
-<tr><th><label for="id_mail">Mail:</label></th><br><td><input type="email" name="mail" maxlength="128" required id="id_mail"></td></tr>
-        <input type="submit" value="Sign up"></div>
+
+        </div>
+
     
-    </form>
-</div>
+        <script src="static/javascript/portal.js" >  </script>
+    
     </body>
 </html>
