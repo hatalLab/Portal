@@ -117,13 +117,6 @@ body {
     text-align: center;
 }
 
-.projects_container img {
-    width: 200px;
-    height: 150px;
-    border-radius: 10%;
-    border: none;
-}
-
 .drop1 {
     display: flex;
     justify-content: center;

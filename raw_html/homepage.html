@@ -9,13 +9,20 @@
         
 
     
-        <link rel="stylesheet" href="static/portal/css/style_harry.css"  />
-        <link rel="stylesheet" href="static/portal/css/style_david.css"  />
-        <link rel="stylesheet" href="static/portal/css/style_eyal.css"  />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="static/portal/css/style.css"  />
+        <link rel="stylesheet" href="/static/portal/css/style_harry.css"/>
+        <link rel="stylesheet" href="/static/portal/css/style_david.css"/>
+        <link rel="stylesheet" href="/static/portal/css/style_eyal.css" />
 
-    <title>Hello</title>
+        <link rel="stylesheet" href="/static/portal/css/style.css"  />
+
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+
 
     </head>
 
@@ -24,16 +31,19 @@
 
         <div class="topnav">
             <div>
-                <img src="static/portal/images/Hatallogo.png"  alt="logo" width="60">
+                <img src="/static/portal/images/Hatallogo.png"  alt="logo" width="60">
             </div>
-            <a class="active" href="/portal_app/">Main</a>
+            <a class="active" href="/portal_app/">Projects</a>
+            <a class="active" href="/portal_app/new-project">Add project</a>
+            <a class="active" href="/portal_app/sign-up">Sign up</a>
+            <a class="active" href="/portal_app/login">Sign in</a>
         </div> <!-- End of topnav -->
 
 
         <div class="main_container">
 
     <div class="controllers_container">
-       <div class="categories_container">
+       <div class="drop1 ">
                 <button class="btn" onclick="filtercategory('all')">הכל</button>
                 <button class="btn" onclick="filtercategory('physics')" >פיזיקה</button>
                 <button class="btn" onclick="filtercategory('programing')">תכנות</button>
@@ -41,538 +51,4027 @@
                 <button class="btn" onclick="filtercategory('engineering')">הנדסה</button>
                 <button class="btn" onclick="filtercategory('chemistry')">כימיה</button>
         </div>
-        <div class="selected_categories">
-            <ul id="selected_tags">
-            </ul>
-         </div>
     </div>
     <div class="projects_container">
+
         <ul class="projects_list">
 
-                <li class="filterDiv chemistry">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>first project</br></p>
+                <li class="filterDiv biology">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_0" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Julie Thomas</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Julie Thomas</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_0">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
-                <li class="filterDiv ">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Margaret Davis</br></p>
-                </li>
+                <li class="filterDiv maths">
 
-                <li class="filterDiv computer science">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Erik Taylor</br></p>
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_1" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Christine Hill</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Christine Hill</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
                 <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Sharon Lewis</br></p>
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_2" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Stephanie Rodriguez</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Stephanie Rodriguez</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_2">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv computer_science">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_3" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Luke Boyd</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Luke Boyd</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_3">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv computer_science">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_4" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Kevin Banks</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Kevin Banks</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_4">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv computer_science">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_5" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Molly Perry</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Molly Perry</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_5">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
                 <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Courtney Tyler</br></p>
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_6" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Daniel Reyes</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Daniel Reyes</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_6">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
-                <li class="filterDiv computer science">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Jonathan Sullivan</br></p>
-                </li>
+                <li class="filterDiv maths">
 
-                <li class="filterDiv physics">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Deborah Brady</br></p>
-                </li>
+                    <div class="container">
 
-                <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Susan Quinn</br></p>
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_7" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Amy Washington</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Amy Washington</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_7">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
                 <li class="filterDiv sport">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>James Marks</br></p>
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_8" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">David Cortez</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>David Cortez</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_8">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
                 <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Victor Nguyen</br></p>
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_9" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Lisa Byrd</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Lisa Byrd</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_9">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv computer_science">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_10" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Caitlyn Cardenas</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Caitlyn Cardenas</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_10">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
                 <li class="filterDiv physics">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Samuel Smith</br></p>
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_11" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Pamela Diaz</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Pamela Diaz</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_11">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
                 <li class="filterDiv physics">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Stephen Davis</br></p>
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_12" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Katherine Phillips</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Katherine Phillips</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_12">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
-                <li class="filterDiv maths">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Dylan Lewis</br></p>
-                </li>
+                <li class="filterDiv computer_science">
 
-                <li class="filterDiv physics">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Melissa Oconnell</br></p>
-                </li>
+                    <div class="container">
 
-                <li class="filterDiv maths">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Angela Graham</br></p>
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_13" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Gabriela Johnson</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Gabriela Johnson</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_13">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
                 <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Deborah Carter</br></p>
-                </li>
 
-                <li class="filterDiv maths">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Daniel Rivera</br></p>
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_14" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Haley Potts</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Haley Potts</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_14">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
                 <li class="filterDiv sport">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Betty Frost</br></p>
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_15" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Elizabeth Gonzalez</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Elizabeth Gonzalez</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_15">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
-                <li class="filterDiv computer science">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Jennifer Jackson</br></p>
+                <li class="filterDiv computer_science">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_16" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Dylan Adams</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Dylan Adams</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_16">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
                 <li class="filterDiv maths">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Vanessa Ross</br></p>
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_17" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Danielle Thomas</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Danielle Thomas</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_17">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
                 <li class="filterDiv physics">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Cynthia Ward</br></p>
-                </li>
 
-                <li class="filterDiv computer science">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Jennifer Rogers</br></p>
-                </li>
+                    <div class="container">
 
-                <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Rebecca Carr</br></p>
-                </li>
 
-                <li class="filterDiv physics">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Tammy Summers</br></p>
-                </li>
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_18" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Shelly Melton</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Shelly Melton</p>
+                        </div>
 
-                <li class="filterDiv maths">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Thomas Becker</br></p>
-                </li>
 
-                <li class="filterDiv maths">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Nancy Shannon</br></p>
-                </li>
 
-                <li class="filterDiv maths">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Dawn Jones</br></p>
-                </li>
+                        <div class="modal" id="modal_18">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
 
-                <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Mark Taylor</br></p>
-                </li>
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
 
-                <li class="filterDiv maths">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Paul Evans</br></p>
-                </li>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
 
-                <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Ronald Watkins</br></p>
-                </li>
+                    </div>
 
-                <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Andrea Kim PhD</br></p>
-                </li>
-
-                <li class="filterDiv maths">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Wendy Matthews</br></p>
                 </li>
 
                 <li class="filterDiv physics">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Dr. Carrie Nelson</br></p>
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_19" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Casey Blevins</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Casey Blevins</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_19">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
-                <li class="filterDiv computer science">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Nancy Knight</br></p>
+                <li class="filterDiv maths">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_20" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Jose Myers</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Jose Myers</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_20">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
                 <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Diane Sullivan</br></p>
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_21" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Alexander Fowler</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Alexander Fowler</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_21">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
-                <li class="filterDiv sport">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Susan Haynes</br></p>
-                </li>
+                <li class="filterDiv maths">
 
-                <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Bridget Murray</br></p>
-                </li>
+                    <div class="container">
 
-                <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>William Bryant</br></p>
-                </li>
 
-                <li class="filterDiv computer science">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Max Rodriguez</br></p>
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_22" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Jessica Wright</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Jessica Wright</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_22">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
                 <li class="filterDiv physics">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Eric Hardy</br></p>
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_23" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Brenda Miller</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Brenda Miller</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_23">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv computer_science">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_24" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Michele Myers</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Michele Myers</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_24">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
                 <li class="filterDiv sport">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Miranda Smith</br></p>
-                </li>
 
-                <li class="filterDiv sport">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Anthony Clarke</br></p>
-                </li>
+                    <div class="container">
 
-                <li class="filterDiv maths">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Raymond Burns</br></p>
-                </li>
 
-                <li class="filterDiv computer science">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Wendy Price</br></p>
-                </li>
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_25" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Cameron Higgins</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Cameron Higgins</p>
+                        </div>
 
-                <li class="filterDiv maths">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Mr. Shane Ramos Jr.</br></p>
-                </li>
 
-                <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Rachel Garrett</br></p>
-                </li>
 
-                <li class="filterDiv sport">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Deborah Lee</br></p>
-                </li>
+                        <div class="modal" id="modal_25">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
 
-                <li class="filterDiv maths">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Kyle Johnson</br></p>
-                </li>
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
 
-                <li class="filterDiv computer science">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Thomas Morgan</br></p>
-                </li>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
 
-                <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Jennifer Serrano</br></p>
-                </li>
+                    </div>
 
-                <li class="filterDiv computer science">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Benjamin Mann</br></p>
-                </li>
-
-                <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Donald Abbott</br></p>
-                </li>
-
-                <li class="filterDiv maths">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Jonathan Erickson</br></p>
-                </li>
-
-                <li class="filterDiv maths">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Kristen Harris</br></p>
-                </li>
-
-                <li class="filterDiv maths">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Susan Quinn</br></p>
-                </li>
-
-                <li class="filterDiv computer science">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Ashley Pena</br></p>
-                </li>
-
-                <li class="filterDiv maths">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Maurice Scott</br></p>
                 </li>
 
                 <li class="filterDiv physics">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Mr. Tony Miller</br></p>
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_26" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Kimberly Jones</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Kimberly Jones</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_26">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
                 <li class="filterDiv physics">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Matthew Brown</br></p>
-                </li>
 
-                <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Natasha Wells</br></p>
-                </li>
+                    <div class="container">
 
-                <li class="filterDiv physics">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Richard Mann</br></p>
-                </li>
 
-                <li class="filterDiv computer science">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Dylan Thompson</br></p>
-                </li>
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_27" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Danielle Camacho</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Danielle Camacho</p>
+                        </div>
 
-                <li class="filterDiv sport">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Samuel Smith</br></p>
-                </li>
 
-                <li class="filterDiv physics">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Sarah Perry</br></p>
-                </li>
 
-                <li class="filterDiv sport">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Alyssa Medina</br></p>
-                </li>
+                        <div class="modal" id="modal_27">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
 
-                <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Andrea Parker</br></p>
-                </li>
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
 
-                <li class="filterDiv physics">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Jeffrey Thomas</br></p>
-                </li>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
 
-                <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Robert Castro</br></p>
-                </li>
+                    </div>
 
-                <li class="filterDiv sport">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Jeremy Boone</br></p>
-                </li>
-
-                <li class="filterDiv computer science">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Nichole Morris</br></p>
-                </li>
-
-                <li class="filterDiv computer science">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Marie Chase</br></p>
-                </li>
-
-                <li class="filterDiv maths">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Claire Carlson</br></p>
-                </li>
-
-                <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Benjamin Ruiz</br></p>
-                </li>
-
-                <li class="filterDiv maths">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Allison Bennett</br></p>
-                </li>
-
-                <li class="filterDiv sport">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Anthony Ramirez</br></p>
-                </li>
-
-                <li class="filterDiv computer science">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Michael Ryan</br></p>
-                </li>
-
-                <li class="filterDiv maths">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Alex Richardson</br></p>
-                </li>
-
-                <li class="filterDiv maths">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Robert Craig</br></p>
-                </li>
-
-                <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Cassandra Archer</br></p>
-                </li>
-
-                <li class="filterDiv sport">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Cheryl Mckay</br></p>
-                </li>
-
-                <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Aaron Powers</br></p>
-                </li>
-
-                <li class="filterDiv sport">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Michael Wilson</br></p>
                 </li>
 
                 <li class="filterDiv physics">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Carrie Sanchez</br></p>
-                </li>
 
-                <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Kimberly Nelson</br></p>
-                </li>
+                    <div class="container">
 
-                <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Jonathan Hammond</br></p>
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_28" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Wendy Graham</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Wendy Graham</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_28">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
                 <li class="filterDiv maths">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Brian Mora</br></p>
-                </li>
 
-                <li class="filterDiv physics">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Valerie Benson</br></p>
-                </li>
+                    <div class="container">
 
-                <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Heather Richmond</br></p>
-                </li>
 
-                <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Jennifer Conrad</br></p>
-                </li>
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_29" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Jerry Gomez</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Jerry Gomez</p>
+                        </div>
 
-                <li class="filterDiv physics">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Lauren Jacobs</br></p>
+
+
+                        <div class="modal" id="modal_29">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
                 <li class="filterDiv sport">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Shane Young</br></p>
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_30" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Scott Kent</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Scott Kent</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_30">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
                 <li class="filterDiv sport">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Connie Mccarthy</br></p>
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_31" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Alicia Jones</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Alicia Jones</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_31">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
                 <li class="filterDiv physics">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Joyce Miller</br></p>
-                </li>
 
-                <li class="filterDiv maths">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Patrick Martin</br></p>
-                </li>
+                    <div class="container">
 
-                <li class="filterDiv maths">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Jennifer Thompson</br></p>
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_32" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Kathy Phillips</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Kathy Phillips</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_32">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
                 <li class="filterDiv sport">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Steven Benjamin</br></p>
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_33" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Daniel Ballard</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Daniel Ballard</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_33">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
                 <li class="filterDiv maths">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>John Johnson</br></p>
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_34" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Glen Palmer</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Glen Palmer</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_34">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
-                <li class="filterDiv computer science">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Nathaniel Petersen</br></p>
-                </li>
+                <li class="filterDiv sport">
 
-                <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Melissa Roberts</br></p>
-                </li>
+                    <div class="container">
 
-                <li class="filterDiv biology">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Linda Mullins</br></p>
-                </li>
 
-                <li class="filterDiv computer science">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Christopher Ross</br></p>
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_35" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Michael Paul</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Michael Paul</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_35">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
 
                 <li class="filterDiv maths">
-                    <a href="http://google.com"><img src="media/project-default.png"></a>
-                    <p><br>Christopher Dean</br></p>
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_36" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Melanie Sullivan</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Melanie Sullivan</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_36">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
+
+                <li class="filterDiv biology">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_37" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Mary Snyder</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Mary Snyder</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_37">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv maths">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_38" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Jessica Newman</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Jessica Newman</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_38">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv physics">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_39" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Julie Thomas</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Julie Thomas</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_39">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv physics">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_40" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Monica Reyes</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Monica Reyes</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_40">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv computer_science">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_41" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Mr. Ryan Ferrell</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Mr. Ryan Ferrell</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_41">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv biology">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_42" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Rachel Williams</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Rachel Williams</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_42">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv sport">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_43" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Deborah Jacobs</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Deborah Jacobs</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_43">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv physics">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_44" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Carolyn Ross</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Carolyn Ross</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_44">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv computer_science">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_45" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Alexandria Lopez</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Alexandria Lopez</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_45">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv biology">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_46" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Dominique Rivas</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Dominique Rivas</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_46">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv sport">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_47" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Michele Myers</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Michele Myers</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_47">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv maths">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_48" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Allison Brown</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Allison Brown</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_48">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv maths">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_49" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Heather Vargas</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Heather Vargas</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_49">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv computer_science">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_50" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Rhonda Walker</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Rhonda Walker</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_50">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv computer_science">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_51" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Casey Mcdaniel</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Casey Mcdaniel</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_51">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv computer_science">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_52" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Melissa Sanchez</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Melissa Sanchez</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_52">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv physics">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_53" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">William Cline</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>William Cline</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_53">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv biology">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_54" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">John Johnson</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>John Johnson</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_54">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv biology">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_55" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Jean Johnson</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Jean Johnson</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_55">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv computer_science">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_56" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Michael Johnson</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Michael Johnson</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_56">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv maths">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_57" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Alyssa Fuentes</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Alyssa Fuentes</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_57">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv sport">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_58" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Troy Berry</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Troy Berry</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_58">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv biology">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_59" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Gail Smith</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Gail Smith</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_59">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv computer_science">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_60" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Sarah Choi</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Sarah Choi</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_60">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv biology">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_61" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Jessica Cunningham</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Jessica Cunningham</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_61">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv sport">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_62" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Rachel Walker</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Rachel Walker</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_62">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv computer_science">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_63" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Roberta Davis</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Roberta Davis</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_63">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv sport">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_64" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Eduardo Dominguez</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Eduardo Dominguez</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_64">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv maths">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_65" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Victor Peterson</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Victor Peterson</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_65">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv biology">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_66" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Carlos Richards</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Carlos Richards</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_66">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv computer_science">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_67" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Patrick Walker</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Patrick Walker</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_67">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv sport">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_68" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Nicholas Rodriguez</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Nicholas Rodriguez</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_68">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv computer_science">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_69" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Mr. Thomas Myers</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Mr. Thomas Myers</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_69">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv biology">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_70" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Nicholas Spencer</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Nicholas Spencer</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_70">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv biology">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_71" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Samantha Jones</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Samantha Jones</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_71">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv computer_science">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_72" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Lynn Brown</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Lynn Brown</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_72">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv computer_science">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_73" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Michelle Gilbert</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Michelle Gilbert</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_73">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv computer_science">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_74" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Sarah Lewis</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Sarah Lewis</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_74">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv sport">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_75" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Terrance Medina</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Terrance Medina</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_75">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv biology">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_76" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Randy Mcgee</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Randy Mcgee</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_76">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv physics">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_77" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Sherri Price</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Sherri Price</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_77">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv sport">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_78" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Trevor Price</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Trevor Price</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_78">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv computer_science">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_79" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Claudia Harris</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Claudia Harris</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_79">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv maths">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_80" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Marcus Andrews</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Marcus Andrews</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_80">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv biology">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_81" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Teresa Martin</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Teresa Martin</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_81">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv physics">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_82" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Samantha Keller</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Samantha Keller</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_82">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv maths">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_83" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Virginia Mills</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Virginia Mills</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_83">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv computer_science">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_84" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Paul Silva</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Paul Silva</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_84">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv biology">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_85" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Dawn Patterson</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Dawn Patterson</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_85">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv physics">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_86" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Janice Fields</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Janice Fields</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_86">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv biology">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_87" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Rachel Kirby</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Rachel Kirby</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_87">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv biology">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_88" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Johnny Lopez</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Johnny Lopez</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_88">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv sport">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_89" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Richard Stephenson</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Richard Stephenson</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_89">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv maths">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_90" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Maria Weaver</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Maria Weaver</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_90">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv sport">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_91" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Peter Hill</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Peter Hill</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_91">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv physics">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_92" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Susan Gregory</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Susan Gregory</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_92">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv maths">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_93" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Michael Garcia</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Michael Garcia</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_93">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv physics">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_94" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Melanie Crawford</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Melanie Crawford</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_94">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv computer_science">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_95" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Austin Reed</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Austin Reed</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_95">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv sport">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_96" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Mark Holland</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Mark Holland</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_96">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv biology">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_97" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Loretta Reynolds</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Loretta Reynolds</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_97">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv sport">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_98" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Natasha Griffin</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Natasha Griffin</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_98">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li class="filterDiv computer_science">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_99" src="/media/project-default.png" /></a>
+                            <div class="overlay">
+                                <div class="text">Joshua Green</div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>Joshua Green</p>
+                        </div>
+
+
+
+                        <div class="modal" id="modal_99">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              Modal body..
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
 
         </ul>
+
     </div>
     <div class="caftor">
-        <button id="search" class="search" data-toggle="modal" data-target=".your-modal"><img src="static/portal/images/magdilet.png"
+        <button id="search" class="search" data-toggle="modal" data-target=".your-modal"><img src="/static/portal/images/magdilet.png"
                                                                                               alt="magnifying glass">
         </button>
-        <button id="plus" class="plus" data-toggle="modal" data-target=".your-modal"><img src="static/portal/images/backgroundbutton.jpg"
+        <button id="plus" class="plus" data-toggle="modal" data-target=".your-modal"><img src="/static/portal/images/backgroundbutton.jpg"
                                                                                           alt="background"></button>
     </div>
 
         </div>
 
 
-        <script src="static/portal/javascript/filter.js" type="text/javascript" >  </script>
+        <script src="/static/javascript/portal.js" >  </script>
 
     </body>
 </html>
