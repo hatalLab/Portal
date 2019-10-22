@@ -1,0 +1,35 @@
+{% extends "portal/base.jin" %}
+
+{% block header_scripts %}
+
+{% endblock %}
+
+{% block main %}
+        <div class="form_container">
+        <form class="DefaultForm UserForm" action="" method="post" autocomplete="off">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>Mispar Ishi:</td>
+                    <td>{{ form.username }}</td>
+                </tr>
+                <tr>
+                    <td>{{  form.password.label_tag }}</td>
+                    <td>{{ form.password }}</td>
+                </tr>
+
+            </table>
+            <input type="submit" value="Sign in">
+            <input type="hidden" name="next" value="{{ next }}">
+        </form>
+    </div>
+{% endblock %}
+
+
+{% block footer %}
+
+{% endblock %}
+
+{% block footer_scripts %}
+
+{% endblock %}

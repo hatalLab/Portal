@@ -26,7 +26,9 @@
             <div>
                 <img src="{% static 'portal/images/Hatallogo.png' %}"  alt="logo" width="60">
             </div>
-            <a class="active" href="{%  url 'portal:home' %}">Main</a>
+            <a class="active" href="{%  url 'portal:home' %}">Projects</a>
+            <a class="active" href="{% url 'portal:add_project' %}">Add project</a>
+            <a class="active" href="{% url 'portal:sign_up' %}">Sign up</a>
         </div> <!-- End of topnav -->
         {# end of navbar  #}
 

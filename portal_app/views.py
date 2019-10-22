@@ -8,7 +8,18 @@ def homepage(request):
     projects = models.Project.objects.all()
     return render(request, 'portal/homepage.jin', context={'projects':projects})
 
-@urls.route('sign-up')
+def sign_in(request):
+    if request.method == 'POST':
+        form = forms.SignIn(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('military_id')
+            pwd             = form.cleaned_data.get('pwd')
+
+            return http.HttpResponse("Thanks")
+    else:
+        form = forms.SignIn()
+        return render(request, 'portal/new_user.jin', context={'form': form})
+
 def sign_up(request):
     if request.method == 'POST':
         form = forms.NewUser(request.POST)

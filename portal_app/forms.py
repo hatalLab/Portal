@@ -21,6 +21,10 @@ class ImageWidget(forms.widgets.Widget):
 		template = loader.get_template(self.template_name).render(context)
 		return mark_safe(template)
 
+class SignIn(forms.Form):
+	military_id = forms.IntegerField(label="Mispar Ishi", widget=forms.TextInput)
+	pwd              = forms.CharField(label="Password", widget=forms.PasswordInput)
+
 class NewUser(forms.Form):
 
 	id             = forms.IntegerField(label="Mispar Ishi", widget=forms.TextInput)
@@ -43,7 +47,7 @@ class NewUser(forms.Form):
 
 class NewProject(forms.Form):
 
-	img_preview = forms.FileField(label="Picture", widget=ImageWidget(attrs={'alt':'Upload picture', 'src':'/media/project-default.png'}))
+	img_preview = forms.FileField(label="", widget=ImageWidget(attrs={'class':'preview_pic','alt':'Upload picture', 'src':'/media/project-default.png'}))
 	img                     = forms.ImageField(label="", widget=forms.FileInput(attrs={'style':'visibility:hidden'}))
 	name                 = forms.CharField(label="Title", max_length=64)
 	description     = forms.CharField(label="Description", max_length=2048, widget=forms.Textarea)
