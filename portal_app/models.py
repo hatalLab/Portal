@@ -9,6 +9,7 @@ class Rank(models.Model):
 class User(auth_models.AbstractBaseUser):
 
     military_id = models.CharField(max_length=32,verbose_name="Mispar Ishi", unique=True)
+    name            = models.CharField(max_length=64, verbose_name="Name")
     mail               = models.EmailField(max_length=256)
     rank              = models.ForeignKey(Rank, on_delete=models.PROTECT)
     bio                 = models.TextField(default="")

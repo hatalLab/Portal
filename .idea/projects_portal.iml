@@ -13,7 +13,11 @@
     </facet>
   </component>
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/portal_app/migrations" />
+      <excludeFolder url="file://$MODULE_DIR$/raw_html" />
+      <excludeFolder url="file://$MODULE_DIR$/static_cdn" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

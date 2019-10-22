@@ -24,5 +24,9 @@ def sign_up(request):
         form = forms.NewUser()
         return render(request, 'portal/new_user.jin', context={'form': form})
 
+def project_details(request, project_id):
+    project = models.Project.objects.get(id=project_id)
+
+    return render(request, 'portal/project_details.jin', context={'project':project})
 
 
