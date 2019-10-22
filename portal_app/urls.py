@@ -18,5 +18,5 @@ urlpatterns.extend([
     path("project/<int:project_id>", views.project_details, name="project_details"),
     path("new-project", views.add_project, name="add_project"),
     path("sign-up", views.sign_up,  name="sign_up"),
-    path("login", auth_views.LoginView.as_view(template_name='registration/login.jin'))
+    path("login", auth_views.LoginView.as_view(template_name='registration/login.jin'), name="login")
 ])

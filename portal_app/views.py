@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django import http
 from . import models, forms, urls
 
@@ -26,10 +26,13 @@ def sign_up(request):
         if form.is_valid():
             user = models.User()
             user.id = form.cleaned_data.get("id")
-            user.name  = form.cleaned_data.get("name")
-            user.rank = form.cleaned_data.get("rank")
             user.mail = form.cleaned_data.get("mail")
-            print("Created user:", user)
+            user.name  = form.cleaned_data.get("name")
+            rank               = models.Rank.objects.get(id=form.cleaned_data.get("rank"))
+            if not rank:
+                return http.HttpResponse("Corrupted request")
+            user.rank   = rank
+            return redirect('portal:home')
             return http.HttpResponse("Thanks")
     else:
         form = forms.NewUser()

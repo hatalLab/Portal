@@ -29,6 +29,7 @@
             <a class="active" href="{%  url 'portal:home' %}">Projects</a>
             <a class="active" href="{% url 'portal:add_project' %}">Add project</a>
             <a class="active" href="{% url 'portal:sign_up' %}">Sign up</a>
+            <a class="active" href="{% url 'portal:login' %}">Sign in</a>
         </div> <!-- End of topnav -->
         {# end of navbar  #}
 
