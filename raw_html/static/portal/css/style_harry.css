@@ -124,19 +124,19 @@ body {
     border: none;
 }
 
-.drop1 {
+.categories_container {
     display: flex;
     justify-content: center;
 }
 
-.drop1 button {
+.categories_container button {
     background-color: inherit;
     color: rgb(21, 0, 36);
     text-align: center;
     border: none;
 }
 
-.drop1 button:hover {
+.categories_container button:hover {
     cursor: pointer;
     background-color: rgb(147, 76, 175);
 }

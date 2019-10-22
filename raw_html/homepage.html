@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="static/portal/css/style_harry.css"  />
         <link rel="stylesheet" href="static/portal/css/style_david.css"  />
         <link rel="stylesheet" href="static/portal/css/style_eyal.css"  />
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="static/portal/css/style.css"  />
 
     <title>Hello</title>
@@ -33,7 +33,7 @@
         <div class="main_container">
 
     <div class="controllers_container">
-       <div class="drop1 ">
+       <div class="categories_container">
                 <button class="btn" onclick="filtercategory('all')">הכל</button>
                 <button class="btn" onclick="filtercategory('physics')" >פיזיקה</button>
                 <button class="btn" onclick="filtercategory('programing')">תכנות</button>
@@ -41,11 +41,15 @@
                 <button class="btn" onclick="filtercategory('engineering')">הנדסה</button>
                 <button class="btn" onclick="filtercategory('chemistry')">כימיה</button>
         </div>
+        <div class="selected_categories">
+            <ul id="selected_tags">
+            </ul>
+         </div>
     </div>
     <div class="projects_container">
         <ul class="projects_list">
 
-                <li class="filterDiv physics">
+                <li class="filterDiv chemistry">
                     <a href="http://google.com"><img src="media/project-default.png"></a>
                     <p><br>first project</br></p>
                 </li>
@@ -568,7 +572,7 @@
         </div>
 
 
-        <script src="static/javascript/portal.js" >  </script>
+        <script src="static/portal/javascript/filter.js" type="text/javascript" >  </script>
 
     </body>
 </html>
