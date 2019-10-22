@@ -43,7 +43,8 @@ class NewUser(forms.Form):
 
 class NewProject(forms.Form):
 
-	img                  = forms.FileField(label="Picture", widget=ImageWidget(attrs={'alt':'Upload picture', 'src':'/media/project-default.png'}))
-	name             = forms.CharField(label="Title", max_length=64)
-	description = forms.CharField(label="Description", max_length=2048, widget=forms.Textarea)
-	tags                = forms.MultipleChoiceField(choices=[(m.id, m.human_name()) for m in models.Category.objects.all()])
+	img_preview = forms.FileField(label="Picture", widget=ImageWidget(attrs={'alt':'Upload picture', 'src':'/media/project-default.png'}))
+	img                     = forms.ImageField(label="", widget=forms.FileInput(attrs={'style':'visibility:hidden'}))
+	name                 = forms.CharField(label="Title", max_length=64)
+	description     = forms.CharField(label="Description", max_length=2048, widget=forms.Textarea)
+	tags                    = forms.MultipleChoiceField(choices=[(m.html_name(), m.human_name()) for m in models.Category.objects.all()])

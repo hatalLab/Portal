@@ -27,8 +27,9 @@ class Project(models.Model):
     name = models.CharField(max_length=256)
     description = models.TextField(max_length=512, default="")
     img_path      = models.ImageField(upload_to='images', default="project-default.png")
+    # categories  => m2m relationship to Category
 
-    # Participants
+    # Participants TODO
     creator     = models.ForeignKey(User,
                                     on_delete=models.CASCADE,
                                     related_name='projects',
@@ -50,5 +51,14 @@ class Category(models.Model):
         return "{} ({})".format(self.name, self.projects.count())
 
     def html_name(self):
-        name = self.name.lower()
-        return name.replace(' ', '_')
+        return Category.htmlize_name(self.name)
+
+    @staticmethod
+    def htmlize_name(name):
+        name = name.lower()
+        return name.replace(' ', '___')
+
+    @staticmethod
+    def de_htmlize_name(name):
+        name.replace('___', ' ')
+        return name.title()

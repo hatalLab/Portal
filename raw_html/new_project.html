@@ -9,137 +9,142 @@
         
 
     
-        <link rel="stylesheet" href="static/portal/css/style_harry.css"  />
-        <link rel="stylesheet" href="static/portal/css/style_david.css"  />
-        <link rel="stylesheet" href="static/portal/css/style_eyal.css"  />
-    
-    <link rel="stylesheet" href="static/portal/css/style.css"  />
-    
+        <link rel="stylesheet" href="/static/portal/css/style_harry.css"  />
+        <link rel="stylesheet" href="/static/portal/css/style_david.css"  />
+        <link rel="stylesheet" href="/static/portal/css/style_eyal.css"  />
+
+    <link rel="stylesheet" href="/static/portal/css/style.css"  />
+
 
 
     </head>
 
     <body>
 
-        
+
         <div class="topnav">
             <div>
-                <img src="static/portal/images/Hatallogo.png"  alt="logo" width="60">
+                <img src="/static/portal/images/Hatallogo.png"  alt="logo" width="60">
             </div>
             <a class="active" href="/portal_app/">Main</a>
         </div> <!-- End of topnav -->
-        
+
 
         <div class="main_container">
-            
+
     <h1>Add project:</h1>
     <div class="form_container">
-        <form class="DefaultForm UserForm" action="" method="post" autocomplete="off">
-            <input type="hidden" name="csrfmiddlewaretoken" value="0wAozpqoLpD80pGrblSV6xmHQmdeSVvANZESNrqZy6cfcNhMjuBGqhgNrrUTg2vE">
-            <tr><th><label for="id_img">Picture:</label></th><td><img  alt="Upload picture" src="media/project-default.png" display="block"></td></tr>
+        <form class="DefaultForm UserForm" action="" method="post" autocomplete="off" enctype="multipart/form-data">
+            <input type="hidden" name="csrfmiddlewaretoken" value="2YY5PCw46HGb1ovTUQ3JU5ZxBYrI95EzPr2z3EwFTofidM6e2ZMuePTDc38nxcED">
+            <tr><th><label for="id_img_preview">Picture:</label></th><td><img  alt="Upload picture" src="/media/project-default.png"></td></tr>
+<tr><th></th><td><input type="file" name="img" style="visibility:hidden" accept="image/*" required id="id_img"></td></tr>
 <tr><th><label for="id_name">Title:</label></th><td><input type="text" name="name" maxlength="64" required id="id_name"></td></tr>
 <tr><th><label for="id_description">Description:</label></th><td><textarea name="description" cols="40" rows="10" maxlength="2048" required id="id_description">
 </textarea></td></tr>
 <tr><th><label for="id_tags">Tags:</label></th><td><select name="tags" required id="id_tags" multiple>
-  <option value="1">physics (1)</option>
+  <option value="physics">physics (1)</option>
 
-  <option value="2">biology (0)</option>
+  <option value="biology">biology (0)</option>
 
-  <option value="3">maths (1)</option>
+  <option value="maths">maths (1)</option>
 
-  <option value="4">computer science (2)</option>
+  <option value="computer___science">computer science (2)</option>
 
-  <option value="5">sport (1)</option>
+  <option value="sport">sport (1)</option>
 
-  <option value="6">physics (0)</option>
+  <option value="physics">physics (0)</option>
 
-  <option value="7">biology (1)</option>
+  <option value="biology">biology (1)</option>
 
-  <option value="8">maths (2)</option>
+  <option value="maths">maths (2)</option>
 
-  <option value="9">computer science (0)</option>
+  <option value="computer___science">computer science (0)</option>
 
-  <option value="10">sport (2)</option>
+  <option value="sport">sport (2)</option>
 
-  <option value="11">physics (1)</option>
+  <option value="physics">physics (1)</option>
 
-  <option value="12">biology (1)</option>
+  <option value="biology">biology (1)</option>
 
-  <option value="13">maths (2)</option>
+  <option value="maths">maths (2)</option>
 
-  <option value="14">computer science (0)</option>
+  <option value="computer___science">computer science (0)</option>
 
-  <option value="15">sport (1)</option>
+  <option value="sport">sport (1)</option>
 
-  <option value="16">physics (1)</option>
+  <option value="physics">physics (1)</option>
 
-  <option value="17">biology (0)</option>
+  <option value="biology">biology (0)</option>
 
-  <option value="18">maths (2)</option>
+  <option value="maths">maths (2)</option>
 
-  <option value="19">computer science (1)</option>
+  <option value="computer___science">computer science (1)</option>
 
-  <option value="20">sport (0)</option>
+  <option value="sport">sport (0)</option>
 
-  <option value="21">physics (0)</option>
+  <option value="physics">physics (0)</option>
 
-  <option value="22">biology (0)</option>
+  <option value="biology">biology (0)</option>
 
-  <option value="23">maths (0)</option>
+  <option value="maths">maths (0)</option>
 
-  <option value="24">computer science (0)</option>
+  <option value="computer___science">computer science (0)</option>
 
-  <option value="25">sport (1)</option>
+  <option value="sport">sport (1)</option>
 
-  <option value="26">physics (0)</option>
+  <option value="physics">physics (0)</option>
 
-  <option value="27">biology (0)</option>
+  <option value="biology">biology (0)</option>
 
-  <option value="28">maths (0)</option>
+  <option value="maths">maths (0)</option>
 
-  <option value="29">computer science (0)</option>
+  <option value="computer___science">computer science (0)</option>
 
-  <option value="30">sport (0)</option>
+  <option value="sport">sport (0)</option>
 
-  <option value="31">physics (0)</option>
+  <option value="physics">physics (0)</option>
 
-  <option value="32">biology (0)</option>
+  <option value="biology">biology (0)</option>
 
-  <option value="33">maths (0)</option>
+  <option value="maths">maths (0)</option>
 
-  <option value="34">computer science (0)</option>
+  <option value="computer___science">computer science (0)</option>
 
-  <option value="35">sport (0)</option>
+  <option value="sport">sport (0)</option>
 
-  <option value="36">physics (0)</option>
+  <option value="physics">physics (0)</option>
 
-  <option value="37">biology (0)</option>
+  <option value="biology">biology (0)</option>
 
-  <option value="38">maths (0)</option>
+  <option value="maths">maths (0)</option>
 
-  <option value="39">computer science (0)</option>
+  <option value="computer___science">computer science (0)</option>
 
-  <option value="40">sport (0)</option>
+  <option value="sport">sport (0)</option>
 
-  <option value="41">physics (0)</option>
+  <option value="physics">physics (0)</option>
 
-  <option value="42">biology (0)</option>
+  <option value="biology">biology (0)</option>
 
-  <option value="43">maths (0)</option>
+  <option value="maths">maths (0)</option>
 
-  <option value="44">computer science (0)</option>
+  <option value="computer___science">computer science (0)</option>
 
-  <option value="45">sport (0)</option>
+  <option value="sport">sport (0)</option>
 
-  <option value="46">physics (0)</option>
+  <option value="physics">physics (0)</option>
 
-  <option value="47">biology (0)</option>
+  <option value="biology">biology (0)</option>
 
-  <option value="48">maths (0)</option>
+  <option value="maths">maths (0)</option>
 
-  <option value="49">computer science (0)</option>
+  <option value="computer___science">computer science (0)</option>
 
-  <option value="50">sport (0)</option>
+  <option value="sport">sport (0)</option>
+
+  <option value="physics">Physics (1)</option>
+
+  <option value="maths">Maths (1)</option>
 
 </select></td></tr>
             <input type="submit" value="Add project">
