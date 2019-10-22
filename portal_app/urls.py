@@ -14,5 +14,6 @@ def route(url):
 
 from . import views
 urlpatterns.extend([
-    path('',  views.homepage,  name="home")
+    path('',  views.homepage,  name="home"),
+    path("project/<int:project_id>", views.project_details, name="project_details"),
 ])

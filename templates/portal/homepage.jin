@@ -3,41 +3,24 @@
 
 
 {% block main %}
-    <div class="projects">
-        <ul id="list">
-            <li class="filterDiv engineering physics">
-                <a href="http://google.com"><img src="{% static 'portal/images/pistols.jpg' %}"  alt="pistols"></a>
-                <p>פרויקט <br>הנדסה פיזיקה</p>
-            </li>
-            <li class="filterDiv seismology">
-                <a href="http://google.com"><img src="{% static 'portal/images/underground.jpg' %}"  alt="tunnel"></a>
-                <p>פרויקט <br> סייסמיקה</p>
-            </li>
-            <li class="filterDiv chemistry">
-                <a href="http://google.com"><img src="{% static 'portal/images/science.jpg' %}"  alt="tunnel"></a>
-                <p>פרויקט <br> כימיה</p>
-            </li>
-            <li class="filterDiv seismology">
-                <a href="http://google.com"><img src="{% static 'portal/images/underground.jpg' %}"  alt="tunnel"></a>
-                <p>פרויקט <br> סייסמיקה</p>
-            </li>
-            <li class="filterDiv seismology">
-                <a href="http://google.com"><img src="{% static 'portal/images/underground.jpg' %}"  alt="tunnel"></a>
-                <p>פרויקט <br> סייסמיקה</p>
-            </li>
-            <li class="filterDiv seismology">
-                <a href="http://google.com"><img src="{% static 'portal/images/underground.jpg' %}"  alt="tunnel"></a>
-                <p>פרויקט <br> סייסמיקה</p>
-            </li>
-            <li class="filterDiv seismology">
-                <a href="http://google.com"><img src="{% static 'portal/images/underground.jpg' %}"  alt="tunnel"></a>
-                <p>פרויקט <br> סייסמיקה</p>
-            </li>
-            <li class="filterDiv seismology">
-                <a href="http://google.com"><img src="{% static 'portal/images/underground.jpg' %}"  alt="tunnel"></a>
-                <p>פרויקט <br> סייסמיקה</p>
-            </li>
-
+    <div class="controllers_container">
+       <div class="drop1 ">
+                <button class="btn" onclick="filtercategory('all')">הכל</button>
+                <button class="btn" onclick="filtercategory('physics')" >פיזיקה</button>
+                <button class="btn" onclick="filtercategory('programing')">תכנות</button>
+                <button class="btn" onclick="filtercategory('seismology')">סייסמיקה</button>
+                <button class="btn" onclick="filtercategory('engineering')">הנדסה</button>
+                <button class="btn" onclick="filtercategory('chemistry')">כימיה</button>
+        </div>
+    </div>
+    <div class="projects_container">
+        <ul class="projects_list">
+            {% for project in projects %}
+                <li class="filterDiv {{ project.html_categories }}">
+                    <a href="http://google.com"><img src="{{ project.img_path.url }}"></a>
+                    <p><br>{{ project.name }}</br></p>
+                </li>
+            {% endfor %}
         </ul>
     </div>
     <div class="caftor">
@@ -51,9 +34,5 @@
 
 
 {% block footer %}
-
-{% endblock %}
-
-{% block scripts %}
 
 {% endblock %}

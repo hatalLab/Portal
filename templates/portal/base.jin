@@ -8,7 +8,15 @@
         {% else %}
             <title>Projects Portal</title>
         {% endif %}
+
+    {#  For developement purpose, adding those css three files too:  #}
+        <link rel="stylesheet" href="{% static "portal/css/style_harry.css" %}"  />
+        <link rel="stylesheet" href="{% static "portal/css/style_david.css" %}"  />
+        <link rel="stylesheet" href="{% static "portal/css/style_eyal.css" %}"  />
+    {#  Delete them on deployement  #}
     <link rel="stylesheet" href="{% static "portal/css/style.css" %}"  />
+    {% block header_scripts %}
+    {% endblock %}
     </head>
 
     <body>
@@ -18,26 +26,16 @@
             <div>
                 <img src="{% static 'portal/images/Hatallogo.png' %}"  alt="logo" width="60">
             </div>
-            <a class="active" href="#home">ראשי</a>
-            <a href="#news">פרויקטים אחרונים</a>
-            <div class="drop0">
-                <button class="dropb">קטגוריות</button>
-                <div id="myBtnContainer" class="drop1">
-                    <button class="btn" onclick="filtercategory('all')">הכל</button>
-                    <button class="btn" onclick="filtercategory('physics')">פיזיקה</button>
-                    <button class="btn" onclick="filtercategory('programing')">תכנות</button>
-                    <button class="btn" onclick="filtercategory('seismology')">סייסמיקה</button>
-                    <button class="btn" onclick="filtercategory('engineering')">הנדסה</button>
-                    <button class="btn" onclick="filtercategory('chemistry')">כימיה</button>
-                </div>
-            </div>
+            <a class="active" href="{%  url 'portal:home' %}">Main</a>
         </div> <!-- End of topnav -->
         {# end of navbar  #}
 
-        {% block main %}
-        {% endblock %}
+        <div class="main_container">
+            {% block main %}
+            {% endblock %}
+        </div>
 
-    {% block scripts %}
+    {% block footer_scripts %}
         <script src="{% static 'javascript/portal.js' %}" >  </script>
     {% endblock %}
     </body>
