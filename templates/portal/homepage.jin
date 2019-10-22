@@ -23,10 +23,12 @@
 
                         {#            Image + Overlay + Title            #}
                         <div class="row">
-                            <a><img class="project_icon" data-toggle="modal" data-target="#modal_{{ forloop.counter0 }}" src="{{ project.img_path.url }}" /></a>
-                            <div class="overlay">
-                                <div class="text">{{ project.name }}</div>
-                            </div>
+                            <a>
+                                <img class="project_icon" data-toggle="modal" data-target="#modal_{{ forloop.counter0 }}" src="{{ project.img_path.url }}" />
+                                <div class="overlay">
+                                    <div class="text">{{ project.name }}</div>
+                                </div>
+                                </a>
                         </div>
                         <div class="row d-flex justify-content-center">
                             <p>{{ project.name }}</p>
