@@ -24,6 +24,9 @@
 }
 .project_description
 {
+
+    text-align:justify;
     display: flex;
     align-items:center
+    
 }
