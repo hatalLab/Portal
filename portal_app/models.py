@@ -46,6 +46,9 @@ class Category(models.Model):
                                             related_name="categories",
                              )
 
+    def human_name(self):
+        return "{} ({})".format(self.name, self.projects.count())
+
     def html_name(self):
         name = self.name.lower()
         return name.replace(' ', '_')

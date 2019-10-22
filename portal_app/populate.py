@@ -29,7 +29,7 @@ def populate_categories():
         'physics',
         'biology',
         'maths',
-        'computer science',
+        'computer_science',
         'sport',
     ]
     for c in categories:

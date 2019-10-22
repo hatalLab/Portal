@@ -29,4 +29,12 @@ def project_details(request, project_id):
 
     return render(request, 'portal/project_details.jin', context={'project':project})
 
+def add_project(request):
+    if request.method == 'POST':
+        form = forms.NewProject(request.POST)
+        if form.is_valid():
 
+            return http.HttpResponse("Thanks")
+    else:
+        form = forms.NewProject()
+        return render(request, 'portal/new_project.jin', context={'form': form})

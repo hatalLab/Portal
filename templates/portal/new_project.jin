@@ -1,0 +1,25 @@
+{% extends "portal/base.jin" %}
+
+{% block header_scripts %}
+
+{% endblock %}
+
+{% block main %}
+    <h1>Add project:</h1>
+    <div class="form_container">
+        <form class="DefaultForm UserForm" action="" method="post" autocomplete="off">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Add project">
+        </form>
+    </div>
+{% endblock %}
+
+
+{% block footer %}
+
+{% endblock %}
+
+{% block footer_scripts %}
+
+{% endblock %}

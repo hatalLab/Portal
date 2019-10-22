@@ -1,6 +1,25 @@
 from django import forms
 from . import models
 import django.core.validators as valids
+from django.template import loader
+from django.utils.safestring import mark_safe
+
+class ImageWidget(forms.widgets.Widget):
+
+	template_name = 'widgets/picture.jin'
+
+	def get_context(self, name, value, attrs=None):
+		return {'widget': {
+			'name': name,
+			'value': value,
+			'attrs': attrs
+		}}
+
+	def render(self, name, value, attrs=None, renderer=None):
+		context = self.get_context(name, value, self.attrs)
+		print(context)
+		template = loader.get_template(self.template_name).render(context)
+		return mark_safe(template)
 
 class NewUser(forms.Form):
 
@@ -22,3 +41,9 @@ class NewUser(forms.Form):
 				"Passwords don't match"
 			)
 
+class NewProject(forms.Form):
+
+	img                  = forms.FileField(label="Picture", widget=ImageWidget(attrs={'alt':'Upload picture', 'src':'/media/project-default.png'}))
+	name             = forms.CharField(label="Title", max_length=64)
+	description = forms.CharField(label="Description", max_length=2048, widget=forms.Textarea)
+	tags                = forms.MultipleChoiceField(choices=[(m.id, m.human_name()) for m in models.Category.objects.all()])
