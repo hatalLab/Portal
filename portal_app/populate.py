@@ -64,7 +64,7 @@ def populate_ranks(n=None):
 
 def populate_users(n):
     values = {
-        'military_id': [str(random.randrange(50000, 90000)) for _ in range(1000)],
+        'military_id': [str(random.randrange(500000, 900000)) for _ in range(1000)],
         'name':[fake.name() for _ in range(1000)],
         'mail':[fake.ascii_email() for _ in range(1000)],
         'bio': [fake.text() for _ in range(1000)],

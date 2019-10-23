@@ -57,16 +57,30 @@ body {
     margin: 5%;
 }
 
+/* NAVBAR-END */
 
 .main_container {
     border-radius: 5px;
     width: 80%;
     margin: auto;
+    margin-top: 50px;
+
 }
 
-/* NAVBAR-END */
+/* HOMEPAGE */
 
+.project_icon{
+    width: 200px;
+    height: 150px;
+    border-radius: 50%;
+    border: none;
+}
 
+.project_icon:hover{
+    cursor: pointer;
+}
+
+/* HOMEPAGE END */
 
 .form_container {
     width: 450px;

@@ -21,16 +21,24 @@ class ImageWidget(forms.widgets.Widget):
 		template = loader.get_template(self.template_name).render(context)
 		return mark_safe(template)
 
+class SignIn(forms.Form):
+	military_id = forms.IntegerField(label="Mispar Ishi", widget=forms.TextInput)
+	pwd              = forms.CharField(label="Password", widget=forms.PasswordInput)
+
 class NewUser(forms.Form):
 
 	id             = forms.IntegerField(label="Mispar Ishi", widget=forms.TextInput)
 	name     = forms.CharField(label='Name', max_length=64)
-	rank       = forms.ChoiceField(label='Rank', choices=[(r.id, r.name) for r in models.Rank.objects.all()])
+	rank       = forms.ChoiceField(label='Rank', choices=[])
 	bio          = forms.CharField(label='Biography', max_length=512, widget=forms.Textarea)
 	mail        = forms.EmailField(max_length=128,
 	                               validators=[valids.EmailValidator(message="Email is not valid")])
 	pwd        = forms.CharField(label="Password", widget=forms.PasswordInput)
 	re_pwd = forms.CharField(label="Confirm password", widget=forms.PasswordInput)
+
+	def __init__(self, *args, **kwargs):
+		super(NewUser, self).__init__(*args, **kwargs)
+		self.fields['rank'].choices = [(r.id, r.name) for r in models.Rank.objects.all()]
 
 	def clean(self):
 		cleaned_data = super().clean()
@@ -43,7 +51,12 @@ class NewUser(forms.Form):
 
 class NewProject(forms.Form):
 
-	img                  = forms.FileField(label="Picture", widget=ImageWidget(attrs={'alt':'Upload picture', 'src':'/media/project-default.png'}))
-	name             = forms.CharField(label="Title", max_length=64)
-	description = forms.CharField(label="Description", max_length=2048, widget=forms.Textarea)
-	tags                = forms.MultipleChoiceField(choices=[(m.id, m.human_name()) for m in models.Category.objects.all()])
+	img_preview = forms.FileField(label="", widget=ImageWidget(attrs={'class':'preview_pic','alt':'Upload picture', 'src':'/media/project-default.png'}))
+	img                     = forms.ImageField(label="", widget=forms.FileInput(attrs={'style':'visibility:hidden'}))
+	name                 = forms.CharField(label="Title", max_length=64)
+	description     = forms.CharField(label="Description", max_length=2048, widget=forms.Textarea)
+	tags                    = forms.MultipleChoiceField(choices=[])
+
+	def __init__(self, *args, **kwargs):
+		super(NewProject, self).__init__(*args, **kwargs)
+		self.fields['tags'].choices = [(m.html_name, m.human_name) for m in models.Category.objects.all()]

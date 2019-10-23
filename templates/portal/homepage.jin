@@ -14,22 +14,56 @@
         </div>
     </div>
     <div class="projects_container">
+
         <ul class="projects_list">
             {% for project in projects %}
                 <li class="filterDiv {{ project.html_categories }}">
-                    <a href="http://google.com"><img src="{{ project.img_path.url }}"></a>
-                    <p><br>{{ project.name }}</br></p>
+
+                    <div class="container">
+
+                        {#            Image + Overlay + Title            #}
+                        <div class="row">
+                            <a>
+                                <img class="project_icon" data-toggle="modal" data-target="#modal_{{ forloop.counter0 }}" src="{{ project.img_path.url }}" />
+                                <div class="overlay">
+                                    <div class="text">{{ project.name }}</div>
+                                </div>
+                                </a>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <p>{{ project.name }}</p>
+                        </div>
+
+                        {#            Modal Box                 #}
+
+                        <div class="modal fade " id="modal_{{ forloop.counter0 }}">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h4 class="modal-title">Project details</h4>
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                              {% include "portal/project_modal.jin" %}
+                                            </div>
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </li>
             {% endfor %}
+
         </ul>
+
     </div>
-    <div class="caftor">
-        <button id="search" class="search" data-toggle="modal" data-target=".your-modal"><img src="{% static 'portal/images/magdilet.png' %}"
-                                                                                              alt="magnifying glass">
-        </button>
-        <button id="plus" class="plus" data-toggle="modal" data-target=".your-modal"><img src="{% static 'portal/images/backgroundbutton.jpg' %}"
-                                                                                          alt="background"></button>
-    </div>
+
 {% endblock %}
 
 

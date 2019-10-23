@@ -10,11 +10,19 @@
         {% endif %}
 
     {#  For developement purpose, adding those css three files too:  #}
-        <link rel="stylesheet" href="{% static "portal/css/style_harry.css" %}"  />
-        <link rel="stylesheet" href="{% static "portal/css/style_david.css" %}"  />
-        <link rel="stylesheet" href="{% static "portal/css/style_eyal.css" %}"  />
+        <link rel="stylesheet" href="{% static "portal/css/style_harry.css" %}"/>
+        <link rel="stylesheet" href="{% static "portal/css/style_david.css" %}"/>
+        <link rel="stylesheet" href="{% static "portal/css/style_eyal.css" %}" />
     {#  Delete them on deployement  #}
-    <link rel="stylesheet" href="{% static "portal/css/style.css" %}"  />
+        <link rel="stylesheet" href="{% static "portal/css/style.css" %}"  />
+
+    {# DEPENDENCIES: Download this before transfering site to ARMY #}
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    {# End of dependencies #}
+
     {% block header_scripts %}
     {% endblock %}
     </head>
@@ -26,7 +34,10 @@
             <div>
                 <img src="{% static 'portal/images/Hatallogo.png' %}"  alt="logo" width="60">
             </div>
-            <a class="active" href="{%  url 'portal:home' %}">Main</a>
+            <a class="active" href="{%  url 'portal:home' %}">Projects</a>
+            <a class="active" href="{% url 'portal:add_project' %}">Add project</a>
+            <a class="active" href="{% url 'portal:sign_up' %}">Sign up</a>
+            <a class="active" href="{% url 'portal:login' %}">Sign in</a>
         </div> <!-- End of topnav -->
         {# end of navbar  #}
 

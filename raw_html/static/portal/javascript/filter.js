@@ -7,9 +7,9 @@ function filtercategory(target){
         selectedCategories=''
     }
     else {
-       selectedCategories= $.makeArray(selectedCategories);
-       selectedCategories.push("."+target);
-       selectedCategories=selectedCategories.toString();
+    //    selectedCategories= $.makeArray(selectedCategories);
+       selectedCategories.push(target);
+    //    selectedCategories=selectedCategories.toString();
        $("ul.projects_list li").hide();
        for(let tag of selectedCategories){
 $("."+tag).show();

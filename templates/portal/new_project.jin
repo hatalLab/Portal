@@ -7,11 +7,16 @@
 {% block main %}
     <h1>Add project:</h1>
     <div class="form_container">
-        <form class="DefaultForm UserForm" action="" method="post" autocomplete="off">
+        <form class="DefaultForm UserForm" action="" method="post" autocomplete="off" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form }}
             <input type="submit" value="Add project">
         </form>
+    </div>
+    <div id="existing_tags">
+        {% for tag in tags %}
+            <p id="{{ tag.html_name }}"></p>
+        {% endfor %}
     </div>
 {% endblock %}
 
