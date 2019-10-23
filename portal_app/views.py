@@ -44,6 +44,8 @@ def project_details(request, project_id):
     return render(request, 'portal/project_details.jin', context={'project':project})
 
 def add_project(request):
+    tags = models.Category.objects.all()
+    print(tags, "TAGSTAGS")
     if request.method == 'POST':
         form = forms.NewProject(request.POST, request.FILES)
         if form.is_valid():
@@ -68,4 +70,4 @@ def add_project(request):
             return http.HttpResponse("Thanks")
     else:
         form = forms.NewProject()
-        return render(request, 'portal/new_project.jin', context={'form': form})
+        return render(request, 'portal/new_project.jin', context={'form': form, 'tags':tags})

@@ -1,0 +1,11 @@
+<div class="project_details">
+    <div class="left">
+        <img src="{{ project.img_path.url }}" class="project_picture" />
+        <button class="join_button">Join</button>
+    </div>
+    <div class="right">
+        <p class="project_title">Project: {{ project.name }}</p>
+        <p class="project_description">Description: {{  project.description }}</p>
+        <p class="project_creator_name">Creator: {{ project.creator.name }} (s{{  project.creator.military_id }})</p>
+    </div>
+</div>

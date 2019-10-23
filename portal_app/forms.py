@@ -59,4 +59,4 @@ class NewProject(forms.Form):
 
 	def __init__(self, *args, **kwargs):
 		super(NewProject, self).__init__(*args, **kwargs)
-		self.fields['tags'].choices = [(m.html_name(), m.human_name()) for m in models.Category.objects.all()]
+		self.fields['tags'].choices = [(m.html_name, m.human_name) for m in models.Category.objects.all()]

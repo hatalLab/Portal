@@ -39,6 +39,7 @@ class Project(models.Model):
     def html_categories(self):
         return " ".join([c.name.lower() for c in self.categories.all()])
 
+
 class Category(models.Model):
 
     name = models.CharField(max_length=256)
@@ -47,9 +48,11 @@ class Category(models.Model):
                                             related_name="categories",
                              )
 
+    @property
     def human_name(self):
         return "{} ({})".format(self.name, self.projects.count())
 
+    @property
     def html_name(self):
         return Category.htmlize_name(self.name)
 

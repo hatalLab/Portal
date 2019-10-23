@@ -36,16 +36,16 @@
 
                         {#            Modal Box                 #}
 
-                        <div class="modal" id="modal_{{ forloop.counter0 }}">
-                            <div class="modal-dialog">
+                        <div class="modal fade " id="modal_{{ forloop.counter0 }}">
+                            <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                             <div class="modal-header">
-                                              <h4 class="modal-title">Modal Heading</h4>
+                                              <h4 class="modal-title">Project details</h4>
                                               <button type="button" class="close" data-dismiss="modal">&times;</button>
                                             </div>
 
                                             <div class="modal-body">
-                                              Modal body..
+                                              {% include "portal/project_modal.jin" %}
                                             </div>
 
                                             <div class="modal-footer">
@@ -63,13 +63,7 @@
         </ul>
 
     </div>
-    <div class="caftor">
-        <button id="search" class="search" data-toggle="modal" data-target=".your-modal"><img src="{% static 'portal/images/magdilet.png' %}"
-                                                                                              alt="magnifying glass">
-        </button>
-        <button id="plus" class="plus" data-toggle="modal" data-target=".your-modal"><img src="{% static 'portal/images/backgroundbutton.jpg' %}"
-                                                                                          alt="background"></button>
-    </div>
+
 {% endblock %}
 
 
