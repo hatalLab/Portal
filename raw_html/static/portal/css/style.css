@@ -112,3 +112,12 @@ body {
 .DefaultForm input[type=submit]:hover {
     background-color: #5895cb;
 }
+
+#project_tags{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+##project_tags >li{
+    flex-direction: row;
+}
