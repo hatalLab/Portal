@@ -55,6 +55,11 @@
   border-radius:50%;
   font-size:13px
 }
+
+.bootstrap-tagsinput .tag.edit-tag [data-role="remove"]:after {
+  content: "" !important;
+}
+
 .bootstrap-tagsinput .badge [data-role="remove"]:hover:after {
 
   background-color:rgba(0, 0, 0, 0.62);}

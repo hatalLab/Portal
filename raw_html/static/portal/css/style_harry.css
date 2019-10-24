@@ -9,7 +9,7 @@ body {
     display: inline;
     text-align: center;
     padding: 15px 20px;
-    position: fixed;
+    position: absolute;
     left: auto;
     bottom: 100px;
     border: 0ch;
@@ -28,7 +28,7 @@ body {
     cursor: pointer;
     padding: 15px 20px;
     text-align: center;
-    position: fixed;
+    position: absolute;
     left: auto;
     bottom: 20px;
     border: 0ch;
@@ -117,26 +117,19 @@ body {
     text-align: center;
 }
 
-.projects_container img {
-    width: 200px;
-    height: 150px;
-    border-radius: 10%;
-    border: none;
-}
-
-.categories_container {
+.drop1 {
     display: flex;
     justify-content: center;
 }
 
-.categories_container button {
+.drop1 button {
     background-color: inherit;
     color: rgb(21, 0, 36);
     text-align: center;
     border: none;
 }
 
-.categories_container button:hover {
+.drop1 button:hover {
     cursor: pointer;
     background-color: rgb(147, 76, 175);
 }
