@@ -117,19 +117,19 @@ body {
     text-align: center;
 }
 
-.drop1 {
+.default-categories {
     display: flex;
     justify-content: center;
 }
 
-.drop1 button {
+.default-categories button {
     background-color: inherit;
     color: rgb(21, 0, 36);
     text-align: center;
     border: none;
 }
 
-.drop1 button:hover {
+.default-categories button:hover {
     cursor: pointer;
     background-color: rgb(147, 76, 175);
 }
