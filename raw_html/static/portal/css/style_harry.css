@@ -133,3 +133,8 @@ body {
     cursor: pointer;
     background-color: rgb(147, 76, 175);
 }
+
+.categories-container button:focus {
+    outline: none;
+    border: none;
+}
