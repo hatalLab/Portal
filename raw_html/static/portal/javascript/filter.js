@@ -44,7 +44,9 @@ search_field.tagsinput({
 });
 
 let tags=$.makeArray($("#existing_tags").children());
-tags=tags.map((item)=>item.id);
+tags=tags.map((item)=>{let value = item.id
+value = value.replace(/_/g,' ')
+return value});
 
 for (let tag of tags) {
     select_field.tagsinput('add', tag);
@@ -61,22 +63,19 @@ select_field.on('itemAdded',function(){
 })
 
 search_field.on("itemAdded", function(event) {
-        selected_tags.append('<option selected="" value="'+ event.item + '">physics</option>');
+    let value=event.item.replace(/\s/g,'_');
+        selected_tags.append(`<option selected="" value=${value}>${event.item}</option>`);
         $('.search-tag').off('click',handleSearchField);
         $(".search-tag").on('click',handleSearchField);
     }
 );
 
 search_field.on("itemRemoved", function(event) {
-        $("#selected_tags > option[value='"+event.item + "']").remove();
+    let value=event.item.replace(/\s/g,'_');
+        $("#selected_tags > option[value='"+value + "']").remove();
         select_field.tagsinput('add', event.item);
     }
 );
-
-/* $(".edit-tag").on('click',function(event){ 
-    $("#search_tag").tagsinput("add",event.target.innerText);
-    select_field.tagsinput("remove",event.target.innerText)
-}); */
 
 function handleSelectField(event){
     select_field.tagsinput("remove",event.target.innerText);
@@ -85,7 +84,8 @@ function handleSelectField(event){
 function handleSearchField(event){
         search_field.tagsinput('remove',event.target.innerText);
     }
-$('.etid-tag').on('click',handleSelectField);
 
+
+    $('.edit-tag').on('click',handleSelectField);
 
 
