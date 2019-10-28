@@ -1,21 +1,5 @@
  let selectedValues=[];
-let selectedCategories=[];
 
-function filtercategory(target) {
-    if (target==="all") {
-        $("ul.projects_list li").show(); //show all
-        selectedCategories=''
-    }
-
-    else {
-        selectedCategories.push(target);
-        $("ul.projects_list li").hide();
-
-        for(let tag of selectedCategories) {
-            $("."+tag).show();
-        }
-    }
-}
 
 function readURL(input) {
     if (input.files && input.files[0]) {
@@ -105,9 +89,3 @@ $('.etid-tag').on('click',handleSelectField);
 
 
 
-let interstTags=$.makeArray($(".user-interest-tags").children());
-interstTags=interstTags.map((item) => item.id);
-$(".default")
-for(let item of interstTags){
-    $(".")
-}

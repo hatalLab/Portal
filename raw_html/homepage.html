@@ -40,10 +40,14 @@
         <div class="main_container">
             
     <div class="controllers_container">
-       <div class="default-categories ">
-    
+        <div class="fixed-container">
+                <button class="btn" onclick="filtercategory('all')">all</button>
+            <div class="categories-container">
+
+            </div>
         </div>
-        <input type="text" id="search-category" placeholder="search tag">
+
+        <input type="text" id="search-category" placeholder="search tag" onkeyup="filter($('#search-category').val())">
     </div>
     <div class="projects_container">
 
@@ -5331,8 +5335,6 @@ Radio open own common important try. Movement believe page middle suffer last le
 
     <div id="existing_tags">
 
-        <p id="all"></p>
-
         <p id="physics"></p>
 
         <p id="biology"></p>
@@ -5353,7 +5355,7 @@ Radio open own common important try. Movement believe page middle suffer last le
 
 </div>
     
-        <script src="static/portal/javascript/filter.js" >  </script>
+        <script src="static/portal/javascript/tagsFilter.js" >  </script>
     
     </body>
 </html>

@@ -117,19 +117,19 @@ body {
     text-align: center;
 }
 
-.default-categories {
+.categories-container {
     display: flex;
     justify-content: center;
 }
 
-.default-categories button {
+.categories-container button, .fixed-container button {
     background-color: inherit;
     color: rgb(21, 0, 36);
     text-align: center;
     border: none;
 }
 
-.default-categories button:hover {
+.categories-container button:hover, .fixed-container button:hover {
     cursor: pointer;
     background-color: rgb(147, 76, 175);
 }
