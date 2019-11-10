@@ -6,21 +6,21 @@
         
 
     
-        <link rel="stylesheet" href="static/portal/css/style_harry.css"/>
-        <link rel="stylesheet" href="static/portal/css/style_david.css"/>
-        <link rel="stylesheet" href="static/portal/css/style_eyal.css" />
-    
-        <link rel="stylesheet" href="static/portal/css/style.css"  />
-
-    
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-      <script src="../mixitup-3/dist/mixitup.min.js"></script>
-
-    
-    
+        
+            <link rel="stylesheet" href="./static/portal/css/style.css"/>
+            <link rel="stylesheet" href="./static/portal/css/style_david.css"/>
+            <link rel="stylesheet" href="./static/portal/css/style_eyal.css" />
+        
+            <link rel="stylesheet" href="./static/portal/css/style_harry.css"  />
+            <link rel="stylesheet" href="./static/portal/css/buttonStyle.css"/>
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css"/>
+          <link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/skeleton.2.02.css"/>
+          <script src="../mixitup-3/dist/mixitup.min.js"></script>    
+          <script src="../raw_html/static/jquery.transit-master/jquery.transit.js"></script>
     </head>
 
     <body>
@@ -36,76 +36,77 @@
             <a class="active" href="/portal_app/login">Sign in</a>
         </div> <!-- End of topnav -->
         
-
-        <div class="main_container">
-            
-    <div class="controllers_container">
+        <div class="controllers_container">
             <input type="text" id="search-category" placeholder="search tag" onkeyup="filter($('#search-category').val())">
         <div class="fixed-container">
-                <button class="btn" name="all" id="allTags" onclick="filtercategory('all')">all</button>
+            <button class="filter-btn" data-filter="all" name="all" id="allTags" >all</button>
             <div class="categories-container">
-
+                <div id="favorites-container">
+                    
+                </div>
             </div>
         </div>
     </div>
+        <div class="main_container">
+    
     <div class="projects_container">
+        <div class="sort-container">
+              
+            <ul id="mix-wrapper" class="projects_list">
+                <li class="mix-target filterDiv biology">
 
-        <ul class="projects_list">
-            
-                <li class="filterDiv biology">
-
-                    <div class="container">
-
-                        
-                        <div class="row">
-                            <a>
-                                <img class="project_icon" data-toggle="modal" data-target="#modal_0" src="media/project-default.png" />
-                                <div class="overlay">
-                                    <div class="text">Ricardo Cole</div>
-                                </div>
-                                </a>
-                        </div>
-                        <div class="row d-flex justify-content-center">
-                            <p>Ricardo Cole</p>
-                        </div>
-
-                        
-
-                        <div class="modal fade " id="modal_0">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                            <div class="modal-header">
-                                              <h4 class="modal-title">Project details</h4>
-                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            </div>
-
-                                            <div class="modal-body">
-                                              <div class="project_details">
-    <div class="left">
-        <img src="media/project-default.png" class="project_picture" />
-        <button class="join_button">Join</button>
+                        <div class="container">
+    
+                            
+                            <div class="row">
+                                <a>
+                                    <img class="project_icon" data-toggle="modal" data-target="#modal_0" src="media/project-default.png" />
+                                    <div class="overlay">
+                                        <div class="text">Ricardo Cole</div>
+                                    </div>
+                                    </a>
+                            </div>
+                            <div class="row d-flex justify-content-center">
+                                <p>Ricardo Cole</p>
+                            </div>
+    
+                            
+    
+                            <div class="modal fade " id="modal_0">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                                <div class="modal-header">
+                                                  <h4 class="modal-title">Project details</h4>
+                                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+    
+                                                <div class="modal-body">
+                                                  <div class="project_details">
+        <div class="left">
+            <img src="media/project-default.png" class="project_picture" />
+            <button class="join_button">Join</button>
+        </div>
+        <div class="right">
+            <p class="project_title">Project: Ricardo Cole</p>
+            <p class="project_description">Description: School law political wish. Identify five bag themselves down enjoy provide future.
+    Hold sea window account. Best moment future.</p>
+            <p class="project_creator_name">Creator: Jason Valdez (s751696)</p>
+        </div>
     </div>
-    <div class="right">
-        <p class="project_title">Project: Ricardo Cole</p>
-        <p class="project_description">Description: School law political wish. Identify five bag themselves down enjoy provide future.
-Hold sea window account. Best moment future.</p>
-        <p class="project_creator_name">Creator: Jason Valdez (s751696)</p>
-    </div>
-</div>
-                                            </div>
-
-                                            <div class="modal-footer">
-                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                            </div>
+                                                </div>
+    
+                                                <div class="modal-footer">
+                                                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                </div>
+                                    </div>
                                 </div>
                             </div>
+    
                         </div>
-
-                    </div>
-
-                </li>
+    
+                    </li>
             
-                <li class="filterDiv physics">
+                <li  class="mix-target filterDiv physics" >
 
                     <div class="container">
 
@@ -157,7 +158,7 @@ Hold sea window account. Best moment future.</p>
 
                 </li>
             
-                <li class="filterDiv computer_science">
+                <li  class="mix-target filterDiv computer_science">
 
                     <div class="container">
 
@@ -211,7 +212,7 @@ Fire something class former action.</p>
 
                 </li>
             
-                <li class="filterDiv maths">
+                <li   class="mix-target filterDiv maths">
 
                     <div class="container">
 
@@ -263,7 +264,7 @@ Fire something class former action.</p>
 
                 </li>
             
-                <li class="filterDiv computer_science">
+                <li   class="mix-target filterDiv computer_science">
 
                     <div class="container">
 
@@ -315,7 +316,7 @@ Fire something class former action.</p>
 
                 </li>
             
-                <li class="filterDiv sport">
+                <li   class="mix-target filterDiv sport">
 
                     <div class="container">
 
@@ -368,7 +369,7 @@ Bring now college cell into. Quite lead western set nature yard.</p>
 
                 </li>
             
-                <li class="filterDiv maths">
+                <li   class="mix-target filterDiv maths">
 
                     <div class="container">
 
@@ -421,7 +422,7 @@ Tell grow think. Voice which note race sell less capital. Then myself like.</p>
 
                 </li>
             
-                <li class="filterDiv biology">
+                <li   class="mix-target filterDiv biology">
 
                     <div class="container">
 
@@ -473,7 +474,7 @@ Tell grow think. Voice which note race sell less capital. Then myself like.</p>
 
                 </li>
             
-                <li class="filterDiv biology">
+                <li   class="mix-target filterDiv biology">
 
                     <div class="container">
 
@@ -526,7 +527,7 @@ Job play whose magazine wonder like single. Will too ahead.</p>
 
                 </li>
             
-                <li class="filterDiv sport">
+                <li   class="mix-target filterDiv sport">
 
                     <div class="container">
 
@@ -578,7 +579,7 @@ Job play whose magazine wonder like single. Will too ahead.</p>
 
                 </li>
             
-                <li class="filterDiv biology">
+                <li   class="mix-target filterDiv biology">
 
                     <div class="container">
 
@@ -630,7 +631,7 @@ Job play whose magazine wonder like single. Will too ahead.</p>
 
                 </li>
             
-                <li class="filterDiv computer_science">
+                <li   class="mix-target filterDiv computer_science">
 
                     <div class="container">
 
@@ -683,7 +684,7 @@ Exist win anything pattern control skin decide. Republican crime south some very
 
                 </li>
             
-                <li class="filterDiv computer_science">
+                <li   class="mix-target filterDiv computer_science">
 
                     <div class="container">
 
@@ -735,7 +736,7 @@ Exist win anything pattern control skin decide. Republican crime south some very
 
                 </li>
             
-                <li class="filterDiv physics">
+                <li   class="mix-target filterDiv physics">
 
                     <div class="container">
 
@@ -789,7 +790,7 @@ Tend cup difficult. But financial resource color.</p>
 
                 </li>
             
-                <li class="filterDiv sport">
+                <li   class="mix-target filterDiv sport">
 
                     <div class="container">
 
@@ -841,7 +842,7 @@ Tend cup difficult. But financial resource color.</p>
 
                 </li>
             
-                <li class="filterDiv sport">
+                <li   class="mix-target filterDiv sport">
 
                     <div class="container">
 
@@ -893,7 +894,7 @@ Tend cup difficult. But financial resource color.</p>
 
                 </li>
             
-                <li class="filterDiv physics">
+                <li   class="mix-target filterDiv physics">
 
                     <div class="container">
 
@@ -947,7 +948,7 @@ Tell company very when wonder usually south. Customer democratic toward game hot
 
                 </li>
             
-                <li class="filterDiv biology">
+                <li   class="mix-target filterDiv biology">
 
                     <div class="container">
 
@@ -1000,7 +1001,7 @@ Shoulder voice ahead turn. Election student side summer huge act so. School step
 
                 </li>
             
-                <li class="filterDiv biology">
+                <li   class="mix-target filterDiv biology">
 
                     <div class="container">
 
@@ -1052,7 +1053,7 @@ Shoulder voice ahead turn. Election student side summer huge act so. School step
 
                 </li>
             
-                <li class="filterDiv maths">
+                <li   class="mix-target filterDiv maths">
 
                     <div class="container">
 
@@ -1106,7 +1107,7 @@ Newspaper ground one key. Fast peace various word.</p>
 
                 </li>
             
-                <li class="filterDiv biology">
+                <li   class="mix-target filterDiv biology">
 
                     <div class="container">
 
@@ -1159,7 +1160,7 @@ Approach finally nice very. Growth mission task discover should.</p>
 
                 </li>
             
-                <li class="filterDiv computer_science">
+                <li   class="mix-target filterDiv computer_science">
 
                     <div class="container">
 
@@ -1211,7 +1212,7 @@ Approach finally nice very. Growth mission task discover should.</p>
 
                 </li>
             
-                <li class="filterDiv biology">
+                <li   class="mix-target filterDiv biology">
 
                     <div class="container">
 
@@ -1264,7 +1265,7 @@ Himself fine computer only note coach according still. Trial actually and across
 
                 </li>
             
-                <li class="filterDiv maths">
+                <li   class="mix-target filterDiv maths">
 
                     <div class="container">
 
@@ -1317,7 +1318,7 @@ Exist win anything pattern control skin decide. Republican crime south some very
 
                 </li>
             
-                <li class="filterDiv maths">
+                <li   class="mix-target filterDiv maths">
 
                     <div class="container">
 
@@ -1369,7 +1370,7 @@ Exist win anything pattern control skin decide. Republican crime south some very
 
                 </li>
             
-                <li class="filterDiv computer_science">
+                <li   class="mix-target filterDiv computer_science">
 
                     <div class="container">
 
@@ -1422,7 +1423,7 @@ Yard vote worry value blue. Information my again yard agree recognize.</p>
 
                 </li>
             
-                <li class="filterDiv biology">
+                <li   class="mix-target filterDiv biology">
 
                     <div class="container">
 
@@ -1474,7 +1475,7 @@ Yard vote worry value blue. Information my again yard agree recognize.</p>
 
                 </li>
             
-                <li class="filterDiv maths">
+                <li   class="mix-target filterDiv maths">
 
                     <div class="container">
 
@@ -1527,7 +1528,7 @@ Development law community. Discover suggest no before describe. Present me baby 
 
                 </li>
             
-                <li class="filterDiv biology">
+                <li   class="mix-target filterDiv biology">
 
                     <div class="container">
 
@@ -1579,7 +1580,7 @@ Development law community. Discover suggest no before describe. Present me baby 
 
                 </li>
             
-                <li class="filterDiv sport">
+                <li   class="mix-target filterDiv sport">
 
                     <div class="container">
 
@@ -1631,7 +1632,7 @@ Development law community. Discover suggest no before describe. Present me baby 
 
                 </li>
             
-                <li class="filterDiv computer_science">
+                <li   class="mix-target filterDiv computer_science">
 
                     <div class="container">
 
@@ -1683,7 +1684,7 @@ Development law community. Discover suggest no before describe. Present me baby 
 
                 </li>
             
-                <li class="filterDiv physics">
+                <li   class="mix-target filterDiv physics">
 
                     <div class="container">
 
@@ -1735,7 +1736,7 @@ Development law community. Discover suggest no before describe. Present me baby 
 
                 </li>
             
-                <li class="filterDiv biology">
+                <li   class="mix-target filterDiv biology">
 
                     <div class="container">
 
@@ -1788,7 +1789,7 @@ Building political offer use article wall finally at. Since daughter indicate hu
 
                 </li>
             
-                <li class="filterDiv maths">
+                <li   class="mix-target filterDiv maths">
 
                     <div class="container">
 
@@ -1840,7 +1841,7 @@ Building political offer use article wall finally at. Since daughter indicate hu
 
                 </li>
             
-                <li class="filterDiv sport">
+                <li   class="mix-target filterDiv sport">
 
                     <div class="container">
 
@@ -1892,7 +1893,7 @@ Building political offer use article wall finally at. Since daughter indicate hu
 
                 </li>
             
-                <li class="filterDiv computer_science">
+                <li   class="mix-target filterDiv computer_science">
 
                     <div class="container">
 
@@ -1945,7 +1946,7 @@ Skill rest get around. Style worker owner would. Chair other appear safe PM same
 
                 </li>
             
-                <li class="filterDiv sport">
+                <li   class="mix-target filterDiv sport">
 
                     <div class="container">
 
@@ -1998,7 +1999,7 @@ Dog work off product age window attorney. Card both analysis. Reach arrive write
 
                 </li>
             
-                <li class="filterDiv physics">
+                <li   class="mix-target filterDiv physics">
 
                     <div class="container">
 
@@ -2051,7 +2052,7 @@ Want anyone none wonder key. Material foreign require sing force. Consider medic
 
                 </li>
             
-                <li class="filterDiv computer_science">
+                <li   class="mix-target filterDiv computer_science">
 
                     <div class="container">
 
@@ -2104,7 +2105,7 @@ Yard vote worry value blue. Information my again yard agree recognize.</p>
 
                 </li>
             
-                <li class="filterDiv physics">
+                <li   class="mix-target filterDiv physics">
 
                     <div class="container">
 
@@ -2157,7 +2158,7 @@ Then camera success last. Enjoy low factor shoulder usually for.</p>
 
                 </li>
             
-                <li class="filterDiv maths">
+                <li   class="mix-target filterDiv maths">
 
                     <div class="container">
 
@@ -2209,7 +2210,7 @@ Then camera success last. Enjoy low factor shoulder usually for.</p>
 
                 </li>
             
-                <li class="filterDiv physics">
+                <li   class="mix-target filterDiv physics">
 
                     <div class="container">
 
@@ -2262,7 +2263,7 @@ Practice toward entire assume suffer away particular. Cultural bring tonight fig
 
                 </li>
             
-                <li class="filterDiv maths">
+                <li   class="mix-target filterDiv maths">
 
                     <div class="container">
 
@@ -2315,7 +2316,7 @@ Behind value trouble under head how.</p>
 
                 </li>
             
-                <li class="filterDiv computer_science">
+                <li   class="mix-target filterDiv computer_science">
 
                     <div class="container">
 
@@ -2367,7 +2368,7 @@ Behind value trouble under head how.</p>
 
                 </li>
             
-                <li class="filterDiv sport">
+                <li   class="mix-target filterDiv sport">
 
                     <div class="container">
 
@@ -2421,7 +2422,7 @@ Ask agency end account building eat energy admit. Party yard everyone although.<
 
                 </li>
             
-                <li class="filterDiv physics">
+                <li   class="mix-target filterDiv physics">
 
                     <div class="container">
 
@@ -2473,7 +2474,7 @@ Ask agency end account building eat energy admit. Party yard everyone although.<
 
                 </li>
             
-                <li class="filterDiv computer_science">
+                <li   class="mix-target filterDiv computer_science">
 
                     <div class="container">
 
@@ -2526,7 +2527,7 @@ Place executive century reality good.</p>
 
                 </li>
             
-                <li class="filterDiv biology">
+                <li   class="mix-target filterDiv biology">
 
                     <div class="container">
 
@@ -2578,7 +2579,7 @@ Place executive century reality good.</p>
 
                 </li>
             
-                <li class="filterDiv sport">
+                <li   class="mix-target filterDiv sport">
 
                     <div class="container">
 
@@ -2630,7 +2631,7 @@ Place executive century reality good.</p>
 
                 </li>
             
-                <li class="filterDiv physics">
+                <li   class="mix-target filterDiv physics">
 
                     <div class="container">
 
@@ -2683,7 +2684,7 @@ Season cold perhaps financial strong throughout society. Billion hotel activity 
 
                 </li>
             
-                <li class="filterDiv biology">
+                <li   class="mix-target filterDiv biology">
 
                     <div class="container">
 
@@ -2736,7 +2737,7 @@ Entire sea fly project. Study exist reveal. Near project along realize music wor
 
                 </li>
             
-                <li class="filterDiv sport">
+                <li   class="mix-target filterDiv sport">
 
                     <div class="container">
 
@@ -2789,7 +2790,7 @@ With appear none act doctor magazine myself list. Watch letter tree institution 
 
                 </li>
             
-                <li class="filterDiv biology">
+                <li   class="mix-target filterDiv biology">
 
                     <div class="container">
 
@@ -2841,7 +2842,7 @@ With appear none act doctor magazine myself list. Watch letter tree institution 
 
                 </li>
             
-                <li class="filterDiv computer_science">
+                <li   class="mix-target filterDiv computer_science">
 
                     <div class="container">
 
@@ -2893,7 +2894,7 @@ With appear none act doctor magazine myself list. Watch letter tree institution 
 
                 </li>
             
-                <li class="filterDiv sport">
+                <li   class="mix-target filterDiv sport">
 
                     <div class="container">
 
@@ -2946,7 +2947,7 @@ Exactly to care image decade. Yes fall realize certainly.</p>
 
                 </li>
             
-                <li class="filterDiv sport">
+                <li   class="mix-target filterDiv sport">
 
                     <div class="container">
 
@@ -2999,7 +3000,7 @@ Care behavior commercial note. Part through head.</p>
 
                 </li>
             
-                <li class="filterDiv maths">
+                <li   class="mix-target filterDiv maths">
 
                     <div class="container">
 
@@ -3052,7 +3053,7 @@ Exist remember financial recognize.</p>
 
                 </li>
             
-                <li class="filterDiv biology">
+                <li   class="mix-target filterDiv biology">
 
                     <div class="container">
 
@@ -3104,7 +3105,7 @@ Exist remember financial recognize.</p>
 
                 </li>
             
-                <li class="filterDiv sport">
+                <li   class="mix-target filterDiv sport">
 
                     <div class="container">
 
@@ -3156,7 +3157,7 @@ Exist remember financial recognize.</p>
 
                 </li>
             
-                <li class="filterDiv computer_science">
+                <li   class="mix-target filterDiv computer_science">
 
                     <div class="container">
 
@@ -3208,7 +3209,7 @@ Exist remember financial recognize.</p>
 
                 </li>
             
-                <li class="filterDiv computer_science">
+                <li   class="mix-target filterDiv computer_science">
 
                     <div class="container">
 
@@ -3261,7 +3262,7 @@ Ask responsibility start since. Address pay marriage account best site peace. Ru
 
                 </li>
             
-                <li class="filterDiv sport">
+                <li   class="mix-target filterDiv sport">
 
                     <div class="container">
 
@@ -3314,7 +3315,7 @@ Course day consumer city house in western. School manage today truth next withou
 
                 </li>
             
-                <li class="filterDiv physics">
+                <li   class="mix-target filterDiv physics">
 
                     <div class="container">
 
@@ -3366,7 +3367,7 @@ Course day consumer city house in western. School manage today truth next withou
 
                 </li>
             
-                <li class="filterDiv sport">
+                <li   class="mix-target filterDiv sport">
 
                     <div class="container">
 
@@ -3418,7 +3419,7 @@ Course day consumer city house in western. School manage today truth next withou
 
                 </li>
             
-                <li class="filterDiv maths">
+                <li   class="mix-target filterDiv maths">
 
                     <div class="container">
 
@@ -3470,7 +3471,7 @@ Course day consumer city house in western. School manage today truth next withou
 
                 </li>
             
-                <li class="filterDiv biology">
+                <li   class="mix-target filterDiv biology">
 
                     <div class="container">
 
@@ -3522,7 +3523,7 @@ Course day consumer city house in western. School manage today truth next withou
 
                 </li>
             
-                <li class="filterDiv physics">
+                <li   class="mix-target filterDiv physics">
 
                     <div class="container">
 
@@ -3574,7 +3575,7 @@ Course day consumer city house in western. School manage today truth next withou
 
                 </li>
             
-                <li class="filterDiv maths">
+                <li   class="mix-target filterDiv maths">
 
                     <div class="container">
 
@@ -3626,7 +3627,7 @@ Course day consumer city house in western. School manage today truth next withou
 
                 </li>
             
-                <li class="filterDiv biology">
+                <li   class="mix-target filterDiv biology">
 
                     <div class="container">
 
@@ -3679,7 +3680,7 @@ Line yet manager house usually. Half cultural parent environment thus step execu
 
                 </li>
             
-                <li class="filterDiv physics">
+                <li   class="mix-target filterDiv physics">
 
                     <div class="container">
 
@@ -3732,7 +3733,7 @@ Top through area second enough key collection. Support on prepare edge during re
 
                 </li>
             
-                <li class="filterDiv sport">
+                <li   class="mix-target filterDiv sport">
 
                     <div class="container">
 
@@ -3784,7 +3785,7 @@ Top through area second enough key collection. Support on prepare edge during re
 
                 </li>
             
-                <li class="filterDiv maths">
+                <li   class="mix-target filterDiv maths">
 
                     <div class="container">
 
@@ -3837,7 +3838,7 @@ Laugh out claim of nearly. Help over section former executive toward.</p>
 
                 </li>
             
-                <li class="filterDiv biology">
+                <li   class="mix-target filterDiv biology">
 
                     <div class="container">
 
@@ -3889,7 +3890,7 @@ Laugh out claim of nearly. Help over section former executive toward.</p>
 
                 </li>
             
-                <li class="filterDiv physics">
+                <li   class="mix-target filterDiv physics">
 
                     <div class="container">
 
@@ -3942,7 +3943,7 @@ Production authority day everybody. Someone Republican item contain card west di
 
                 </li>
             
-                <li class="filterDiv computer_science">
+                <li   class="mix-target filterDiv computer_science">
 
                     <div class="container">
 
@@ -3995,7 +3996,7 @@ Price check network Mrs break perhaps hand.</p>
 
                 </li>
             
-                <li class="filterDiv maths">
+                <li   class="mix-target filterDiv maths">
 
                     <div class="container">
 
@@ -4048,7 +4049,7 @@ Will establish also firm body out church.</p>
 
                 </li>
             
-                <li class="filterDiv computer_science">
+                <li   class="mix-target filterDiv computer_science">
 
                     <div class="container">
 
@@ -4100,7 +4101,7 @@ Will establish also firm body out church.</p>
 
                 </li>
             
-                <li class="filterDiv computer_science">
+                <li   class="mix-target filterDiv computer_science">
 
                     <div class="container">
 
@@ -4153,7 +4154,7 @@ Federal budget fear perform anyone question. Ready less among animal police.</p>
 
                 </li>
             
-                <li class="filterDiv computer_science">
+                <li   class="mix-target filterDiv computer_science">
 
                     <div class="container">
 
@@ -4206,7 +4207,7 @@ Alone her know age them ready. Second letter treat social. Apply about scientist
 
                 </li>
             
-                <li class="filterDiv biology">
+                <li   class="mix-target filterDiv biology">
 
                     <div class="container">
 
@@ -4261,7 +4262,7 @@ Coach letter high.</p>
 
                 </li>
             
-                <li class="filterDiv physics">
+                <li   class="mix-target filterDiv physics">
 
                     <div class="container">
 
@@ -4314,7 +4315,7 @@ Partner strong place really material. Industry camera how. Wide kind whole firm.
 
                 </li>
             
-                <li class="filterDiv biology">
+                <li   class="mix-target filterDiv biology">
 
                     <div class="container">
 
@@ -4368,7 +4369,7 @@ Good across exactly point leader step.</p>
 
                 </li>
             
-                <li class="filterDiv physics">
+                <li   class="mix-target filterDiv physics">
 
                     <div class="container">
 
@@ -4422,7 +4423,7 @@ Husband soon finish term. Low scene color.</p>
 
                 </li>
             
-                <li class="filterDiv sport">
+                <li   class="mix-target filterDiv sport">
 
                     <div class="container">
 
@@ -4474,7 +4475,7 @@ Husband soon finish term. Low scene color.</p>
 
                 </li>
             
-                <li class="filterDiv physics">
+                <li   class="mix-target filterDiv physics">
 
                     <div class="container">
 
@@ -4527,7 +4528,7 @@ Skill rest get around. Style worker owner would. Chair other appear safe PM same
 
                 </li>
             
-                <li class="filterDiv biology">
+                <li   class="mix-target filterDiv biology">
 
                     <div class="container">
 
@@ -4579,7 +4580,7 @@ Skill rest get around. Style worker owner would. Chair other appear safe PM same
 
                 </li>
             
-                <li class="filterDiv physics">
+                <li   class="mix-target filterDiv physics">
 
                     <div class="container">
 
@@ -4632,7 +4633,7 @@ Safe magazine perhaps. Your position nothing investment lay partner nearly seat.
 
                 </li>
             
-                <li class="filterDiv computer_science">
+                <li   class="mix-target filterDiv computer_science">
 
                     <div class="container">
 
@@ -4685,7 +4686,7 @@ South memory reality third close. Same difference its move smile.</p>
 
                 </li>
             
-                <li class="filterDiv computer_science">
+                <li   class="mix-target filterDiv computer_science">
 
                     <div class="container">
 
@@ -4738,7 +4739,7 @@ Public star mouth dark piece. Plan along daughter visit. Public professional wro
 
                 </li>
             
-                <li class="filterDiv computer_science">
+                <li   class="mix-target filterDiv computer_science">
 
                     <div class="container">
 
@@ -4790,7 +4791,7 @@ Public star mouth dark piece. Plan along daughter visit. Public professional wro
 
                 </li>
             
-                <li class="filterDiv physics">
+                <li   class="mix-target filterDiv physics">
 
                     <div class="container">
 
@@ -4843,7 +4844,7 @@ Outside tell hospital total often small year the. Garden either speech successfu
 
                 </li>
             
-                <li class="filterDiv sport">
+                <li   class="mix-target filterDiv sport">
 
                     <div class="container">
 
@@ -4895,7 +4896,7 @@ Outside tell hospital total often small year the. Garden either speech successfu
 
                 </li>
             
-                <li class="filterDiv biology">
+                <li   class="mix-target filterDiv biology">
 
                     <div class="container">
 
@@ -4948,7 +4949,7 @@ Wish court agent security person call economy couple. Poor various evening per. 
 
                 </li>
             
-                <li class="filterDiv maths">
+                <li   class="mix-target filterDiv maths">
 
                     <div class="container">
 
@@ -5001,7 +5002,7 @@ Hot data lose daughter hear by.</p>
 
                 </li>
             
-                <li class="filterDiv computer_science">
+                <li   class="mix-target filterDiv computer_science">
 
                     <div class="container">
 
@@ -5053,7 +5054,7 @@ Hot data lose daughter hear by.</p>
 
                 </li>
             
-                <li class="filterDiv sport">
+                <li   class="mix-target filterDiv sport">
 
                     <div class="container">
 
@@ -5107,7 +5108,7 @@ Human hour less present exist PM spring. Night trip stay entire.</p>
 
                 </li>
             
-                <li class="filterDiv maths">
+                <li   class="mix-target filterDiv maths">
 
                     <div class="container">
 
@@ -5159,7 +5160,7 @@ Human hour less present exist PM spring. Night trip stay entire.</p>
 
                 </li>
             
-                <li class="filterDiv physics">
+                <li   class="mix-target filterDiv physics">
 
                     <div class="container">
 
@@ -5212,7 +5213,7 @@ Develop admit player firm life try price. Which source at include. Heavy scienti
 
                 </li>
             
-                <li class="filterDiv maths">
+                <li   class="mix-target filterDiv maths">
 
                     <div class="container">
 
@@ -5264,7 +5265,7 @@ Develop admit player firm life try price. Which source at include. Heavy scienti
 
                 </li>
             
-                <li class="filterDiv sport">
+                <li   class="mix-target filterDiv sport">
 
                     <div class="container">
 
@@ -5318,8 +5319,8 @@ Radio open own common important try. Movement believe page middle suffer last le
                 </li>
             
 
-        </ul>
-
+            </ul>
+        </div>
     </div>
 
 
@@ -5362,11 +5363,16 @@ Radio open own common important try. Movement believe page middle suffer last le
 
         <p id="Cyber"></p>
         
-        <p id="data security"></p>
+        <p id="data_security"></p>
 
 </div>
     
-        <script src="static/portal/javascript/tagsFilter.js" >  </script>
+        <script src="static/portal/javascript/newfilter.js" >  </script>
+        <script src="../../../../j.js"></script>
+       <!--  <script>
+            var containerEl = document.querySelector('#mix-wrapper');
+            var mixer = mixitup(containerEl);
+        </script> -->
     
     </body>
 </html>

@@ -1,0 +1,65 @@
+.controllers_container,
+.projects_list {
+	margin: 8px 0 0 0;
+}
+
+.controllers_container button , .filter-btn ,.toggle-btn{
+	outline: none;
+	margin-bottom: 0;
+	background: whitesmoke;
+	height: auto;
+	font-weight: normal;
+	border: 1px solid #ededed;
+	color: #000000;
+	font-size: 14px;
+	padding: 4px 30px ;
+	text-shadow: 0px 0px 0px #2f6627;
+}
+
+.controllers_container button:hover {
+	background: #99cfe0;
+}
+
+
+.controllers_container button.controllers_container-filter-btn-active,
+.controllers_container button.controllers_container-toggle-btn-active,
+.controllers_container button.controllers_container-sort-btn-active {
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5) inset, 0px 0px 1px transparent;
+	background: #3a9fbf;
+	color: white;
+}
+
+.projects_list {
+	margin-bottom: 15px;
+	font-size: 0;
+	
+}
+
+.projects_list li {
+	text-align: center;
+	font-size: 14px;
+	display: inline-block;
+	width: 46%;
+	margin: 0 2%;
+}
+
+.projects_list a:hover {
+	background: #99cfe0;
+}
+
+@media only screen and (min-width: 750px) {
+
+	.controllers_container {
+		width: 95%;
+	}
+
+	.controllers_container {
+		margin-bottom: 0;
+	}
+
+
+	.projects_list li {
+		width: 21%;
+	}
+
+}

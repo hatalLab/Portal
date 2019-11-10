@@ -119,22 +119,5 @@ body {
 
 .categories-container {
     display: flex;
-    justify-content: center;
-}
-
-.categories-container button, .fixed-container button {
-    background-color: inherit;
-    color: rgb(21, 0, 36);
-    text-align: center;
-    border: none;
-}
-
-.categories-container button:hover, .fixed-container button:hover {
-    cursor: pointer;
-    background-color: rgb(147, 76, 175);
-}
-
-.categories-container button:focus {
-    outline: none;
-    border: none;
+    justify-content: stretch !important;
 }
