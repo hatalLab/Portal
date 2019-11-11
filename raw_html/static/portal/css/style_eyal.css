@@ -38,3 +38,7 @@
     flex-shrink: 1;
     flex-grow: 1;
 }
+
+#img_label{
+    background-color: transparent;
+}

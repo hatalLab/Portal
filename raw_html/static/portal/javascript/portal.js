@@ -1,4 +1,4 @@
-let caftor= document.getElementById("plus").addEventListener("click",()=>{window.location.href="https://eloquentjavascript.net/index.html"})
+/* let caftor= document.getElementById("plus").addEventListener("click",()=>{window.location.href="https://eloquentjavascript.net/index.html"})
 function filtercategory(c) {
   if(c=="all") {
     var a = document.getElementById("list").getElementsByClassName("filterDiv");
@@ -21,3 +21,4 @@ function filtercategory(c) {
  }
 
 }
+ */

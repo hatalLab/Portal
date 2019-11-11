@@ -16,11 +16,37 @@ let milisec=300;
 let oneMiliSec=1;
 
 function allbuttons(){
+    let num=1;
+    num2=favorites.length+1;
+    num3=-1;
+    $(".mix-target").each(function(i,li){
+        let className=$(this)[0].className;
+        let found=false;
+        for(let tag of favorites){
+            let index=className.indexOf(tag);
+            if(index > -1){
+                found=true;
+                 $(this).attr("data-interest",num);
+                 $(this).attr("data-order",favorites.indexOf(className));
+                 num++;
+                 break;
+            }
+        }
+        
+        if(!found){
+            $(this).attr("data-order",num2);
+            $(this).attr("data-interest",num3);
+            num2++;
+            num3--;
+        }
+        found=false;
+    });
+
     for(let item of favorites) { //appending the user interested tags
-        $(".categories-container").append(`<button class="filter-btn toggle-btn" data-toggle=".${item}" name='${item}'>${item.replace(/_/g,' ')}</button>`);
+        $(".categories-container").append(`<button class="filter-btn toggle-btn" data-toggle=".${item}"  name='${item}'>${item.replace(/_/g,' ')}</button>`);
     }
     for(let item of restTags) { //appending the user interested tags
-        $(".categories-container").append(`<button class="filter-btn toggle-btn" data-toggle=".${item}" name='${item}'>${item.replace(/_/g,' ')}</button>`);
+        $(".categories-container").append(`<button class="filter-btn toggle-btn" data-toggle=".${item}"  name='${item}'>${item.replace(/_/g,' ')}</button>`);
         $(".categories-container > button[name='"+item.replace(/\s/g,'_') + "']").hide(oneMiliSec);
     }
     if (favorites.length<maxCategoriesLength) {
@@ -29,13 +55,17 @@ function allbuttons(){
             $(".categories-container > button[name='"+restTags[i].replace(/\s/g,'_') + "']").show(milisec);   
         }
     }
+   
+
+   format();    
 }
+
 
 allbuttons();
 function format(){
 var mixer=mixitup('#mix-wrapper', {
     load: {
-        sort: 'order:asc'
+        sort: 'order:asc interest:asc'
     },
       animation: {
     //   effects: 'fade rotateZ(-180deg)',
@@ -52,11 +82,14 @@ var mixer=mixitup('#mix-wrapper', {
     },
     selectors: {
       target: '.mix-target'
+    },
+    controls: {
+        toggleLogic: 'and'
     }
   });
 }
 
-format();
+
 
 function filter(input) {
     input = input.toUpperCase();
