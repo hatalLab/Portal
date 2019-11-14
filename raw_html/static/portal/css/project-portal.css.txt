@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  background-color: #f2f2f2;
+}
+ .navbar{
+    display: flex;
+    justify-content:center;
+}
+.navbar-1{
+    display: flex;
+    text-align: justify;
+    justify-content:center;
+    
+}
+
+
+/*table*/
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    padding: 8px;
+  }
+  
+  
+  .Square{
+    width: 19.5%;
+    height: 80px;
+  }
+  .Square1{
+    width: 19.5%;
+    height: 80px;
+  }
+  .Square2{
+    width: 15.7%;
+    height: 80px;
+  }
+  .Square3{
+    width: 35%;
+    height: 80px;
+  }
+  .Square4{
+    width: 8.65%;
+    height: 80px;
+  }
+  .form_container {
+    width: 450px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.form_container {
+  width: 250px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.DefaultForm {
+  width: 100%;
+}
+
+.DefaultForm input, select, textarea {
+  box-sizing: border-box;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  background-color: white;
+}
+
+.DefaultForm select:hover{
+  cursor: pointer;
+}
+
+.DefaultForm label {
+  padding: 7px 0;
+  display: inline-block;
+}
+
+
