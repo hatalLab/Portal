@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+      
+    <link rel="stylesheet" type="text/css" href="./project-portal.css" />
+
+  </head>
+  <body>
+    
+       
+   <div class ="navbar"> <h1>:פורמט הגשת פרויקט לפורטל הפרויקטים</h1></div>
+   <div class="form_container">
+      <form class="DefaultForm UserForm" action="" method="post" autocomplete="off">
+          <input type="hidden" name="csrfmiddlewaretoken" value="hDFqUuecGj1wOEHnN0HTwEKSGIBBDtP146JU8weNt0AD02iIV9qEQoEYhNig1AP5">
+          <tr><th><label for="id_id">:שם הפרויקט</label></th><td><input type="text" name="id" required id="id_id"></td></tr>
+<tr><th><label for="id_name">:סיווג הפרויקט</label></th><td><input type="text" name="name" maxlength="64" required id="id_name"></td></tr>
+<tr><th><label for="id_name">:יחידה/מחלקה מובילה</label></th><td><input type="text" name="name" maxlength="64" required id="id_name"></td></tr>
+<tr><th><label for="id_name">:איש קשר</label></th><td><input type="text" name="name" maxlength="64" required id="id_name"></td></tr>
+<tr><th><label for="id_name">:פירוט הצורך</label></th><td><input type="text" name="name" maxlength="64" required id="id_name"></td></tr>
+<tr><th><label for="id_name">:תיאור הפרויקט</label></th><td><input type="text" name="name" maxlength="64" required id="id_name"></td></tr>
+      </form>
+  </div>
+      </div>
+      <br>
+ 
+   <div class="navbar-1"><button onclick="myFunction()">:צורת מימוש לפי שלבים</button></div>
+   <br>
+   <table>
+    <tr>     
+      <th>זמן להשלמה</th>
+      <th>כלים נדרשים</th>
+      <th>כ"א נדרש</th>
+      <th>תיאור המשימה בשלב זה</th> 
+      <th>שלב</th>
+    </tr>
+    </table>
+    
+    
+<script>
+  function myFunction() {
+  
+    var x = document.createElement("INPUT");
+    var y = document.createElement("INPUT");
+    var z = document.createElement("INPUT");
+    var w = document.createElement("INPUT");
+    var j = document.createElement("INPUT");
+
+     x.setAttribute("type", "datetime");
+    x.setAttribute("value", "")
+    y.setAttribute("type", "datetime");
+    y.setAttribute("value", "")
+    z.setAttribute("type", "datetime");
+    z.setAttribute("value", "")
+    w.setAttribute("type", "datetime");
+    w.setAttribute("value", "")
+    j.setAttribute("type", "datetime");
+    j.setAttribute("value", "")
+
+    document.body.appendChild(x);
+    x.classList.add("Square");
+    document.body.appendChild(y);
+    y.classList.add("Square1");
+    document.body.appendChild(z);
+    z.classList.add("Square2");
+    document.body.appendChild(w);
+    w.classList.add("Square3");
+    document.body.appendChild(j);
+    j.classList.add("Square4");
+  }
+  </script>
+  </body>
+</html>
