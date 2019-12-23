@@ -1,1 +1,0 @@
-<img {%  for a_name, a_value in widget.attrs.items %} {{ a_name }}="{{ a_value }}"{% endfor %}>
