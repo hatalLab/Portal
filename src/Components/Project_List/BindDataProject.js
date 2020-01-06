@@ -18,17 +18,23 @@ const List=styled.ul`
     justify-content: space-between;
     padding: 0;
     list-style-type: none;
+
+    & > li {
+        padding: 10px 5px;
+text-align: center;
+    }
 `;
 
-const Item = styled.li`
-padding: 10px 5px;
-text-align: center;
-`;
+
+// const Item = styled.li`
+// padding: 10px 5px;
+// text-align: center;
+// `;
 
 function BindProjectList(){
 let list=[];    //list will hold all the project list
 for(let i=0;i<100;i++){
-    list.push(<Item className={Data[0].categories.toString().replace(',',' ')} id ="mix_target" key= {i}><ModalPage  data={Data[0]}/></Item>)
+    list.push(<li className = {Data[0].categories.toString().replace(',',' ')} id ="mix_target" key= {i}><ModalPage  data={Data[0]}/></li>)
 }
 //console.log(Data[0].categories.toString().replace(',',' '));
 

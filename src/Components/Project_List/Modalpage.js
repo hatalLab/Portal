@@ -5,7 +5,7 @@ import{ Modal} from 'react-bootstrap'
 import styled from 'styled-components'
 import logo from './project-default.png'
 import './ModalStyle.css'
-
+//import {RowStyle,ColStyle,HeadingStyle,PStyle} from '../../styles/Styles'
 /* const Title=styled.div`
 display: flex;
 justify-content: space-between;
@@ -17,7 +17,7 @@ const RowStyle=styled.div`
   justify-content: space-between;
   flex-direction: row;
   dir:rtl;
-  padding:10px;
+  padding:10px 40px;
 `;
 
 const ColStyle=styled.div`
@@ -36,6 +36,7 @@ padding:10px;
 const PStyle=styled.p`
 text-align: justify;
 direction: rtl;
+padding: 0 40px;
 `;
 
 //this modal page is from react-bootstrap
@@ -51,7 +52,7 @@ function MyVerticallyCenteredModal(props) {
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
               {props.data.front_title}
-         
+              {props.data.platoon}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -82,14 +83,17 @@ function MyVerticallyCenteredModal(props) {
               פירוט:
             </HeadingStyle>
             <PStyle>
-              כעכיע ךחךיעלחכג לךחיחעיכע וךלחףךילעחכ עליחלחךיעכ ילךחתעיחכ ןךלעחכיע ךלחעי ךלחכי ךלחי ךלחי ןךלוחטיא ךל חיךלחי עףםןוט 
-            </PStyle>
+              {props.data.details}
+              </PStyle>
           </ColStyle>
         </RowStyle>
         
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+        <RowStyle>
+        <Button variant = "danger" onClick={props.onHide}>סגירה</Button>
+        <Button>הצטרפות</Button>
+        </RowStyle>
       </Modal.Footer>
     </Modal>
   );

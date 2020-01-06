@@ -9,7 +9,7 @@ const Container = styled.div`
     display: flex;
     margin: 0;
     width: 100%
-    background-color: #2f2f2f ;
+    background-color: #000;
     justify-content: space-between;
     align-items: center;
 `;
@@ -46,7 +46,7 @@ const Logo =styled.img`
 
 
 
-function Navbar(){
+const Navbar = () => {
     return (
         <Container> 
             <Comment>Navbar container</Comment>
