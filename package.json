@@ -20,7 +20,8 @@
     "react-transition-group": "^4.3.0",
     "redux": "^4.0.4",
     "styled-components": "^4.4.1",
-    "superagent": "^5.1.2"
+    "superagent": "^5.1.2",
+    "yup": "^0.28.0"
   },
   "scripts": {
     "start": "react-scripts start",

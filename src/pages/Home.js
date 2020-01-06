@@ -126,7 +126,7 @@ class ControlledHomePage extends Component{
             
             temp.push(
             {
-                project: <li className = {categories} id ="mix_target" key= {project.No}>
+                project: <li className = {categories} id ="mix_target" key= {project.Project_id}>
                             <ModalPage  data={project}/>
                         </li>,
                 categories: categories,
