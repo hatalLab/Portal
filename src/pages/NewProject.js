@@ -5,7 +5,7 @@ import Img_Src from '../static/images/project-default.png'
 import { withFormik, Form, Field } from 'formik'
 import * as Yup from 'yup'
 import UploadImage from '../Components/UploadPic'
-
+import TextareaAutosize from 'react-textarea-autosize';
 
 const StyledContainer = styled.div`
     display: flex;
@@ -33,17 +33,22 @@ const StyledRow=styled.div`
   padding:10px 40px;
 `;
 
+const TextArea =(minRowSize = 4) => (
+    <TextareaAutosize 
+    minRows = {minRowSize} />
+)
 
 const NewProjectForm = ({ values, errors, touched }) => {
     return (
-        <Form>
+        <Form style = {{direction: "rtl"}}>
             <StyledRow>
                 <StyledCol>
                     <StyledHeading>שם הפרויקט:</StyledHeading>
                     {/* where to add the errors section */}
-                    <Field as ="textarea" name= "name" placeholder = "שם הפרויקט" /><br />
+                    <Field type="text" name= "name" placeholder = " שם הפרויקט " /><br />
                     <StyledHeading>תיאור הפרויקט:</StyledHeading>
-                    <Field as="textarea" name="description" placeholder = "תיאור הפרויקט" />
+                    <Field component = {TextArea} placeholder ="a" />
+                    {/* <Field component="textarea" name="description" placeholder = " תיאור הפרויקט " /> */}
                 </StyledCol>
             </StyledRow>
             <button type="submit">שלח</button>

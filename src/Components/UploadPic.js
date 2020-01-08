@@ -1,23 +1,23 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
-import Comment from '../Components/Comments'
-// import Img_Src from '../static/images/project-default.png'
+//import Comment from '../Components/Comments'
+import Img_Src from '../static/images/project-default.png'
 
-const StyledContainer = styled.div`
+const StyledContainer = styled.div `
     display: flex;
     width: 90%
     direction: rtl;
     margin: 100px auto;
 `
 
-const StyledRow = styled.div`
+const StyledRow = styled.div `
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     direction: rtl;
     padding: 10px;
 `
-const StyledImgContainer = styled.div`
+const StyledImgContainer = styled.div `
     position: relative;
 
     &:hover .image {
@@ -28,17 +28,17 @@ const StyledImgContainer = styled.div`
         opacity: 1;
     }
 `
-const StyledImg =styled.img`
-    opacity: 1;
-    display: block;
-    width: 300px;
-    height: 300px;
-    transition: .5s ease;
-    backface-visibility: hidden; 
-`
+const ImageStyle = {
+    opacity: 1,
+    display: "block",
+    width: "300px",
+    height: "300px",
+    transition: ".5s ease",
+    backfaceVisibility: "hidden"
+}
 
 // middle
-const StyledMiddle = styled.div`
+const StyledMiddle = styled.div `
     transition: .5s ease;
     opacity: 0;
     position: absolute;
@@ -47,7 +47,7 @@ const StyledMiddle = styled.div`
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%); 
 `
-const StyledEdit = styled.div`
+const StyledEdit = styled.div `
     display: flex;
     justify-content: center;
     background-color: #2f2f2f;
@@ -58,37 +58,53 @@ const StyledEdit = styled.div`
     }
 `
 
-const StyledInput =styled.input`
+const StyledInput = styled.input `
     visibility: hidden;
 `
-const StyledP =styled.p`
+const StyledP = styled.p `
     padding: 12px 5px 0 5px;
-`
+ `
 
-const UploadImage = (props) => {
-    return (
-        <StyledContainer>
-            <StyledRow>
-                <label id = "img_label" htmlFor = "id_img">
-                    <StyledImgContainer>
-                        <StyledImg className = "image" id ="project_pic" title = "הוספת תמונה לפרויקט" src = {props.img} alt = "upload picture" />
-                        <StyledMiddle className = "middle">
-                            <StyledEdit>
-                                <div> 
-                                    <StyledP>
-                                        {/*<p>*/}&#x1f589; העלאת תמונה {/*</p>*/} 
-                                        
-                                    </StyledP>      
-                                    </div>
-                                    
-                            </StyledEdit>
-                        </StyledMiddle>
-                    </StyledImgContainer>
-                </label>
-                <StyledInput type = "file" name = "img" id = "id_img" accept = "image/*" required />
-            </StyledRow>            
-        </StyledContainer>
-    )
-   }
+class UploadImage extends Component {
+    constructor() {
+        super()
+        this.state = {
 
-   export default UploadImage
+            // file conains the imageto be shown
+            file: Img_Src
+        }
+        this.handleChange = this.handleChange.bind(this)
+    }
+
+    handleChange(event) {
+        // change file to the selected image 
+        this.setState({
+            file: URL.createObjectURL(event.target.files[0])
+        })
+    }
+
+    render() {
+        return ( 
+            <StyledContainer >
+                    <StyledRow >
+                        <label id = "img_label" htmlFor = "id_img" >
+                            <StyledImgContainer >
+                                <img className = "image" id = "project_pic" title = "הוספת תמונה לפרויקט"src = { this.state.file } alt = "העלאת תמונה לפרויקט" style = { ImageStyle } /> 
+                                <StyledMiddle className = "middle" >
+                                    <StyledEdit>
+                                        <div>
+                                            <StyledP > &#x1f589; העלאת תמונה </StyledP>  
+                                        </div>
+                                    </StyledEdit>
+                                </StyledMiddle>
+                            </StyledImgContainer>
+                        </label>
+                        <StyledInput type = "file" name = "img" id = "id_img" accept = "image/*" required onChange = { this.handleChange } />
+                    </StyledRow>
+            </StyledContainer>
+        )
+    }
+}
+
+
+export default UploadImage
