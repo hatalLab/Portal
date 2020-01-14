@@ -12,7 +12,6 @@ import NewProject from './NewProject'
 function Router(){
     return (
         <BrowserRouter>
-        <div>
                             <Navbar />
                 <Switch>
                    
@@ -31,7 +30,6 @@ function Router(){
                         <NewProject />
                     </Route>
                 </Switch>
-                </div>
 
             </BrowserRouter>
     )

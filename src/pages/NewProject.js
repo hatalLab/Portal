@@ -22,54 +22,88 @@ const StyledCol=styled.div`
 display: flex;
 flex-direction: column;
 dir:rtl;
-padding:10px;
-`;
+padding:10px;`
 
 const StyledRow=styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  dir:rtl;
+  direction: rtl;
   padding:10px 40px;
-`;
+`
 
-const TextArea =(minRowSize = 4) => (
-    <TextareaAutosize 
-    minRows = {minRowSize} />
-)
+const StyledErrorMessage = styled.p`
+    color: red;
+    align-self: center;`
+
+const StyledFormContainer= styled.div`
+    width: 90%;
+    margin: 50px auto;
+` 
+const TextArea = ({ field, form, ...props}) => {
+    return (
+      <TextareaAutosize   style={{boxSizing: 'border-box', resize: 'both', direction: 'rtl', width: '200px'}}
+      
+      {...field} {...props}
+      />
+    )
+  }
 
 const NewProjectForm = ({ values, errors, touched }) => {
     return (
-        <Form style = {{direction: "rtl"}}>
-            <StyledRow>
-                <StyledCol>
-                    <StyledHeading>שם הפרויקט:</StyledHeading>
-                    {/* where to add the errors section */}
-                    <Field type="text" name= "name" placeholder = " שם הפרויקט " /><br />
-                    <StyledHeading>תיאור הפרויקט:</StyledHeading>
-                    <Field component = {TextArea} placeholder ="a" />
-                    {/* <Field component="textarea" name="description" placeholder = " תיאור הפרויקט " /> */}
-                </StyledCol>
-            </StyledRow>
-            <button type="submit">שלח</button>
-        </Form>
+        <StyledFormContainer>
+            <Form  >
+                <StyledRow className="StyledRow2">
+
+                    <StyledCol>
+                        <StyledHeading>שם הפרויקט:</StyledHeading>
+                        {/* <Field type="text" name= "name" placeholder = " שם הפרויקט " /><br /> */}
+                        <Field name ="name" minRows={1} maxRows={3} component={TextArea} placeholder = " שם הפרויקט " /><br />
+                        {touched.name && errors.name && <StyledErrorMessage>{errors.name}</StyledErrorMessage>}
+                        
+                        <StyledHeading>תיאור הפרויקט:</StyledHeading>
+                        <Field name = "description" minRows={5} component={TextArea} placeholder = " תיאור הפרויקט " />
+                        {touched.description && errors.description && <StyledErrorMessage>{errors.description}</StyledErrorMessage>}
+
+                        <StyledHeading>מחלקה: </StyledHeading>
+                        <Field name = "platoon" minRows={1} maxRows={2} placeholder=" מחלקה" component={TextArea} />
+                        {touched.platoon && errors.platoon && <StyledErrorMessage>{errors.platoon}</StyledErrorMessage>}
+
+
+                    </StyledCol>
+                    <Field name = 'input' component={UploadImage} />
+                        {touched.input && errors.input && <StyledErrorMessage>{errors.input}</StyledErrorMessage>}
+                </StyledRow>
+                <button type="submit">שלח</button>
+            </Form>
+        </StyledFormContainer>
     )
 }
 
+let SUPPORTED_FORMATS=['JPG']
 const FormikApp = withFormik(
     {
-        mapPropsToValues( { name, description }) {
+        mapPropsToValues( { name, description, input, platoon }) {
             return {
                 name: name || '',
                 description: description || '',
+                input: input || '',
+                platoon: platoon || ''
             }
         },
         validationSchema: Yup.object().shape({
-            name: Yup.string().required(),
-            description: Yup.string().min(15).required()
+            name: Yup.string().required('name is required!'),
+            description: Yup.string().min(15).required('description is required!'),
+            input: Yup.mixed().required('image is required!'),
+            //Yup.mixed() .test('fileSize', "File Size is too large", value => value.size <= FILE_SIZE) .test('fileType', "Unsupported File Format", value => SUPPORTED_FORMATS.includes(value.type) )
+            platoon:Yup.string().required('platoon is required!'),
         }),
+        validateOnBlur:true
+,
         handleSubmit(values) {
-            console.log(JSON.stringify(values));
+            console.log("the values");
+            
+            console.log(values);
             
         }
     }
@@ -134,16 +168,14 @@ const FormikApp = withFormik(
 // }
 
 
+
 function HomePage(){
     return (
-        <StyledRow>
+        
+            <>
             <FormikApp />
-            <StyledContainer>
-            {/* <Comment>HomePage ./src/pages/homePage.js</Comment> */}
-            <StyledHeading>הוספת פרויקט חדש</StyledHeading>
-                <UploadImage img ={Img_Src}/>
-            </StyledContainer>
-        </StyledRow>
+</>
+         
     )
 }
 

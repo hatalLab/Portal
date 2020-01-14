@@ -5,6 +5,7 @@ import{ Modal} from 'react-bootstrap'
 import styled from 'styled-components'
 import logo from './project-default.png'
 import './ModalStyle.css'
+const path =require('path')
 //import {RowStyle,ColStyle,HeadingStyle,PStyle} from '../../styles/Styles'
 /* const Title=styled.div`
 display: flex;
@@ -40,7 +41,7 @@ padding: 0 40px;
 `;
 
 //this modal page is from react-bootstrap
-function MyVerticallyCenteredModal(props) {  
+function MyVerticallyCenteredModal(props) {
   return (
     <Modal
       {...props}
@@ -57,7 +58,7 @@ function MyVerticallyCenteredModal(props) {
       </Modal.Header>
       <Modal.Body>
         <RowStyle>
-        <img src={logo}  alt ="logo"/>
+        <img src={require(`${props.data.img_src}`)}  alt ="logo"/>
         <ColStyle>
             <HeadingStyle>תיאור הפרויקט:</HeadingStyle>
             <PStyle>
@@ -106,7 +107,7 @@ function ModalPage(props) {
       {/* <Button variant="primary" onClick={() => setModalShow(true)}>
         Launch vertically centered modal
       </Button> */}
-      <img src = {logo} alt = "pic" onClick ={() => setModalShow(true)} />
+      <img src = {require(`${props.data.img_src}`)} alt = "pic" onClick ={() => setModalShow(true)} />
       <MyVerticallyCenteredModal
         show={modalShow}
         onHide={() => setModalShow(false)}

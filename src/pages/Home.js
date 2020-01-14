@@ -1,28 +1,30 @@
 import React, { Component, useState } from 'react'
 import styled from 'styled-components'
-import ModalPage from '../Components/Project_List/Modalpage'
+// import ModalPage from '../Components/Project_List/Modalpage'
+import ModalPage from '../Components/Project_List/Modal'
 import { data as projectsData, tags, favoriteTags as FavoriteTags, interestedProjects } from '../static/data/rowData'
 import Comment from '../Components/Comments'
 
-
 // styled components
+
 // main container
 const HomeContainer =styled.div`
-direction: rtl;
-`
+    direction: rtl;`
+
 // container with flex-direction of row
 const StyledRow = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  dir:rtl;
-  padding: 10px 40px;
-`
-// container of all categories
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    dir:rtl;
+    padding: 10px 40px;`
+
+// container of all categories - categories section
 const StyledBar = styled(StyledRow)`
-    background-color: #dce9ed;
-    padding: 0;
-`
+margin-top:50px;
+    background-color: white;
+    padding: 0;`
+
 // container of every category
 const StyledTagContainer = styled.div`
     margin: 0;
@@ -30,25 +32,28 @@ const StyledTagContainer = styled.div`
     height: 100%;
     display: flex;
     justify-content: center;
+    
     &:hover {
         background-color: black;
+        
         & > * {
             color: white;
         }
-    }
-`
+    }`
+
 // the categories
 const StyledTag = styled.a`
     padding: 0px 10px;
     color: black;
+    
     &:hover {
         text-decoration: none;
-    }
-`
+    }`
+
 // the search project component 
 const StyledInput =styled.input`
-    size:"35";
-`
+    size:"35";`
+
 /*Background and Modal open is used for modal that containing therest of the categories*/
 
 // Background is outside of the modal
@@ -59,9 +64,8 @@ const Background =styled.div`
     left: 0px;
     right: 0px;
     bottom: 0px;
-    opacity:    ${props => props.open ? "1" : "0"};
-    visibility: ${props => props.open ? "visible" : "hidden"};
-`
+    opacity: ${props => props.open ? "1" : "0"};
+    visibility: ${props => props.open ? "visible" : "hidden"};`
 
 // ModalOpen is the modal
 const ModalOpen = styled.div`
@@ -70,25 +74,25 @@ const ModalOpen = styled.div`
     transition: -webkit-transform 0.3s ease-out 0s;
     will-change: transform;
     overflow-y: auto;
-    background: #dce9ed;
+    background: white;
     width: 80%;
     left: 50%;
     text-align: center;
     height: 40vh;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 10px 10px 0 0;
+    border-radius: 0 0 10px 10px;
     right: 0px;
     transform: ${props => props.open ? "translateX(-50%)" : "translateY(-100%)" };
     visibility: ${props => props.open ? "visible" : "hidden"};
-    box-shadow:rgba(0, 0, 0 ,0.15) -2px 2px 4px;
-`
+    box-shadow:rgba(0, 0, 0 ,0.15) -2px 2px 4px;`
+
 // container of the project list
 const StyledContainer = styled.div`
     display: flex;
     width: 90%;
-    flex-wrap: wrap;
     margin: 100px auto;
-`;
+    flex-wrap: wrap;`
+
 // ul of the project list
 const StyledList=styled.ul`
     display: flex;
@@ -97,48 +101,27 @@ const StyledList=styled.ul`
     padding: 0;
     list-style-type: none;
     flex-direction: row-reverse;
+    
     & > li {
         padding: 10px 5px;
         text-align: center;
-    }
-`
-
-// const StyledFilterContainer = styled.div`
-//     display: flex;
-//     justify-content: center;
-//     flex-direction: column;
-//     margin: 50px auto;
-//     width: 60vw;
-// `;
-
-
-// const StyledTagsContainer = styled.div`
-//     display: flex;
-//     flex-direction: row;
-// `
-
-
-
-
-
-// const StyledCenteredRow=styled(StyledRow)`
-//     justify-content: center;
-//`
-// const StyledCol = styled.div`
-// display: flex;
-// flex-direction: column;
-// dir:rtl;
-// padding:10px;
-// `;
-
-
-
-
-
+    }`
 
 // determine how many tags to show in the tags section
-let numberOfTags=5;
+let numberOfTags=10;
+const StyledArrow =styled.div`
+cursor: pointer;
+justify-content: center;
+align-items: center;
+&:hover {
+    color: white;
+}`
 
+const StyledCenteredP  = styled.p`
+    text-align: center;
+    padding: 10px;
+    overflow-y: auto;
+`
 // handling tags section. handeling tags section content, opening and closing modal of rest of tags and its content 
 const Modal = (props) => {
     // state for should modal be open or not
@@ -158,33 +141,34 @@ const Modal = (props) => {
     }
     // remove from rest tags the tags that we added to tags section in the last loop
     restTags.splice(0,TagsToAdd)
-    tagsList.push(<StyledTagContainer key = "ModalOpen" onClick = {() => setModalShow(true)}> &#11167;<StyledTag></StyledTag></StyledTagContainer>)
+    tagsList.push(<StyledTagContainer key = "ModalOpen" onClick = {() => setModalShow(true)}> <StyledArrow>&#11167;</StyledArrow><StyledTag></StyledTag></StyledTagContainer>)
   return (
       <>
         <StyledBar>
-                {tagsList}
+            {tagsList}
         </StyledBar>
         <Background onClick = {() => setModalShow(false)} open = {modalShow} />
-            <div className="xyz">
         <ModalOpen open ={modalShow}>
             <ModalContent AllTags={restTags} handleChange={props.handleChange} />
         </ModalOpen>
-            </div>
       </>
   )
 }
+
+const StyledWrapped =styled(StyledRow)`
+    flex-wrap: wrap;`
 
 // this function is responsible for the content of the modal (insert the rest of the tags)
 const ModalContent = (props) => {
     let list =[]
     list.push(<StyledTagContainer key="XXX" onClick = {event => props.handleChange(event)}><p name = "xxx">ב</p></StyledTagContainer>)
     for(let tag of props.AllTags){
-        list.push(<StyledTagContainer key = {tag}><StyledTag onClick = {event => props.handleChange(event)}>{tag}</StyledTag></StyledTagContainer>)
+        list.push(<StyledTagContainer key = {tag}><StyledTag onClick = {event => props.handleChange(event)} href="#">{tag}</StyledTag></StyledTagContainer>)
     }
     return (
-        <div>
+        <StyledWrapped>
         {list}
-        </div>
+        </StyledWrapped>
     )
 }
 
@@ -248,9 +232,9 @@ class ControlledHomePage extends Component{
             
             temp.push(
             {
-                project: <li className = {categories} id ="mix_target" key= {project.Project_id}>
+                project: <div key= {project.Project_id}><li className = {categories} id ="mix_target" >
                             <ModalPage  data={project}/>
-                        </li>,
+                        </li><StyledCenteredP>{ project.front_title}</StyledCenteredP></div>,
                 categories: categories,
                 name: project.front_title,
                 interest: interest 
