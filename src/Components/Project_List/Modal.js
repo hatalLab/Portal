@@ -102,8 +102,7 @@ const Button = styled.button`
 const StyledContainer = styled.div`
     position: relative;
     width: ${ImageSize.width + 'px'};
-    margin: -15px;
-    
+
     &:hover .image {
         opacity: 0.2;
     }
@@ -138,14 +137,19 @@ const StyledText = styled.div`
     direction: ltr;
     color: black;
     font-size: 16px;
-    padding: 5px 5px;
     overflow-y: auto;
     width: ${ImageSize.width - 20 + 'px'};
     height: ${ImageSize.height - 20 + 'px'};
-    
+    text-align: right;
+    margin-right: 15px;
     &:focus {
         outline: none;
     }`
+
+    const StyledJustifiedParagraph=styled.p`
+    direction: rtl;
+    text-align: justify
+    padding: 0 15px 5px 0;`
 
 const Modal = (props) => {
     const [modalShow, setModalShow] = useState(false)
@@ -174,7 +178,10 @@ const Modal = (props) => {
                 <StyledImageWithHover src={require(`${props.data.img_src}`)}  alt="Avatar" className="image" onClick={()=> {console.log('clicked')}} />
                 <StyledMiddle className="middle">
                     <StyledText className="text" tabIndex = { focus ? "1" : "0"} ref = {ref} onMouseEnter = {handleHover} onMouseLeave = {handleBlur} >
+                        <StyledJustifiedParagraph>
+
                         {props.data.description}
+                        </StyledJustifiedParagraph>
                     </StyledText>
                 </StyledMiddle>
             </StyledContainer>

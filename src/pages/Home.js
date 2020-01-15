@@ -102,12 +102,12 @@ const StyledList=styled.ul`
     padding: 0;
     list-style-type: none;
     flex-direction: row-reverse;
-    
-    & > li {
-        padding: 10px 5px;
-        margin: 5px;
-        text-align: center;
-    }`
+    margin-right: -30px;`
+
+const StyledLi = styled.li`
+    padding: 10px 5px;
+    margin: 15px;
+    text-align: center;`
 
 // determine how many tags to show in the tags section
 let numberOfTags=10;
@@ -237,9 +237,9 @@ class ControlledHomePage extends Component{
             
             temp.push(
             {
-                project: <div key= {project.Project_id}><li className = {categories} id ="mix_target" >
+                project: <div key= {project.Project_id}><StyledLi className = {categories} id ="mix_target" >
                             <ModalPage  data={project} setOverFow = {this.handleOverflow}/>
-                        </li><StyledCenteredP>{ project.front_title}</StyledCenteredP></div>,
+                        </StyledLi><StyledCenteredP>{ project.front_title}</StyledCenteredP></div>,
                 categories: categories,
                 name: project.front_title,
                 interest: interest 
