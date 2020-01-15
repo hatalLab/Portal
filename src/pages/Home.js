@@ -84,7 +84,12 @@ const ModalOpen = styled.div`
     right: 0px;
     transform: ${props => props.open ? "translateX(-50%)" : "translateY(-100%)" };
     visibility: ${props => props.open ? "visible" : "hidden"};
-    box-shadow:rgba(0, 0, 0 ,0.15) -2px 2px 4px;`
+    box-shadow:rgba(0, 0, 0 ,0.15) -2px 2px 4px;
+    cursor: pointer;
+    & > * {
+        cursor: default;
+    }
+    `
 
 // container of the project list
 const StyledContainer = styled.div`
@@ -119,11 +124,25 @@ align-items: center;
     color: white;
 }`
 
-const StyledCenteredP  = styled.p`
-    text-align: center;
-    padding: 10px;
+const StyledNameContainer = styled.div`
+    direction: ltr;
     overflow-y: auto;
+    height: 80px;
+
 `
+const StyledCenteredP  = styled.p`
+    text-align: justify;
+    padding: 10px;
+    direction: rtl;
+`
+
+const StyledLiContainer = styled.div`
+    width: 300px;
+    border: 3px solid red;
+    margin-buttom`
+
+
+
 // handling tags section. handeling tags section content, opening and closing modal of rest of tags and its content 
 const Modal = (props) => {
     // state for should modal be open or not
@@ -237,9 +256,17 @@ class ControlledHomePage extends Component{
             
             temp.push(
             {
-                project: <div key= {project.Project_id}><StyledLi className = {categories} id ="mix_target" >
-                            <ModalPage  data={project} setOverFow = {this.handleOverflow}/>
-                        </StyledLi><StyledCenteredP>{ project.front_title}</StyledCenteredP></div>,
+                project:
+                        <StyledLiContainer key= {project.Project_id} className = "div">
+                            <StyledLi className = {categories} id ="mix_target" >
+                                <ModalPage  data={project} />
+                            </StyledLi>
+                            <StyledNameContainer>
+                                <StyledCenteredP>
+                                    { project.front_title }
+                                </StyledCenteredP>
+                            </StyledNameContainer>
+                        </StyledLiContainer>,
                 categories: categories,
                 name: project.front_title,
                 interest: interest 

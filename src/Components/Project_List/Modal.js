@@ -37,7 +37,10 @@ const ModalContainer = styled.div`
     visibility: ${props => props.open ? "visible" : "hidden"};
     box-shadow:rgba(0, 0, 0 ,0.15) -2px 2px 4px;
     top: 50%
-    left: 50%;`
+    left: 50%;
+    cursor: default;
+    user-select: none;
+    -ms-user-select: none;`
 
 const StyledImage = styled.img`
 &&{
@@ -102,6 +105,9 @@ const Button = styled.button`
 const StyledContainer = styled.div`
     position: relative;
     width: ${ImageSize.width + 'px'};
+    cursor: pointer;
+    user-select: none;
+    -ms-user-select: none; 
 
     &:hover .image {
         opacity: 0.2;
@@ -158,13 +164,13 @@ const Modal = (props) => {
     const handleHover = () => {
         setFocus(true)
         ref.current.focus()
-        props.setOverFow()
+        // props.setOverFow()
     }
     const handleBlur = () => {
         setFocus(false)
         ref.current.scrollTop = 0
         ref.current.blur()
-        props.setOverFow()
+        // props.setOverFow()
     }
 
     return (
