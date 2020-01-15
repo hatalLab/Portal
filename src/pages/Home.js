@@ -91,6 +91,7 @@ const StyledContainer = styled.div`
     display: flex;
     width: 90%;
     margin: 100px auto;
+    overflow: ${props => props.overfl ? "auto" : "hidden"}
     flex-wrap: wrap;`
 
 // ul of the project list
@@ -104,6 +105,7 @@ const StyledList=styled.ul`
     
     & > li {
         padding: 10px 5px;
+        margin: 5px;
         text-align: center;
     }`
 
@@ -192,9 +194,12 @@ class ControlledHomePage extends Component{
             ShownProjectList: [],
     
             // input contain the search field value
-            input: ""
+            input: "",
+            
+            overflow: false
         }
         this.handleChange=this.handleChange.bind(this)
+        this.handleOverflow=this.handleOverflow.bind(this)
     }
 
     componentDidMount(){
@@ -233,7 +238,7 @@ class ControlledHomePage extends Component{
             temp.push(
             {
                 project: <div key= {project.Project_id}><li className = {categories} id ="mix_target" >
-                            <ModalPage  data={project}/>
+                            <ModalPage  data={project} setOverFow = {this.handleOverflow}/>
                         </li><StyledCenteredP>{ project.front_title}</StyledCenteredP></div>,
                 categories: categories,
                 name: project.front_title,
@@ -293,7 +298,14 @@ class ControlledHomePage extends Component{
         }
     }
 
-
+    handleOverflow(){
+        let newState = this.state.overflow ? false : true
+        this.setState(
+            {
+                overflow: newState
+            }
+        )
+    }
 
     render(){
         return(
@@ -308,7 +320,7 @@ class ControlledHomePage extends Component{
                 <StyledCol>
                 </StyledCol>
             </StyledFilterContainer> */}
-            <StyledContainer id ="project_list" > {/*styled component */}
+            <StyledContainer id ="project_list" overfl={this.state.overflow} > {/*styled component */}
                 <Comment>start of project list</Comment>
                 <StyledList id="mix_wrapper"> {/*styled component */}
                     <Comment>Project List './src/Components/BindDataProject'</Comment>
