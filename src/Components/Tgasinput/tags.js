@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/anchor-has-content */
-import React, {useState} from 'react'
+import React from 'react'
 import TagsInput from 'react-tagsinput'
 import styled from 'styled-components'
 import Autosuggest from 'react-autosuggest'

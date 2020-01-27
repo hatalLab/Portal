@@ -291,6 +291,7 @@ class ControlledHomePage extends Component{
     handleChange (event){
         event.preventDefault();
         const {name, value, type, innerText} = event.target
+        console.log(innerText);
         if(type){
             this.setState({
                 input:value

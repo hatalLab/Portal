@@ -1,21 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
-import Comment from '../Components/Comments'
-import Img_Src from '../static/images/project-default.png'
 import { withFormik, Form, Field } from 'formik'
 import * as Yup from 'yup'
 import UploadImage from '../Components/UploadPic'
 import TextareaAutosize from 'react-textarea-autosize';
 import { SelectionTags as TagsInput } from '../Components/Tgasinput/tags'
 import { tags } from '../static/data/rowData'
+import ImplementationTable from '../Components/InputTable'
 
-
-const StyledContainer = styled.div`
-    display: flex;
-    width: 90%
-    direction: rtl;
-    margin: 100px auto;
-`
+// const StyledContainer = styled.div`
+//     display: flex;
+//     width: 90%
+//     direction: rtl;
+//     margin: 100px auto;
+// `
 const StyledHeading = styled.h4`
     display: flex;
     flex-direction: row;
@@ -44,8 +42,7 @@ const StyledFormContainer= styled.div`
     margin: 50px auto;
 ` 
 
-const StyledTagsContainer=styled.div`
-width: 100%;`
+
 
 const TextArea = ({ field, form, ...props}) => {
     return (
@@ -90,11 +87,12 @@ const NewProjectForm = ({ values, errors, touched }) => {
                 <button type="submit">שלח</button>
             </Form>
             <TagsInput Tags ={tags} SelectedTags = {[]} />
+<Field name ="table" component ={ImplementationTable} />
         </StyledFormContainer>
     )
 }
 
-let SUPPORTED_FORMATS=['JPG']
+// let SUPPORTED_FORMATS=['JPG']
 const FormikApp = withFormik(
     {
         mapPropsToValues( { name, description, input, platoon, categories }) {

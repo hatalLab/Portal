@@ -119,11 +119,6 @@ const StyledPre = styled.pre`
     padding: 10px 20px 0 0;
     margin: 0;
 `
-const Button = styled.button`
-    background-color: ${props => props.color || "blue"}
-    color: white;
-`
-
 // styled-components for hovering on image
 // .container
 const StyledContainer = styled.div`

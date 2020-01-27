@@ -5,12 +5,12 @@ import Img_Src from '../static/images/project-default.png'
 
 // styled components
 
-const StyledContainer = styled.div `
-    display: flex;
-    width: 90%
-    direction: rtl;
-    margin: 100px auto;
-`
+// const StyledContainer = styled.div `
+//     display: flex;
+//     width: 90%
+//     direction: rtl;
+//     margin: 100px auto;
+// `
 
 const StyledRow = styled.div `
     display: flex;

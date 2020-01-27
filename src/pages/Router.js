@@ -1,7 +1,7 @@
 import React from 'react'
 //import ProjectList from '../Components/Project_List/BindDataProject'
 import Navbar from '../Components/Navbar/Navbar'
-import Comment from '../Components/Comments'
+// import Comment from '../Components/Comments'
 //import {Switch, Route} from "react-router-dom";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import HomePage from './Home'
