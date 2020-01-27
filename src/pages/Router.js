@@ -4,7 +4,7 @@ import Navbar from '../Components/Navbar/Navbar'
 import Comment from '../Components/Comments'
 //import {Switch, Route} from "react-router-dom";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
-import HomePage from './Homepage'
+import HomePage from './Home'
 import MyProjects from './MyProjects'
 import Settings from './Settings'
 import NewProject from './NewProject'
