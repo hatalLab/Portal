@@ -184,7 +184,7 @@ const FormikApp = withFormik(
 
 
 
-function HomePage(){
+function NewProject(){
     return (
         
             <>
@@ -196,4 +196,4 @@ function HomePage(){
 
 
 
-export default HomePage
+export default NewProject
