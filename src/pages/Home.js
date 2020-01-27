@@ -45,7 +45,7 @@ const StyledTagContainer = styled.div`
 const StyledTag = styled.a`
     padding: 0px 10px;
     color: black;
-    
+    text-decoration: none;
     &:hover {
         text-decoration: none;
     }`
@@ -70,21 +70,29 @@ const Background =styled.div`
 // ModalOpen is the modal
 const ModalOpen = styled.div`
     z-index: 4;
-    position: fixed;
+    font-family: arial;
+    position: absolute;
     transition: -webkit-transform 0.3s ease-out 0s;
     will-change: transform;
     overflow-y: auto;
     background: white;
-    width: 80%;
+    width: fit-content;
+    max-width: 80vw;
+    height: fit-content;
+    max-height: 90vh;
     left: 50%;
     text-align: center;
-    height: 40vh;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 0 0 10px 10px;
     right: 0px;
     transform: ${props => props.open ? "translateX(-50%)" : "translateY(-100%)" };
     visibility: ${props => props.open ? "visible" : "hidden"};
-    box-shadow:rgba(0, 0, 0 ,0.15) -2px 2px 4px;`
+    box-shadow:rgba(0, 0, 0 ,0.15) -2px 2px 4px;
+    cursor: pointer;
+    
+    & > * {
+        cursor: default;
+    }`
 
 // container of the project list
 const StyledContainer = styled.div`
@@ -102,28 +110,37 @@ const StyledList=styled.ul`
     padding: 0;
     list-style-type: none;
     flex-direction: row-reverse;
-    margin-right: -30px;`
+    margin-right: -15px;`
 
 const StyledLi = styled.li`
-    padding: 10px 5px;
-    margin: 15px;
     text-align: center;`
 
 // determine how many tags to show in the tags section
-let numberOfTags=10;
-const StyledArrow =styled.div`
-cursor: pointer;
-justify-content: center;
-align-items: center;
-&:hover {
-    color: white;
-}`
 
-const StyledCenteredP  = styled.p`
+const StyledArrow =styled.div`
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+        color: white;
+    }`
+
+const StyledNameContainer  = styled.p`
     text-align: center;
     padding: 10px;
-    overflow-y: auto;
+    position: relative;
+    overflow-y: hidden;
+    width: 250px;
+    height: 60px;
+    margin-right: 15px;
 `
+
+const StyledProjectContainer = styled.div`
+    width: 250px;
+`
+
+let numberOfTags=8;
+
 // handling tags section. handeling tags section content, opening and closing modal of rest of tags and its content 
 const Modal = (props) => {
     // state for should modal be open or not
@@ -195,19 +212,27 @@ class ControlledHomePage extends Component{
     
             // input contain the search field value
             input: "",
+
+            content: [],
             
             overflow: false
         }
         this.handleChange=this.handleChange.bind(this)
-        this.handleOverflow=this.handleOverflow.bind(this)
+        // this.handleOverflow=this.handleOverflow.bind(this)
     }
 
     componentDidMount(){
-        let temp=[], numberOfProjects = projectsData.length, categories, interest, index, match
+        let temp=[], numberOfProjects = projectsData.length, categories, interest, index, match, content =[]
 
         // loop over each project in projectsData
         for(let project of projectsData)
-        {            
+        {    
+            content.push(
+                {
+                    name: project.front_title
+                })
+            
+            content.unshift({name: project.contact.name})
             categories = project.categories
             interest = numberOfProjects
             
@@ -229,7 +254,7 @@ class ControlledHomePage extends Component{
                 if(match === true)
                 {
                     index = interestedProjects.indexOf(project.front_title)
-                    interest = index 
+                    interest = index
                     break
                 }
 
@@ -237,9 +262,9 @@ class ControlledHomePage extends Component{
             
             temp.push(
             {
-                project: <div key= {project.Project_id}><StyledLi className = {categories} id ="mix_target" >
-                            <ModalPage  data={project} setOverFow = {this.handleOverflow}/>
-                        </StyledLi><StyledCenteredP>{ project.front_title}</StyledCenteredP></div>,
+                project: <StyledProjectContainer key= {project.Project_id}><StyledLi className = {categories} id ="mix_target" >
+                            <ModalPage  data={project} />
+                        </StyledLi><StyledNameContainer>{ project.front_title.length < 50 ? project.front_title : project.front_title.slice(0,45) + "..."}</StyledNameContainer></StyledProjectContainer>,
                 categories: categories,
                 name: project.front_title,
                 interest: interest 
@@ -256,7 +281,8 @@ class ControlledHomePage extends Component{
                 categoriesList: [...tags],
                 activeCategories:[...tags],
                 projectObject: temp,
-                ShownProjectList: list
+                ShownProjectList: list,
+                content: content
             }
         )
     }
@@ -298,24 +324,24 @@ class ControlledHomePage extends Component{
         }
     }
 
-    handleOverflow(){
-        let newState = this.state.overflow ? false : true
-        this.setState(
-            {
-                overflow: newState
-            }
-        )
-    }
+    // handleOverflow(){
+    //     let newState = this.state.overflow ? false : true
+    //     this.setState(
+    //         {
+    //             overflow: newState
+    //         }
+    //     )
+    // }
 
     render(){
         return(
             <HomeContainer>
             {/* <StyledBar> */}
+                            <StyledInput name = "search" placeholder = " חפש קטגוריה" value = {this.state.input} onChange = {this.handleChange} />
             <Modal handleChange = {this.handleChange} />
                         
                         {/* <TagsContainer handleChange = {this.handleChange} /> */}
                     {/* </StyledBar> */}
-                            <StyledInput name = "search" placeholder = " חפש קטגוריה" value = {this.state.input} onChange = {this.handleChange} />
             {/* <StyledFilterContainer>
                 <StyledCol>
                 </StyledCol>

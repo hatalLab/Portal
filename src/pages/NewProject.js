@@ -6,6 +6,9 @@ import { withFormik, Form, Field } from 'formik'
 import * as Yup from 'yup'
 import UploadImage from '../Components/UploadPic'
 import TextareaAutosize from 'react-textarea-autosize';
+import { SelectionTags as TagsInput } from '../Components/Tgasinput/tags'
+import { tags } from '../static/data/rowData'
+
 
 const StyledContainer = styled.div`
     display: flex;
@@ -40,6 +43,10 @@ const StyledFormContainer= styled.div`
     width: 90%;
     margin: 50px auto;
 ` 
+
+const StyledTagsContainer=styled.div`
+width: 100%;`
+
 const TextArea = ({ field, form, ...props}) => {
     return (
       <TextareaAutosize   style={{boxSizing: 'border-box', resize: 'both', direction: 'rtl', width: '200px'}}
@@ -74,8 +81,15 @@ const NewProjectForm = ({ values, errors, touched }) => {
                     <Field name = 'input' component={UploadImage} />
                         {touched.input && errors.input && <StyledErrorMessage>{errors.input}</StyledErrorMessage>}
                 </StyledRow>
+                {/* <StyledRow> */}
+                        {/* <StyledTagsContainer> */}
+                            
+                        {/* </StyledTagsContainer> */}
+                {/* </StyledRow> */}
+                {/* <Field name = "categories" component ={TagsInput} */}
                 <button type="submit">שלח</button>
             </Form>
+            <TagsInput Tags ={tags} SelectedTags = {[]} />
         </StyledFormContainer>
     )
 }
@@ -83,12 +97,13 @@ const NewProjectForm = ({ values, errors, touched }) => {
 let SUPPORTED_FORMATS=['JPG']
 const FormikApp = withFormik(
     {
-        mapPropsToValues( { name, description, input, platoon }) {
+        mapPropsToValues( { name, description, input, platoon, categories }) {
             return {
                 name: name || '',
                 description: description || '',
                 input: input || '',
-                platoon: platoon || ''
+                platoon: platoon || '',
+                categories: categories || ''
             }
         },
         validationSchema: Yup.object().shape({

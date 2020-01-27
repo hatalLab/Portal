@@ -1,6 +1,11 @@
 import React,{ useState, useRef } from 'react'
 import styled from 'styled-components'
-// import logo from './project-default.png'
+import {
+    AwesomeButton,
+    AwesomeButtonProgress,
+  } from "react-awesome-button"
+  import "react-awesome-button/src/styles/themes/theme-c137";
+
 
 const ImageSize = {
     width: 250,
@@ -16,7 +21,7 @@ const Background =styled.div`
     bottom: 0px;
     opacity:    ${props => props.open ? "1" : "0"};
     visibility: ${props => props.open ? "visible" : "hidden"};
-    tran sition: opacity 0.3s ease-out 0s, visibility 0.3s ease-out 0s;
+    transition: opacity 0.3s ease-out 0s, visibility 0.3s ease-out 0s;
     background-color: rgba(0, 0, 0, 0.3);`
 
 const ModalContainer = styled.div`
@@ -29,6 +34,7 @@ const ModalContainer = styled.div`
     background: white;
     text-align: center;
     height: fit-content;
+    max-height: 90vh;
     width: 80vw;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -36,8 +42,25 @@ const ModalContainer = styled.div`
     transform: ${props => props.open ? "translate(-50% ,-50%)" : "translateY(0%)" };
     visibility: ${props => props.open ? "visible" : "hidden"};
     box-shadow:rgba(0, 0, 0 ,0.15) -2px 2px 4px;
-    top: 50%
-    left: 50%;`
+    top: 50%;
+    left: 50%;
+    cursor: default;
+    user-select: none;
+    -ms-user-select: none;`
+
+const SecondModalBg=styled(Background)`
+    z-index: 15;
+    opacity:    ${props => props.over ? "1" : "0"};
+    visibility: ${props => props.over ? "visible" : "hidden"};
+    backdrop-filter: ${props => (props.over ? "blur(3px)" : "blur(0)")};
+    background-color: rgba(0, 0, 0, 0.4);
+`
+
+const SecondModal= styled(ModalContainer)`
+    z-index: 16;
+    transform: ${props => props.over ? "translate(-50% ,-50%)" : "translateY(0%)" };
+    visibility: ${props => props.over ? "visible" : "hidden"};
+`
 
 const StyledImage = styled.img`
 &&{
@@ -49,6 +72,10 @@ const ModalHeader=styled.div`
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;
+
+    & > * {
+        padding: 0 10px;
+    }
 `
 const ModalTitle = styled.h4`
     font-family:arial;
@@ -102,6 +129,9 @@ const Button = styled.button`
 const StyledContainer = styled.div`
     position: relative;
     width: ${ImageSize.width + 'px'};
+    cursor: pointer;
+    user-select: none;
+    -ms-user-select: none;
 
     &:hover .image {
         opacity: 0.2;
@@ -141,7 +171,7 @@ const StyledText = styled.div`
     width: ${ImageSize.width - 20 + 'px'};
     height: ${ImageSize.height - 20 + 'px'};
     text-align: right;
-    margin-right: 15px;
+    margin-right: 30px;
     &:focus {
         outline: none;
     }`
@@ -151,41 +181,107 @@ const StyledText = styled.div`
     text-align: justify
     padding: 0 15px 5px 0;`
 
+const StyledTable =styled.table`
+border: 1px solid black;
+  border-collapse: collapse;
+  padding: 10px;
+`
+const Td=styled.td`
+border: 1px solid black;
+  border-collapse: collapse;
+  padding: 10px;
+`
+const Th= styled.th`
+border: 1px solid black;
+  border-collapse: collapse;
+  padding: 10px;
+`
+
+
+const Table = (props) => {
+    return (
+        <Row>
+        <StyledTable>
+            <thead>
+                <tr>
+                    <Th>תיאור המשימה בשלב זה</Th>
+                    <Th>כ"א נדרש</Th>
+                    <Th>כלים נדרשים</Th>
+                    <Th>זמן להשלמה</Th>
+                </tr>
+            </thead>
+            <tbody>
+
+<tr>
+    <Td>{props.data[0].description}</Td>
+    <Td>{props.data[0].personnel}</Td>
+    <Td>{props.data[0].tools}</Td>
+    <Td>{props.data[0].period}</Td>
+</tr>
+            </tbody>
+        </StyledTable>
+        </Row>
+    )
+}
+
 const Modal = (props) => {
     const [modalShow, setModalShow] = useState(false)
+    const [ImplementationModalShow, setImplementationModalShow] = useState(false)
+    const [SchedulenModalShow, setScheduleModalShow] = useState(false)
+
     const [focus, setFocus] = useState(false)
     const ref = useRef(null)
     const handleHover = () => {
         setFocus(true)
         ref.current.focus()
-        props.setOverFow()
+        // props.setOverFow()
     }
     const handleBlur = () => {
         setFocus(false)
         ref.current.scrollTop = 0
         ref.current.blur()
-        props.setOverFow()
+        //props.setOverFow()
     }
 
     return (
         <>
         
             {/*the button to open the modal is the image */}
-            {/* <StyledImage src = {require(`${props.data.img_src}`)} alt = "pic" onClick ={() => setModalShow(true)} /> */}
             {/* header */}
-            <Background onClick = {() => setModalShow(false)} open = {modalShow} />
+            <SecondModalBg className="secondBackground" onClick={() => setImplementationModalShow(false)} over = {ImplementationModalShow} />
+                    <SecondModal className="secondModal" over = {ImplementationModalShow}>
+                        <Table data = {props.data.implementation} />
+                        <Row>
+                            <Hr />
+                            <AwesomeButton type="secondary" onPress = {() => setImplementationModalShow(false)}>
+                        סגירה 
+                    </AwesomeButton>
+
+                        </Row>
+                        </SecondModal>
+                        <SecondModalBg className="secondBackground" onClick={() => setScheduleModalShow(false)} over = {SchedulenModalShow} />
+                        <SecondModal className="secondModal" over = {SchedulenModalShow}>
+<Row>
+    <p>yes i did it</p>
+</Row>
+<Row>
+<AwesomeButton type="secondary" onPress = {() => setScheduleModalShow(false)}>
+                        סגירה 
+                    </AwesomeButton>
+</Row>
+</SecondModal>
+            <Background className="background" onClick = {() => setModalShow(false)} open = {modalShow} />
             <StyledContainer className="container" onClick={()=>setModalShow(true)}>
-                <StyledImageWithHover src={require(`${props.data.img_src}`)}  alt="Avatar" className="image" onClick={()=> {console.log('clicked')}} />
+                <StyledImageWithHover src={require(`${props.data.img_src}`)}  alt="Avatar" className="image" />
                 <StyledMiddle className="middle">
                     <StyledText className="text" tabIndex = { focus ? "1" : "0"} ref = {ref} onMouseEnter = {handleHover} onMouseLeave = {handleBlur} >
                         <StyledJustifiedParagraph>
-
                         {props.data.description}
                         </StyledJustifiedParagraph>
                     </StyledText>
                 </StyledMiddle>
             </StyledContainer>
-            <ModalContainer open = {modalShow} >
+            <ModalContainer className="modal" open = {modalShow} >
                 {/*title */}
                 <ModalHeader>
                     <ModalTitle>{props.data.front_title}</ModalTitle>
@@ -213,11 +309,36 @@ const Modal = (props) => {
                            <StyledPre>{props.data.contact.phone }</StyledPre>              
                         </Col>
                     </Row>
+                    <Row>
+                        <AwesomeButton type="primary" onPress = {() => setImplementationModalShow(true)}>
+                            מימוש לפי שלבים
+                        </AwesomeButton>
+                        <AwesomeButton type="primary" onPress = {() => setScheduleModalShow(true)}>
+                            לו"ז הפרויקט
+                        </AwesomeButton>
+                    </Row>
                 </ModalBody>
                 <Hr />
                 <ModalFooter>
-                    <Button color = "red" onClick = {() => setModalShow(false)}>סגור</Button>
-                    <Button>להצטרפות</Button>
+                <AwesomeButton type="secondary" onPress={() => setModalShow(false)}>
+                    סגירה 
+                </AwesomeButton>
+                    {/* <Button color = "red" onClick = {() => setModalShow(false)}>סגור</Button> */}
+                    <AwesomeButtonProgress
+                       
+                        type="primary"
+                        size="medium"
+                        resultLabel="נשלח!"
+                        releaseDelay={600}
+                        ripple={true}
+                        onPress={(element, next) => {
+                        setTimeout(() => {
+                            next();
+                        }, 600);
+                        }}
+                            >
+                        להצטרפות
+                    </AwesomeButtonProgress>
                 </ModalFooter>
             </ModalContainer>
         </>
