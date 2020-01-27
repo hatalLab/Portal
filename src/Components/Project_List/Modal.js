@@ -191,11 +191,16 @@ border: 1px solid black;
   border-collapse: collapse;
   padding: 10px;
 `
-
+const CenteredDiv = styled.div`
+margin: 20px auto;
+width: 100%;
+display: flex;
+justify-content: center;
+`
 
 const Table = (props) => {
     return (
-        <Row>
+        
         <StyledTable>
             <thead>
                 <tr>
@@ -215,7 +220,20 @@ const Table = (props) => {
 </tr>
             </tbody>
         </StyledTable>
-        </Row>
+    )
+}
+
+const ImplementationModalContent= (props) => {
+    return (
+        <>
+        <ModalHeader>
+            <ModalTitle>צורת מימוש לפי שלבים:</ModalTitle>
+        </ModalHeader>
+        <Hr />
+        <CenteredDiv>
+            <Table data ={props.data} />
+        </CenteredDiv>
+        </>
     )
 }
 
@@ -245,9 +263,9 @@ const Modal = (props) => {
             {/* header */}
             <SecondModalBg className="secondBackground" onClick={() => setImplementationModalShow(false)} over = {ImplementationModalShow} />
                     <SecondModal className="secondModal" over = {ImplementationModalShow}>
-                        <Table data = {props.data.implementation} />
-                        <Row>
+                        <ImplementationModalContent data = {props.data.implementation} />
                             <Hr />
+                        <Row>
                             <AwesomeButton type="secondary" onPress = {() => setImplementationModalShow(false)}>
                         סגירה 
                     </AwesomeButton>
