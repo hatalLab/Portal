@@ -7,11 +7,8 @@ import Example from "./App";
 
 const App = ({ children }) => (
   <Container style={{ margin: 20 }}>
-    <List bulleted>
-      <List.Item
-      
-      />
-    </List>
+   
+     
     {children}
   </Container>
 );
@@ -26,6 +23,7 @@ document.head.appendChild(styleLink);
 
 ReactDOM.render(
   <App>
+  <App/>
     <Example />
   </App>,
   document.getElementById("root")
