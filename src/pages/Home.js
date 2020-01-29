@@ -127,12 +127,11 @@ const StyledArrow =styled.div`
 
 const StyledNameContainer  = styled.p`
     text-align: center;
-    padding: 10px;
+    padding: 10px 0;
     position: relative;
     overflow-y: hidden;
     width: 250px;
     height: 60px;
-    margin-right: 15px;
 `
 
 const StyledProjectContainer = styled.div`

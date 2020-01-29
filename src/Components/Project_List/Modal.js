@@ -52,7 +52,7 @@ const SecondModalBg=styled(Background)`
     z-index: 15;
     opacity:    ${props => props.over ? "1" : "0"};
     visibility: ${props => props.over ? "visible" : "hidden"};
-    backdrop-filter: ${props => (props.over ? "blur(3px)" : "blur(0)")};
+    backdrop-filter: ${props => (props.over ? "blur(1px)" : "blur(0)")};
     background-color: rgba(0, 0, 0, 0.4);
 `
 
@@ -274,9 +274,20 @@ const Modal = (props) => {
                         </SecondModal>
                         <SecondModalBg className="secondBackground" onClick={() => setScheduleModalShow(false)} over = {SchedulenModalShow} />
                         <SecondModal className="secondModal" over = {SchedulenModalShow}>
-<Row>
-    <p>yes i did it</p>
+
+    <ModalHeader>
+        <ModalTitle>
+        לו"ז הפרויקט: (בימי עבודה מלאים)
+        </ModalTitle>
+    </ModalHeader>
+    <Hr />
+    <Row>
+    <p>
+        הערה: פרויקט זה ינוהל בשיטה פרוגרסיבית בה יתווספו פיצ'רים לאורך הזמן. בנוסף במידה וצוות הפרויקטיהיה גדול דיו ניתן יהיה לעבוד על פיצ'רים שונים במקביל.
+
+    </p>
 </Row>
+<Hr />
 <Row>
 <AwesomeButton type="secondary" onPress = {() => setScheduleModalShow(false)}>
                         סגירה 
