@@ -62,7 +62,7 @@ const NewProjectForm = ({ values, errors, touched }) => {
                     <StyledCol>
                         <StyledHeading>שם הפרויקט:</StyledHeading>
                         {/* <Field type="text" name= "name" placeholder = " שם הפרויקט " /><br /> */}
-                        <Field name ="name" minRows={1} maxRows={3} component={TextArea} placeholder = " שם הפרויקט " /><br />
+                        <Field name ="name" minRows={2} maxRows={3} component={TextArea} placeholder = " שם הפרויקט " /><br />
                         {touched.name && errors.name && <StyledErrorMessage>{errors.name}</StyledErrorMessage>}
                         
                         <StyledHeading>תיאור הפרויקט:</StyledHeading>
@@ -70,7 +70,7 @@ const NewProjectForm = ({ values, errors, touched }) => {
                         {touched.description && errors.description && <StyledErrorMessage>{errors.description}</StyledErrorMessage>}
 
                         <StyledHeading>מחלקה: </StyledHeading>
-                        <Field name = "platoon" minRows={1} maxRows={2} placeholder=" מחלקה" component={TextArea} />
+                        <Field name = "platoon" minRows={2} maxRows={2} placeholder=" מחלקה" component={TextArea} />
                         {touched.platoon && errors.platoon && <StyledErrorMessage>{errors.platoon}</StyledErrorMessage>}
 
 
