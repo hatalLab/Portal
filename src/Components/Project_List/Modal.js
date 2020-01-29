@@ -166,7 +166,6 @@ const StyledText = styled.div`
     width: ${ImageSize.width - 20 + 'px'};
     height: ${ImageSize.height - 20 + 'px'};
     text-align: right;
-    margin-right: 30px;
     &:focus {
         outline: none;
     }`

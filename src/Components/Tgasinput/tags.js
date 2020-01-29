@@ -283,7 +283,6 @@ class ActiveTags extends React.Component {
       return (
                   <StyledTagsContainer>
                     <TagsInput renderTag={RenderSelectionTag} className = "selected-tags" value={this.state.SelectedTags} onChange={this.removeTags} inputProps = {{className: 'selected-tags-input',placeholder: ''}} tagProps={{className: 'react-tagsinput-tag edit-tag tag-label', classNameRemove: 'react-tagsinput-remove edit-tag'}}/>
-  
                   </StyledTagsContainer>
       )
     }

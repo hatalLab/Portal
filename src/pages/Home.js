@@ -5,6 +5,7 @@ import ModalPage from '../Components/Project_List/Modal'
 import { data as projectsData, tags, favoriteTags as FavoriteTags, interestedProjects } from '../static/data/rowData'
 import Comment from '../Components/Comments'
 
+
 // styled components
 
 // main container
@@ -21,14 +22,15 @@ const StyledRow = styled.div`
 
 // container of all categories - categories section
 const StyledBar = styled(StyledRow)`
-margin-top:50px;
+margin: 50px auto 0;
+width: 80vw;
     background-color: white;
     padding: 0;`
 
 // container of every category
 const StyledTagContainer = styled.div`
     margin: 0;
-    padding: 20px;
+    padding: 10px;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -110,7 +112,7 @@ const StyledList=styled.ul`
     padding: 0;
     list-style-type: none;
     flex-direction: row-reverse;
-    margin-right: -15px;`
+`
 
 const StyledLi = styled.li`
     text-align: center;`
@@ -138,13 +140,17 @@ const StyledProjectContainer = styled.div`
     width: 250px;
 `
 
-let numberOfTags=8;
+let numberOfTags=10;
 
 // handling tags section. handeling tags section content, opening and closing modal of rest of tags and its content 
 const Modal = (props) => {
     // state for should modal be open or not
     const [modalShow, setModalShow] = useState(false);
     let tagsList = [], index, restTags =[...tags]
+    tagsList.push(<StyledTagContainer  key="all" className = "container"><StyledTag onClick ={event => props.handleChange(event)} name = "all" href="#">הכל</StyledTag></StyledTagContainer>)
+    tagsList.push(<StyledTagContainer  key="favorites" className = "container"><StyledTag onClick ={event => props.handleChange(event)} name = "favorites" href="#">מועדפים</StyledTag></StyledTagContainer>)
+    tagsList.push(<StyledTagContainer  key="new" className = "container"><StyledTag onClick ={event => props.handleChange(event)} name = "new" href="#">חדש</StyledTag></StyledTagContainer>)
+    
     // insert interested tags first to tags section and remove them from restTags
     for (let tag of FavoriteTags){
         tagsList.push(<StyledTagContainer  key={tag} className = "container"><StyledTag onClick ={event => props.handleChange(event)} name = {tag} href="#">{tag}</StyledTag></StyledTagContainer>)
@@ -179,7 +185,6 @@ const StyledWrapped =styled(StyledRow)`
 // this function is responsible for the content of the modal (insert the rest of the tags)
 const ModalContent = (props) => {
     let list =[]
-    list.push(<StyledTagContainer key="XXX" onClick = {event => props.handleChange(event)}><p name = "xxx">ב</p></StyledTagContainer>)
     for(let tag of props.AllTags){
         list.push(<StyledTagContainer key = {tag}><StyledTag onClick = {event => props.handleChange(event)} href="#">{tag}</StyledTag></StyledTagContainer>)
     }
@@ -305,7 +310,7 @@ class ControlledHomePage extends Component{
     // filter the shown project list
     filter = (value) => {
         let list=[]
-        if(value === ""){
+        if(value === "all"){
             list = sortProjects(this.state.projectObject.slice()).map(item => item.project) 
             this.setState(
                 {

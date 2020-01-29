@@ -72,7 +72,7 @@ class Table extends Component {
     }
 
     handleRows(event, method){
-        console.log({state: this.state.input,table: this.state.Table});
+        // console.log({state: this.state.input,table: this.state.Table});
         if(method === "addition"){
                     this.setState({
                 input: [...this.state.input, { 
@@ -96,19 +96,20 @@ class Table extends Component {
         propertyName= "Col"+col
         // copy the input 
         let newInput = [...this.state.input]
-        console.log({name,value,row,col,newInput,length: this.state.input.length});
-        console.log({oldValue:newInput[row][propertyName]});
+        // console.log({name,value,row,col,newInput,length: this.state.input.length});
+        // console.log({oldValue:newInput[row][propertyName]});
             newInput[row][propertyName] = value
             this.setState({
                 input: newInput
-            }, console.log({input: this.state.input}))
+            }//, console.log({input: this.state.input})
+            )
     }    
 
     render(){
         let TableList = this.state.input.map((row,index) => {
             return (
                 <tr key={index}>
-                    <Td>{index}</Td>
+                    <Td>{index +1}</Td>
                     <Td><Input name = {`Row${index}Col0`} type = "text" value = {row.Col0} onChange={this.handleChange} /> </Td>
                     <Td><Input name = {`Row${index}Col1`} type = "text" value = {row.Col1} onChange={this.handleChange} /> </Td>
                     <Td><Input name = {`Row${index}Col2`} type = "text" value = {row.Col2} onChange={this.handleChange} /> </Td>
