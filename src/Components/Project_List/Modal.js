@@ -287,7 +287,7 @@ const Modal = (props) => {
     </p>
 </Row>
 <Hr />
-<Row>
+<Row> 
 <AwesomeButton type="secondary" onPress = {() => setScheduleModalShow(false)}>
                         סגירה 
                     </AwesomeButton>

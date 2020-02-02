@@ -2,37 +2,70 @@ import React from 'react'
 import Autosuggest from 'react-autosuggest'
 import parse from 'autosuggest-highlight/parse'
 import match from 'autosuggest-highlight/match'
-import Icon from './search.png'
+import Icon from  '../../static/images/search.png'
 import './AutoSoggestion.css'
 import styled from 'styled-components'
 
 
 const StyledContainer=styled.div`
 border: 1px solid #DDD;
+border-bottom: 2px solid #DDD;
   display: flex;
-  width:300px;
-  padding: 0 30px;
+  width:30%
+  margin: 0 auto;
+  padding: 0 5px;
   flex-direction: row;
   border-radius: 25px;
+  direction: rtl;
+  display: flex;
+  justify-content: space-between;
 `
 
 const StyledInput = styled.input`
+direction: rtl;
 border: none;
+outline: none;
+margin-right: 20px;
+spellcheck=false;
+&& {
+width: 90%;
+}
+&: focus {
+  borser: none;
+  outline: none;
+}
+`
+const InputContainer=styled.div`
+  display: flex;
+  justify-content: center;
 `
 
 const StyledImg=styled.img`
-cursor: pointer;
 height: 50px;
 width:50px;
 `
 
+function shouldRenderSuggestions() {
+  return true;
+}
+
+function renderSuggestionsContainer({ containerProps , children, query }) {
+  return (
+    <div {... containerProps}>
+      {children}
+      <div>
+        Press Enter to search <strong>{query}</strong>
+      </div>
+    </div>
+  );
+}
+
 const renderInputComponent = inputProps => (
-  <StyledContainer>
-    <StyledImg className="search" src={Icon} onClick={() => inputProps.Handler(inputProps.value)
-    } alt="search" /> 
-    <StyledInput {...inputProps} />
+  <StyledContainer className = "StyledContainer">
+      <StyledInput spellCheck="false" {...inputProps} />
+      <StyledImg className="search" src={Icon} alt="search" /> 
   </StyledContainer>
-)
+);
 
   // https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions#Using_Special_Characters
   function escapeRegexCharacters(str) {
@@ -43,7 +76,7 @@ const renderInputComponent = inputProps => (
     const escapedValue = escapeRegexCharacters(value.trim());
     
     if (escapedValue === '') {
-      return [];
+      return list;
     }
   
     const regex = new RegExp('^' + escapedValue, 'i');
@@ -82,21 +115,36 @@ const renderInputComponent = inputProps => (
       this.state = {
         value: '',
         suggestions: [],
-        list:[]
-      };    
+        list:[],
+        placeholder: ''
+      };
+      this.onSuggestionSelected=this.onSuggestionSelected.bind(this)
+      this.onChange=this.onChange.bind(this)
+      this.onSuggestionsClearRequested=this.onSuggestionsClearRequested.bind(this)  
+      this.onSuggestionsFetchRequested=this.onSuggestionsFetchRequested.bind(this)
     }
   
-    componentDidMount(){
-      this.setState({
-        list: [...this.props.list]
-      })
-    }
-    onChange = (event, { newValue, method }) => {
+    componentDidUpdate(prevProps, prevState, snapshot){
+      if(this.state.list.length != prevProps.list.length){
+       let newList =[],oldList =[...prevProps.list]
+       for(let item of oldList){
+         newList.push({name: item})
+       }
+       this.setState({
+         list: [...newList],
+         placeholder: this.props.placeholder
+       }) 
+      }
+   
+     }
+ 
+
+     onChange = (event, { newValue, method }) => {
       this.setState({
         value: newValue
       });
     };
-    
+
     onSuggestionsFetchRequested = ({ value }) => {
       this.setState({
         suggestions: getSuggestions(value,this.state.list)
@@ -109,22 +157,27 @@ const renderInputComponent = inputProps => (
       });
     };
   
+    onSuggestionSelected(event, { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }){	
+      this.props.Handler(suggestionValue)	
+      this.setState({value: ''})	
+ }
+
     render() {
       const { value, suggestions } = this.state;
       const inputProps = {
-        placeholder: "type 'c'",
+        placeholder: this.state.placeholder || "חפש",
         value,
         onChange: this.onChange,
         Handler:this.props.Handler
       };
-      // {/* <img className="abcd" src={Icon} alt="adsaad" /> */}
-  
       return (
 
         <Autosuggest 
           suggestions={suggestions}
+          shouldRenderSuggestions = {shouldRenderSuggestions}
           onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
           onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+          onSuggestionSelected={this.onSuggestionSelected}
           getSuggestionValue={getSuggestionValue}
           renderSuggestion={renderSuggestion}
           inputProps={inputProps}
@@ -135,3 +188,5 @@ const renderInputComponent = inputProps => (
   }
   
   export default Soggestion
+
+  

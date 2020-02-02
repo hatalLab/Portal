@@ -140,7 +140,7 @@ const StyledProjectContainer = styled.div`
     width: 250px;
 `
 
-let numberOfTags=10;
+let numberOfTags = 10;
 
 // handling tags section. handeling tags section content, opening and closing modal of rest of tags and its content 
 const Modal = (props) => {
@@ -164,7 +164,7 @@ const Modal = (props) => {
         tagsList.push(<StyledTagContainer  key={restTags[i]} className = "container"><StyledTag onClick ={event => props.handleChange(event)} name = {restTags[i]} href="#">{restTags[i]}</StyledTag></StyledTagContainer>)
     }
     // remove from rest tags the tags that we added to tags section in the last loop
-    restTags.splice(0,TagsToAdd)
+    restTags.splice(0, TagsToAdd)
     tagsList.push(<StyledTagContainer key = "ModalOpen" onClick = {() => setModalShow(true)}> <StyledArrow>&#11167;</StyledArrow><StyledTag></StyledTag></StyledTagContainer>)
   return (
       <>
@@ -173,7 +173,7 @@ const Modal = (props) => {
         </StyledBar>
         <Background onClick = {() => setModalShow(false)} open = {modalShow} />
         <ModalOpen open ={modalShow}>
-            <ModalContent AllTags={restTags} handleChange={props.handleChange} />
+            <ModalContent AllTags = {restTags} handleChange={props.handleChange} />
         </ModalOpen>
       </>
   )
@@ -216,8 +216,6 @@ class ControlledHomePage extends Component{
     
             // input contain the search field value
             input: "",
-
-            content: [],
             
             overflow: false
         }
@@ -226,17 +224,11 @@ class ControlledHomePage extends Component{
     }
 
     componentDidMount(){
-        let temp=[], numberOfProjects = projectsData.length, categories, interest, index, match, content =[]
+        let temp=[], numberOfProjects = projectsData.length, categories, interest, index, match
 
         // loop over each project in projectsData
         for(let project of projectsData)
-        {    
-            content.push(
-                {
-                    name: project.front_title
-                })
-            
-            content.unshift({name: project.contact.name})
+        {
             categories = project.categories
             interest = numberOfProjects
             
@@ -267,7 +259,7 @@ class ControlledHomePage extends Component{
             temp.push(
             {
                 project: <StyledProjectContainer key= {project.Project_id}><StyledLi className = {categories} id ="mix_target" >
-                            <ModalPage  data={project} />
+                            <ModalPage  data = {project} />
                         </StyledLi><StyledNameContainer>{ project.front_title.length < 50 ? project.front_title : project.front_title.slice(0,45) + "..."}</StyledNameContainer></StyledProjectContainer>,
                 categories: categories,
                 name: project.front_title,
@@ -285,8 +277,7 @@ class ControlledHomePage extends Component{
                 categoriesList: [...tags],
                 activeCategories:[...tags],
                 projectObject: temp,
-                ShownProjectList: list,
-                content: content
+                ShownProjectList: list
             }
         )
     }

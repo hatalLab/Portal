@@ -7,6 +7,8 @@ import TextareaAutosize from 'react-textarea-autosize';
 import { SelectionTags as TagsInput } from '../Components/Tgasinput/tags'
 import { tags } from '../static/data/rowData'
 import ImplementationTable from '../Components/InputTable'
+import { AwesomeButtonProgress } from "react-awesome-button"
+  import "react-awesome-button/src/styles/themes/theme-c137";
 
 // const StyledContainer = styled.div`
 //     display: flex;
@@ -20,10 +22,10 @@ const StyledHeading = styled.h4`
 `
 
 const StyledCol=styled.div`
-display: flex;
-flex-direction: column;
-dir:rtl;
-padding:10px;`
+    display: flex;
+    flex-direction: column;
+    dir:rtl;
+    padding:10px;`
 
 const StyledRow=styled.div`
   display: flex;
@@ -65,29 +67,44 @@ const NewProjectForm = ({ values, errors, touched }) => {
                         <Field name ="name" minRows={2} maxRows={3} component={TextArea} placeholder = " שם הפרויקט " /><br />
                         {touched.name && errors.name && <StyledErrorMessage>{errors.name}</StyledErrorMessage>}
                         
-                        <StyledHeading>תיאור הפרויקט:</StyledHeading>
-                        <Field name = "description" minRows={5} component={TextArea} placeholder = " תיאור הפרויקט " />
-                        {touched.description && errors.description && <StyledErrorMessage>{errors.description}</StyledErrorMessage>}
-
                         <StyledHeading>מחלקה: </StyledHeading>
                         <Field name = "platoon" minRows={2} maxRows={2} placeholder=" מחלקה" component={TextArea} />
                         {touched.platoon && errors.platoon && <StyledErrorMessage>{errors.platoon}</StyledErrorMessage>}
 
+                        <StyledHeading>תיאור הפרויקט:</StyledHeading>
+                        <Field name = "details" minRows={5} component={TextArea} placeholder = " תיאור הפרויקט " />
+                        {touched.details && errors.details && <StyledErrorMessage>{errors.details}</StyledErrorMessage>}
+
+                        <StyledHeading>פירוט: </StyledHeading>
+                        <Field name = "description" minRows={5} component={TextArea} placeholder = " פירוט " />
+                        {touched.description && errors.description && <StyledErrorMessage>{errors.description}</StyledErrorMessage>}
 
                     </StyledCol>
                     <Field name = 'input' component={UploadImage} />
                         {touched.input && errors.input && <StyledErrorMessage>{errors.input}</StyledErrorMessage>}
                 </StyledRow>
-                {/* <StyledRow> */}
-                        {/* <StyledTagsContainer> */}
-                            
-                        {/* </StyledTagsContainer> */}
-                {/* </StyledRow> */}
-                {/* <Field name = "categories" component ={TagsInput} */}
-                <button type="submit">שלח</button>
+            {touched.categories && errors.categories && <StyledErrorMessage>{errors.categories}</StyledErrorMessage>}
+            <Field name = "categories" component = { TagsInput } Tags = { tags } SelectedTags = {[]} />
+
+            <Field name ="table" component ={ImplementationTable} />
+            {touched.table && errors.table && <StyledErrorMessage>{errors.table}</StyledErrorMessage>}
+
+            <AwesomeButtonProgress
+                                
+                                    type="primary"
+                                    size="medium"
+                                    resultLabel="נשלח!"
+                                    releaseDelay={600}
+                                    ripple={true}
+                                    onPress={(element, next) => {
+                                    setTimeout(() => {
+                                        next();
+                                    }, 600);
+                                    }}
+                                        >
+                                    שלח
+                                </AwesomeButtonProgress>
             </Form>
-            <TagsInput Tags ={tags} SelectedTags = {[]} />
-<Field name ="table" component ={ImplementationTable} />
         </StyledFormContainer>
     )
 }
@@ -95,13 +112,15 @@ const NewProjectForm = ({ values, errors, touched }) => {
 // let SUPPORTED_FORMATS=['JPG']
 const FormikApp = withFormik(
     {
-        mapPropsToValues( { name, description, input, platoon, categories }) {
+        mapPropsToValues( { name, description,details, input, platoon, categories, table }) {
             return {
                 name: name || '',
                 description: description || '',
+                details: details || '',
                 input: input || '',
                 platoon: platoon || '',
-                categories: categories || ''
+                categories: categories || '',
+                table: table || ''
             }
         },
         validationSchema: Yup.object().shape({
@@ -110,6 +129,8 @@ const FormikApp = withFormik(
             input: Yup.mixed().required('image is required!'),
             //Yup.mixed() .test('fileSize', "File Size is too large", value => value.size <= FILE_SIZE) .test('fileType', "Unsupported File Format", value => SUPPORTED_FORMATS.includes(value.type) )
             platoon:Yup.string().required('platoon is required!'),
+            categories: Yup.array().min(1).required('categories is required!'),
+            table:Yup.array().min(1).required('implementation is required!')
         }),
         validateOnBlur:true
 ,

@@ -2,25 +2,11 @@ import React, {Component} from 'react'
 import styled from 'styled-components'
 import plus from '../static/images/plus.png'
 import minus from '../static/images/minus.png'
-
+import Bin from '../static/images/Bin.png'
 
 const Container= styled.div`
     display: flex;
     flex-direction: row;
-`
-const ImageContainer = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;    
-height:35px;
-    width: 35px;
-    cursor: pointer;
-`
-
-const Image = styled.img`
-margin-top: 10px;
-    width: 20px;
-    height: 20px;
 `
 
 const StyledTable =styled.table`
@@ -37,11 +23,32 @@ border-bottom: 2px solid #dee2e6;
 border-collapse: collapse;
 text-align: center;
 `
+const ImageContainer = styled(Td)`
+display: flex;
+justify-content: center;
+align-items: center;    
+    cursor: pointer;
+    border: none;
+    padding: 0 10px;
+`
+
+const Image = styled.img`
+margin-top: 10px;
+    width: 20px;
+    height: 20px;
+`
+const HiddenTd=styled(Td)`
+border: none;
+`
+
 const Th= styled.th`
 border: 1px solid #dee2e6;
 border-bottom: 2px solid #dee2e6;
   border-collapse: collapse;
   padding: 10px;
+`
+const HiddenTh=styled(Th)`
+border: none;
 `
 
 const Input = styled.input`
@@ -103,9 +110,11 @@ class Table extends Component {
                 input: newInput
             }//, console.log({input: this.state.input})
             )
+            this.props.form.setFieldValue('table', newInput)
     }    
 
     render(){
+        let length=this.state.input.length
         let TableList = this.state.input.map((row,index) => {
             return (
                 <tr key={index}>
@@ -114,15 +123,16 @@ class Table extends Component {
                     <Td><Input name = {`Row${index}Col1`} type = "text" value = {row.Col1} onChange={this.handleChange} /> </Td>
                     <Td><Input name = {`Row${index}Col2`} type = "text" value = {row.Col2} onChange={this.handleChange} /> </Td>
                     <Td><Input name = {`Row${index}Col3`} type = "text" value = {row.Col3} onChange={this.handleChange} /> </Td>
+                    {(index + 1) === length &&   <ImageContainer onClick = {(e) => this.handleRows(e,"addition")} >
+        <Image src = {plus} alt="plus" title="הוספת שורה" />
+    </ImageContainer>}
                 </tr>
             )
         })
         return (
 
 <Container>
-    <ImageContainer onClick = {(e) => this.handleRows(e,"addition")} >
-        <Image src = {plus} alt="plus" title="הוספת שורה" />
-    </ImageContainer>
+  
 <StyledTable>
             <thead>
                 <tr>
@@ -131,15 +141,16 @@ class Table extends Component {
                     <Th>כ"א נדרש</Th>
                     <Th>כלים נדרשים</Th>
                     <Th>זמן להשלמה</Th>
+                    <HiddenTh> <ImageContainer onClick = {(e) => this.handleRows(e,"deletion")} >
+        <Image src = {Bin} alt="delete" title="מחיקה" />
+    </ImageContainer></HiddenTh>
                 </tr>
             </thead>
-            <tbody>
+            <tbody {...this.props}>
                 {TableList}
             </tbody>
         </StyledTable>
 </Container>
-
-
         )
     }
 } 
