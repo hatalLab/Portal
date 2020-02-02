@@ -23,14 +23,6 @@ border-bottom: 2px solid #dee2e6;
 border-collapse: collapse;
 text-align: center;
 `
-const ImageContainer = styled(Td)`
-display: flex;
-justify-content: center;
-align-items: center;    
-    cursor: pointer;
-    border: none;
-    padding: 0 10px;
-`
 
 const Image = styled.img`
 margin-top: 10px;
@@ -49,6 +41,15 @@ border-bottom: 2px solid #dee2e6;
 `
 const HiddenTh=styled(Th)`
 border: none;
+`
+
+const ImageContainer = styled(Th)`
+display: flex;
+justify-content: center;
+align-items: center;    
+    cursor: pointer;
+    border: none;
+    padding: 0 10px;
 `
 
 const Input = styled.input`
@@ -141,9 +142,9 @@ class Table extends Component {
                     <Th>כ"א נדרש</Th>
                     <Th>כלים נדרשים</Th>
                     <Th>זמן להשלמה</Th>
-                    <HiddenTh> <ImageContainer onClick = {(e) => this.handleRows(e,"deletion")} >
+                    <HiddenTh onClick = {(e) => this.handleRows(e,"deletion")} >
         <Image src = {Bin} alt="delete" title="מחיקה" />
-    </ImageContainer></HiddenTh>
+</HiddenTh>
                 </tr>
             </thead>
             <tbody {...this.props}>

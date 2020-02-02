@@ -9,7 +9,7 @@ import { tags } from '../static/data/rowData'
 import ImplementationTable from '../Components/InputTable'
 import { AwesomeButtonProgress } from "react-awesome-button"
   import "react-awesome-button/src/styles/themes/theme-c137";
-
+import ImageSrc from '../static/images/avatar.png'
 // const StyledContainer = styled.div`
 //     display: flex;
 //     width: 90%
@@ -55,7 +55,7 @@ const TextArea = ({ field, form, ...props}) => {
     )
   }
 
-const NewProjectForm = ({ values, errors, touched }) => {
+const NewProjectForm = ({ values, errors, touched, ...props }) => {
     return (
         <StyledFormContainer>
             <Form  >
@@ -80,11 +80,11 @@ const NewProjectForm = ({ values, errors, touched }) => {
                         {touched.description && errors.description && <StyledErrorMessage>{errors.description}</StyledErrorMessage>}
 
                     </StyledCol>
-                    <Field name = 'input' component={UploadImage} />
+                    <Field name = 'input' component={UploadImage} image = {(props.image)} />
                         {touched.input && errors.input && <StyledErrorMessage>{errors.input}</StyledErrorMessage>}
                 </StyledRow>
             {touched.categories && errors.categories && <StyledErrorMessage>{errors.categories}</StyledErrorMessage>}
-            <Field name = "categories" component = { TagsInput } Tags = { tags } SelectedTags = {[]} />
+            <Field name = "categories" component = { TagsInput } Tags = { tags } SelectedTags = {['פיזיקה']} />
 
             <Field name ="table" component ={ImplementationTable} />
             {touched.table && errors.table && <StyledErrorMessage>{errors.table}</StyledErrorMessage>}
@@ -112,15 +112,15 @@ const NewProjectForm = ({ values, errors, touched }) => {
 // let SUPPORTED_FORMATS=['JPG']
 const FormikApp = withFormik(
     {
-        mapPropsToValues( { name, description,details, input, platoon, categories, table }) {
+        mapPropsToValues( { name, description,details, input, platoon, categories, table, ...props }) {
             return {
-                name: name || '',
-                description: description || '',
-                details: details || '',
-                input: input || '',
-                platoon: platoon || '',
-                categories: categories || '',
-                table: table || ''
+                name: props.name || name || '',
+                description: props.description || description || '',
+                details: props.details || details || '',
+                input: props.input || input || '',
+                platoon: props.platoon || platoon || '',
+                categories: props.categories || categories || '',
+                table: props.table || table || ''
             }
         },
         validationSchema: Yup.object().shape({
@@ -134,6 +134,7 @@ const FormikApp = withFormik(
         }),
         validateOnBlur:true
 ,
+enableReinitialize: true,
         handleSubmit(values) {
             console.log("the values");
             
@@ -203,11 +204,11 @@ const FormikApp = withFormik(
 
 
 
-function NewProject(){
+function NewProject( props ){
     return (
         
             <>
-            <FormikApp />
+            <FormikApp {...props} />
 </>
          
     )

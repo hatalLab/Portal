@@ -36,8 +36,7 @@ const CheckboxContainer= styled.div`
 `
 
 const Span = styled.span`
-color: ${props => (props.checked ? '#cdcdcd' : 'black')};
-text-decoration: ${props => (props.checked ? 'line-through' : 'none')};
+color: black;
 margin-right 10px;
 `
 const StyledErrorMessage = styled.p`
@@ -73,7 +72,7 @@ class Checkbox extends Component {
                     color= "#00bfff"
                     shape ={50}
                     background = "#87CEFA"   {...this.props} />
-                    <Span checked = {this.state.checked}>{this.props.Text}</Span>
+                    <Span>{this.props.Text}</Span>
                 </label>
             </CheckboxContainer>
         )

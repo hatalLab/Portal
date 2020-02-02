@@ -3,43 +3,16 @@
 import React from 'react'
 import TagsInput from 'react-tagsinput'
 import styled from 'styled-components'
-import Autosuggest from 'react-autosuggest'
 import AutoSuggestion from '../AutoSoggestion/autoSoggestion'
 import './tags.css'
 import '../../static/css/AutoSoggestion.css'
-import Icon from '../../static/images/search.png'
-import parse from 'autosuggest-highlight/parse'
-import match from 'autosuggest-highlight/match'
 
-const StyledContainer=styled.div`
-border: 1px solid #DDD;
-  display: flex;
-  width:40%
-  margin: 0 auto;
-  padding: 0 5px;
-  flex-direction: row;
-  border-radius: 25px;
-`
-const StyledInput = styled.input`
-direction: rtl;
-border: none;
-outline: none;
-width: 90%;
-margin-right: 5%;
-&: focus {
-  borser: none;
-  outline: none;
-}
-`
+
 const InputContainer=styled.div`
   display: flex;
   justify-content: center;
 `
 
-const StyledImg=styled.img`
-height: 50px;
-width:50px;
-`
 const StyledTagsContainer=styled.div`
   margin: 20px;
   direction: rtl;
@@ -78,7 +51,8 @@ class SelectionTags extends React.Component {
     this.state = {
       Tags: [],
       temporarySelected:[],
-      SelectedTags: []
+      SelectedTags: [],
+      gotProps: false
     }
    this.handleAllCategories=this.handleAllCategories.bind(this)
    this.handleSelectedCategories=this.handleSelectedCategories.bind(this)
@@ -87,14 +61,20 @@ class SelectionTags extends React.Component {
   
   componentDidMount(){
     let tags =this.props.Tags.slice()
-    let selectedTags=this.props.SelectedTags.slice()
+    let selectedTags=this.props.SelectedTags.slice(), temp=[]
+    if(selectedTags.length !== 0){
+      temp = tags.filter(tag => selectedTags.some(selected_tag => selected_tag === tag))
+      tags = tags.filter(tag => selectedTags.every(selected_tag => selected_tag !== tag))
+    }
     this.setState(
       {
         Tags:tags,
-        SelectedTags:selectedTags
+        SelectedTags:selectedTags,
+        temporarySelected: temp
       }
     )
   }
+  
  
   // remove category from all categories when a category selected and add it to selected tags and temporary
 
@@ -142,8 +122,6 @@ handleSelectedCategories(tags, changed, changedIndexes) {
             this.setState({
                 SelectedTags: newTags
             })
-            console.log({selected_tags});
-
             this.props.form.setFieldValue('categories',newTags)
         } else {
             //else it's old tag that mean it exists in temp. we need to remove from temp and selected tags and add it to tags
@@ -156,8 +134,6 @@ handleSelectedCategories(tags, changed, changedIndexes) {
                 temporarySelected: temp,
                 SelectedTags: selected_tags
             })
-            console.log({selected_tags});
-
             this.props.form.setFieldValue('categories', selected_tags)
         }
     } else { // if new tag selected
@@ -168,8 +144,6 @@ handleSelectedCategories(tags, changed, changedIndexes) {
             this.setState({
                 SelectedTags: selected_tags
             })
-            console.log({selected_tags});
-
             this.props.form.setFieldValue('categories',selected_tags)
         } else { //if it's old tag we need to remove the tag from tags and add it to selectedtags and temp
             newTags = this.state.Tags.filter(tag => tag !== changed)
@@ -183,27 +157,13 @@ handleSelectedCategories(tags, changed, changedIndexes) {
                 SelectedTags: selected_tags
             })
             this.props.form.setFieldValue('categories',selected_tags)
-            console.log({selected_tags});
-            
         }
   }
   }
  
   autosuggestRenderInput ({addTag, ...props}) {
-    const handleOnChange = (e, {newValue, method}) => {
-      if (method === 'enter') {
-          e.preventDefault()
-      } else {
-          props.onChange(e)
-      }
-  }
+
  
-  const inputValue = (props.value && props.value.trim().toLowerCase()) || ''
-  const inputLength = inputValue.length
- 
-  // let suggestions = this.state.Tags.filter((state) => {
-  //   return state.toLowerCase().slice(0, inputLength) === inputValue
-  // })
   return (
     <InputContainer className="container">
     <AutoSuggestion list = {this.state.Tags} Handler={addTag} {...props} />

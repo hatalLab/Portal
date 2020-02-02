@@ -184,7 +184,7 @@ export default function App() {
             <StyledLink to="/my-projects">הפרויקטים שלי</StyledLink>
           </StyledItem>
           <StyledItem>
-            <StyledLink to="/">צור קשר</StyledLink>
+            <StyledLink to="/contact">צור קשר</StyledLink>
           </StyledItem>
         </StyledList>
       </StyledLinksContainer>

@@ -139,6 +139,8 @@ const StyledNameContainer  = styled.p`
 const StyledProjectContainer = styled.div`
     width: 250px;
 `
+const StyledWrapped =styled(StyledRow)`
+    flex-wrap: wrap;`
 
 let numberOfTags = 10;
 
@@ -178,9 +180,6 @@ const Modal = (props) => {
       </>
   )
 }
-
-const StyledWrapped =styled(StyledRow)`
-    flex-wrap: wrap;`
 
 // this function is responsible for the content of the modal (insert the rest of the tags)
 const ModalContent = (props) => {
@@ -320,33 +319,16 @@ class ControlledHomePage extends Component{
         }
     }
 
-    // handleOverflow(){
-    //     let newState = this.state.overflow ? false : true
-    //     this.setState(
-    //         {
-    //             overflow: newState
-    //         }
-    //     )
-    // }
-
     render(){
         return(
             <HomeContainer>
-            {/* <StyledBar> */}
                             <StyledInput name = "search" placeholder = " חפש קטגוריה" value = {this.state.input} onChange = {this.handleChange} />
             <Modal handleChange = {this.handleChange} />
-                        
-                        {/* <TagsContainer handleChange = {this.handleChange} /> */}
-                    {/* </StyledBar> */}
-            {/* <StyledFilterContainer>
-                <StyledCol>
-                </StyledCol>
-            </StyledFilterContainer> */}
-            <StyledContainer id ="project_list" overfl={this.state.overflow} > {/*styled component */}
+            <StyledContainer id ="project_list" overfl={this.state.overflow} >
                 <Comment>start of project list</Comment>
-                <StyledList id="mix_wrapper"> {/*styled component */}
+                <StyledList id="mix_wrapper">
                     <Comment>Project List './src/Components/BindDataProject'</Comment>
-                    {this.state.ShownProjectList} {/*project list */}
+                    {this.state.ShownProjectList}
                 </StyledList>
                 <Comment>end of project list</Comment>
             </StyledContainer>

@@ -87,9 +87,19 @@ class UploadImage extends Component {
             // file conains the imageto be shown
             file: Img_Src,
             loaded: false,
-            fileName: ''
+            fileName: '',
+            gotProps: false
         }
         this.handleChange = this.handleChange.bind(this)
+    }
+
+    componentDidUpdate(prevProps){
+        if(!this.state.gotProps && prevProps.image){
+            this.setState({
+                file: prevProps.image,
+                gotProps: true
+            })
+        }
     }
 
     handleChange(event) {

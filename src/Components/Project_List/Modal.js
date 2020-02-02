@@ -240,7 +240,8 @@ const Modal = (props) => {
     const [modalShow, setModalShow] = useState(false)
     const [ImplementationModalShow, setImplementationModalShow] = useState(false)
     const [SchedulenModalShow, setScheduleModalShow] = useState(false)
-
+    let Edit = props.Edit
+    let EditProject = props.EditContent
     const [focus, setFocus] = useState(false)
     const ref = useRef(null)
     const handleHover = () => {
@@ -336,6 +337,9 @@ const Modal = (props) => {
                         <AwesomeButton type="primary" onPress = {() => setImplementationModalShow(true)}>
                             מימוש לפי שלבים
                         </AwesomeButton>
+                       { Edit && <AwesomeButton type="primary" onPress = {() => <EditProject />}>
+                            עריכה
+                        </AwesomeButton>}
                         <AwesomeButton type="primary" onPress = {() => setScheduleModalShow(true)}>
                             לו"ז הפרויקט
                         </AwesomeButton>
