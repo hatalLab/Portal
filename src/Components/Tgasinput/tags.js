@@ -14,10 +14,13 @@ const InputContainer=styled.div`
 `
 
 const StyledTagsContainer=styled.div`
-  margin: 20px;
   direction: rtl;
   padding: 10px 0;
   text-align: start;
+`
+const StyledHeading = styled.h4`
+    display: flex;
+    flex-direction: row;
 `
 
 
@@ -175,7 +178,7 @@ handleSelectedCategories(tags, changed, changedIndexes) {
         return (
                 <>
                 <StyledTagsContainer>
-                      {this.state.Tags.length > 0 && <p>כל הקטגוריות</p>}
+                      {this.state.Tags.length > 0 && <StyledHeading>כל הקטגוריות</StyledHeading>}
                       <TagsInput 
                       value={this.state.Tags}
                       onChange={this.handleAllCategories}
@@ -185,7 +188,7 @@ handleSelectedCategories(tags, changed, changedIndexes) {
                       tagProps={{className: 'react-tagsinput-tag edit-tag tag-label', classNameRemove: 'react-tagsinput-remove edit-tag'}}
                       renderLayout={RenderLayout}
                       />
-                      {this.state.SelectedTags.length > 0 && <p>קטגוריות שנבחרו:</p>}
+                      {this.state.SelectedTags.length > 0 && <StyledHeading>קטגוריות שנבחרו:</StyledHeading>}
                       <TagsInput 
                       value={this.state.SelectedTags} 
                       onChange={this.handleSelectedCategories}

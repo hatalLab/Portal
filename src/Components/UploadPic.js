@@ -12,6 +12,10 @@ import Img_Src from '../static/images/project-default.png'
 //     margin: 100px auto;
 // `
 
+const Container = styled.div`
+    width: 350px;
+`
+
 const StyledRow = styled.div `
     display: flex;
     justify-content: space-between;
@@ -115,6 +119,7 @@ class UploadImage extends Component {
 
     render() {
         return (
+                <Container>
                     <StyledRow className="StyledRow" >
                         <label id = "img_label" htmlFor = "id_img" >
                             <StyledImgContainer className = "StyledImgContainer">
@@ -133,6 +138,7 @@ class UploadImage extends Component {
                         </label>
                         <StyledInput type = "file" name = "img" id = "id_img" accept = "image/*" required onChange = { this.handleChange }  {...this.props} />
                     </StyledRow>
+                </Container>
         )
     }
 }

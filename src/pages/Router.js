@@ -6,13 +6,14 @@ import MyProjects from './MyProjects'
 import Settings from './Settings'
 import NewProject from './NewProject'
 import Contact from './ContactUs'
-
-
+import UpdateProject from './UpdateProject'
+import BackToTop from '../Components/Back2Top'
 
 function Router(){
     return (
         <BrowserRouter>
                             <Navbar />
+                            <BackToTop />
                 <Switch>
                    
                     <Route exact path = "/">
@@ -29,6 +30,11 @@ function Router(){
                     <Route path = "/new-project">
                         <NewProject />
                     </Route>
+
+                    <Route path = "/edit-project">
+                        <UpdateProject />
+                    </Route>
+
                     <Route path = "/contact">
                         <Contact />
                     </Route>

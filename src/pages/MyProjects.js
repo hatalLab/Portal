@@ -66,12 +66,10 @@ class MyProjects extends Component{
     componentDidMount(){
         let list=[], ShownProjectList = []
         for(let project of  ProjectsData){
-            console.log({ project });
-            
             list.push({
                 project: <StyledProjectContainer key = {project.Project_id}>
                             <StyledLi>
-                                <ModalPage data = {project} Edit={true} EditProject = {UpdateProject} />
+                                <ModalPage data = {project} Edit={true} />
                             </StyledLi>
                             <StyledNameContainer>{ project.front_title.length < 50 ? project.front_title : project.front_title.slice(0,45) + "..."}</StyledNameContainer>
                         </StyledProjectContainer>,

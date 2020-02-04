@@ -1,10 +1,8 @@
 import React,{ useState, useRef } from 'react'
 import styled from 'styled-components'
-import {
-    AwesomeButton,
-    AwesomeButtonProgress,
-  } from "react-awesome-button"
-  import "react-awesome-button/src/styles/themes/theme-c137";
+import { Link, useHistory } from 'react-router-dom'
+import { AwesomeButton, AwesomeButtonProgress } from "react-awesome-button"
+import "react-awesome-button/src/styles/themes/theme-c137";
 
 
 const ImageSize = {
@@ -170,7 +168,7 @@ const StyledText = styled.div`
         outline: none;
     }`
 
-    const StyledJustifiedParagraph=styled.p`
+const StyledJustifiedParagraph=styled.p`
     direction: rtl;
     text-align: justify
     padding: 0 15px 5px 0;`
@@ -195,6 +193,10 @@ margin: 20px auto;
 width: 100%;
 display: flex;
 justify-content: center;
+`
+const StyledLink =styled(Link)`
+    text-decoration: none;
+    color: black;
 `
 
 const Table = (props) => {
@@ -241,7 +243,7 @@ const Modal = (props) => {
     const [ImplementationModalShow, setImplementationModalShow] = useState(false)
     const [SchedulenModalShow, setScheduleModalShow] = useState(false)
     let Edit = props.Edit
-    let EditProject = props.EditContent
+    let history = useHistory()
     const [focus, setFocus] = useState(false)
     const ref = useRef(null)
     const handleHover = () => {
@@ -337,9 +339,14 @@ const Modal = (props) => {
                         <AwesomeButton type="primary" onPress = {() => setImplementationModalShow(true)}>
                             מימוש לפי שלבים
                         </AwesomeButton>
-                       { Edit && <AwesomeButton type="primary" onPress = {() => <EditProject />}>
-                            עריכה
-                        </AwesomeButton>}
+                       { Edit && <AwesomeButton type = "secondary" onPress={()=> history.push(
+                           {
+                                   pathname: "/edit-project",
+                                   data: props.data
+                               } )}>
+עריכה
+                       </AwesomeButton>
+                        }
                         <AwesomeButton type="primary" onPress = {() => setScheduleModalShow(true)}>
                             לו"ז הפרויקט
                         </AwesomeButton>

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import ModalPage from '../Components/Project_List/Modal'
 import { data as projectsData, tags, favoriteTags as FavoriteTags, interestedProjects } from '../static/data/rowData'
 import Comment from '../Components/Comments'
-
+import BackToTop from '../Components/Back2Top'
 
 // styled components
 

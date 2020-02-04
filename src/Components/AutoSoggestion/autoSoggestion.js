@@ -41,7 +41,6 @@ const InputContainer=styled.div`
 `
 
 const StyledImg=styled.img`
-height: 50px;
 width:50px;
 `
 

@@ -3,13 +3,13 @@ import styled from 'styled-components'
 import { withFormik, Form, Field } from 'formik'
 import * as Yup from 'yup'
 import UploadImage from '../Components/UploadPic'
-import TextareaAutosize from 'react-textarea-autosize';
+import TextareaAutosize from 'react-textarea-autosize'
 import { SelectionTags as TagsInput } from '../Components/Tgasinput/tags'
 import { tags } from '../static/data/rowData'
 import ImplementationTable from '../Components/InputTable'
-import { AwesomeButtonProgress } from "react-awesome-button"
-  import "react-awesome-button/src/styles/themes/theme-c137";
-import ImageSrc from '../static/images/avatar.png'
+import { AwesomeButton ,AwesomeButtonProgress } from "react-awesome-button"
+import "react-awesome-button/src/styles/themes/theme-c137"
+import { useHistory } from 'react-router-dom'
 // const StyledContainer = styled.div`
 //     display: flex;
 //     width: 90%
@@ -24,31 +24,48 @@ const StyledHeading = styled.h4`
 const StyledCol=styled.div`
     display: flex;
     flex-direction: column;
-    dir:rtl;
-    padding:10px;`
+    direction: rtl;`
 
 const StyledRow=styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   flex-direction: row;
   direction: rtl;
-  padding:10px 40px;
 `
-
+const RowContainer = styled(StyledRow)`
+    justify-content: start;
+`
+const Row = styled(StyledRow)`
+   justify-content: start;
+`
 const StyledErrorMessage = styled.p`
     color: red;
-    align-self: center;`
+    align-self: start;
+    margin: 6px 0;`
 
 const StyledFormContainer= styled.div`
     width: 90%;
     margin: 50px auto;
 ` 
 
+const ImageCOntainer =styled.div`
+    margin-top: 5vh;
+`
 
-
-const TextArea = ({ field, form, ...props}) => {
+const TextArea = ({ field, form, large, ...props}) => {
     return (
-      <TextareaAutosize   style={{boxSizing: 'border-box', resize: 'both', direction: 'rtl', width: '200px'}}
+      <TextareaAutosize   style={{
+        boxSizing: 'border-box',
+        resize: 'both', 
+        direction: 'rtl', 
+        width: large ? '55vw' : '25vw', 
+        maxWidth: '90vw', 
+        minWidth: '200px',
+        minHeight: '30px', 
+        marginLeft: '5vw',
+        fontFamily: 'inherit', 
+        fontSize: 'large'}}
       
       {...field} {...props}
       />
@@ -56,54 +73,75 @@ const TextArea = ({ field, form, ...props}) => {
   }
 
 const NewProjectForm = ({ values, errors, touched, ...props }) => {
+    let history = useHistory()
+    console.log(history);
+    
     return (
         <StyledFormContainer>
-            <Form  >
-                <StyledRow className="StyledRow2">
+            <Form>
+                <Row>
 
                     <StyledCol>
-                        <StyledHeading>שם הפרויקט:</StyledHeading>
-                        {/* <Field type="text" name= "name" placeholder = " שם הפרויקט " /><br /> */}
-                        <Field name ="name" minRows={2} maxRows={3} component={TextArea} placeholder = " שם הפרויקט " /><br />
-                        {touched.name && errors.name && <StyledErrorMessage>{errors.name}</StyledErrorMessage>}
-                        
-                        <StyledHeading>מחלקה: </StyledHeading>
-                        <Field name = "platoon" minRows={2} maxRows={2} placeholder=" מחלקה" component={TextArea} />
-                        {touched.platoon && errors.platoon && <StyledErrorMessage>{errors.platoon}</StyledErrorMessage>}
+                        <RowContainer>
+                            <StyledCol>
+                                <StyledHeading>שם הפרויקט:</StyledHeading>
+                                <Field name ="name" minRows={2} maxRows={3} component={TextArea} placeholder = " שם הפרויקט " />
+                                {touched.name && errors.name && <StyledErrorMessage>{errors.name}</StyledErrorMessage>}
+                            </StyledCol>
 
-                        <StyledHeading>תיאור הפרויקט:</StyledHeading>
-                        <Field name = "details" minRows={5} component={TextArea} placeholder = " תיאור הפרויקט " />
-                        {touched.details && errors.details && <StyledErrorMessage>{errors.details}</StyledErrorMessage>}
+                            <StyledCol>
+                                <StyledHeading>מחלקה: </StyledHeading>
+                                <Field name = "platoon" minRows={2} maxRows={2} placeholder=" מחלקה" component={TextArea} />
+                                {touched.platoon && errors.platoon && <StyledErrorMessage>{errors.platoon}</StyledErrorMessage>}
+                            </StyledCol>
+                        </RowContainer>
 
-                        <StyledHeading>פירוט: </StyledHeading>
-                        <Field name = "description" minRows={5} component={TextArea} placeholder = " פירוט " />
-                        {touched.description && errors.description && <StyledErrorMessage>{errors.description}</StyledErrorMessage>}
+                        <StyledRow>
+                            <StyledCol>
+                                <StyledHeading>תיאור הפרויקט:</StyledHeading>
+                                <Field name = "details" large minRows={5} component={TextArea} placeholder = " תיאור הפרויקט " />
+                                {touched.details && errors.details && <StyledErrorMessage>{errors.details}</StyledErrorMessage>}
+                            </StyledCol>
+                        </StyledRow>
 
+                        <StyledRow>
+                            <StyledCol>
+                                <StyledHeading>פירוט: </StyledHeading>
+                                <Field name = "description" large minRows={5} component={TextArea} placeholder = " פירוט " />
+                                {touched.description && errors.description && <StyledErrorMessage>{errors.description}</StyledErrorMessage>}
+                            </StyledCol>
+                        </StyledRow>
                     </StyledCol>
-                    <Field name = 'input' component={UploadImage} image = {(props.image)} />
-                        {touched.input && errors.input && <StyledErrorMessage>{errors.input}</StyledErrorMessage>}
-                </StyledRow>
+                       
+                       <ImageCOntainer>
+                            <Field name = 'input' component={UploadImage} image = {(props.image)} />
+                            {touched.input && errors.input && <StyledErrorMessage>{errors.input}</StyledErrorMessage>}
+                       </ImageCOntainer>
+                </Row>
+                       
             {touched.categories && errors.categories && <StyledErrorMessage>{errors.categories}</StyledErrorMessage>}
-            <Field name = "categories" component = { TagsInput } Tags = { tags } SelectedTags = {['פיזיקה']} />
+             <Field name = "categories" component = { TagsInput } Tags = { tags } SelectedTags = {[]} />
 
             <Field name ="table" component ={ImplementationTable} />
             {touched.table && errors.table && <StyledErrorMessage>{errors.table}</StyledErrorMessage>}
 
-            <AwesomeButtonProgress
-                                
-                                    type="primary"
-                                    size="medium"
-                                    resultLabel="נשלח!"
-                                    releaseDelay={600}
-                                    ripple={true}
-                                    onPress={(element, next) => {
-                                    setTimeout(() => {
-                                        next();
-                                    }, 600);
-                                    }}
-                                        >
-                                    שלח
-                                </AwesomeButtonProgress>
+            <StyledRow>
+                {props.edit && <AwesomeButton type= "primary" onPress = {()=> history.goBack()}>סגירה</AwesomeButton>}
+                <AwesomeButtonProgress
+                    type = "primary"
+                    size = "medium"
+                    resultLabel = "נשלח!"
+                    releaseDelay = {600}
+                    ripple = {true}
+                    onPress = {(element, next) => {
+                    setTimeout(() => {
+                    next();
+                    }, 600);
+                    }}
+                >
+                שמירה
+                </AwesomeButtonProgress>
+            </StyledRow>
             </Form>
         </StyledFormContainer>
     )
@@ -208,7 +246,7 @@ function NewProject( props ){
     return (
         
             <>
-            <FormikApp {...props} />
+            <FormikApp {...props}  />
 </>
          
     )
