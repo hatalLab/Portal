@@ -83,6 +83,12 @@ const StyledP = styled.p `
 const StyledCenteredP =styled.p`
     align-self: center;`
 
+    const StyledErrorMessage = styled.p`
+    color: red;
+    align-self: start;
+    margin: 6px 0;
+    text-align: center;`
+
 class UploadImage extends Component {
     constructor() {
         super()
@@ -118,6 +124,11 @@ class UploadImage extends Component {
     }
 
     render() {
+        // console.log({...this.props});
+        // console.log("functiion");
+        // console.log(this.props.form.handleSubmit);
+        
+        
         return (
                 <Container>
                     <StyledRow className="StyledRow" >
@@ -138,6 +149,7 @@ class UploadImage extends Component {
                         </label>
                         <StyledInput type = "file" name = "img" id = "id_img" accept = "image/*" required onChange = { this.handleChange }  {...this.props} />
                     </StyledRow>
+                    {this.props.form.touched.input && this.props.form.errors.input && <StyledErrorMessage>{this.props.form.errors.input}</StyledErrorMessage>}
                 </Container>
         )
     }

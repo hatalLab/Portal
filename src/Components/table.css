@@ -1,0 +1,11 @@
+td:before {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border-bottom: 1px solid black;
+    width: 100%;
+}
+td {
+    position: relative;
+}

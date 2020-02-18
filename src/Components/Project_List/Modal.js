@@ -145,7 +145,7 @@ const StyledImageWithHover = styled.img`
 
 // .middle
 const StyledMiddle = styled.div`
-    transition: .5s ease;
+    transition: .0s ease;
     opacity: 0;
     position: absolute;
     top: 50%;
@@ -246,11 +246,14 @@ const Modal = (props) => {
     let history = useHistory()
     const [focus, setFocus] = useState(false)
     const ref = useRef(null)
+    const ModalRef = useRef(null)
+
     const handleHover = () => {
         setFocus(true)
         ref.current.focus()
         // props.setOverFow()
     }
+
     const handleBlur = () => {
         setFocus(false)
         ref.current.scrollTop = 0
@@ -258,9 +261,13 @@ const Modal = (props) => {
         //props.setOverFow()
     }
 
+    const RestModal = () => {
+        ModalRef.current.scrollTop = 0
+        ModalRef.current.blur()
+    }
+
     return (
         <>
-        
             {/*the button to open the modal is the image */}
             {/* header */}
             <SecondModalBg className="secondBackground" onClick={() => setImplementationModalShow(false)} over = {ImplementationModalShow} />
@@ -296,7 +303,7 @@ const Modal = (props) => {
                     </AwesomeButton>
 </Row>
 </SecondModal>
-            <Background className="background" onClick = {() => setModalShow(false)} open = {modalShow} />
+            <Background className="background" onClick = {() => {setModalShow(false); RestModal()}} open = {modalShow} />
             <StyledContainer className="container" onClick={()=>setModalShow(true)}>
                 <StyledImageWithHover src={require(`${props.data.img_src}`)}  alt="Avatar" className="image" />
                 <StyledMiddle className="middle">
@@ -307,7 +314,7 @@ const Modal = (props) => {
                     </StyledText>
                 </StyledMiddle>
             </StyledContainer>
-            <ModalContainer className="modal" open = {modalShow} >
+            <ModalContainer ref= {ModalRef} className = "modal" open = {modalShow} tabIndex = { modalShow ? "1":"0"}>
                 {/*title */}
                 <ModalHeader>
                     <ModalTitle>{props.data.front_title}</ModalTitle>

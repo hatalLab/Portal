@@ -171,9 +171,9 @@ export default function App() {
       </ImgContainer>
       <StyledLinksContainer>
         <StyledList>
-          <StyledItem>
+          {/* <StyledItem>
             <StyledLink to="/">הגדרות</StyledLink>
-          </StyledItem>
+          </StyledItem> */}
           <StyledItem>
             <StyledLink to="/new-project">הוספת פרויקט חדש</StyledLink>
           </StyledItem>

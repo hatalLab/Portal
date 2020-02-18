@@ -4,8 +4,7 @@ import styled from 'styled-components'
 import ModalPage from '../Components/Project_List/Modal'
 import { data as projectsData, tags, favoriteTags as FavoriteTags, interestedProjects } from '../static/data/rowData'
 import Comment from '../Components/Comments'
-import BackToTop from '../Components/Back2Top'
-
+import { ActiveTags } from '../Components/Tgasinput/tags'
 // styled components
 
 // main container
@@ -150,7 +149,6 @@ const Modal = (props) => {
     const [modalShow, setModalShow] = useState(false);
     let tagsList = [], index, restTags =[...tags]
     tagsList.push(<StyledTagContainer  key="all" className = "container"><StyledTag onClick ={event => props.handleChange(event)} name = "all" href="#">הכל</StyledTag></StyledTagContainer>)
-    tagsList.push(<StyledTagContainer  key="favorites" className = "container"><StyledTag onClick ={event => props.handleChange(event)} name = "favorites" href="#">מועדפים</StyledTag></StyledTagContainer>)
     tagsList.push(<StyledTagContainer  key="new" className = "container"><StyledTag onClick ={event => props.handleChange(event)} name = "new" href="#">חדש</StyledTag></StyledTagContainer>)
     
     // insert interested tags first to tags section and remove them from restTags
@@ -219,6 +217,7 @@ class ControlledHomePage extends Component{
             overflow: false
         }
         this.handleChange=this.handleChange.bind(this)
+        this.handleActiveTags=this.handleActiveTags.bind(this)
         // this.handleOverflow=this.handleOverflow.bind(this)
     }
 
@@ -274,7 +273,6 @@ class ControlledHomePage extends Component{
         this.setState(
             {
                 categoriesList: [...tags],
-                activeCategories:[...tags],
                 projectObject: temp,
                 ShownProjectList: list
             }
@@ -285,14 +283,15 @@ class ControlledHomePage extends Component{
     handleChange (event){
         event.preventDefault();
         const {name, value, type, innerText} = event.target
-        console.log(innerText);
+        //console.log(innerText);
         if(type){
             this.setState({
                 input:value
             },this.filter(value))
         } else {
+            console.log(`${name} clicked`)
             this.setState({
-                activeCategories: name
+                activeCategories: [name]
             }, this.filter(name))
         }
     }
@@ -319,9 +318,18 @@ class ControlledHomePage extends Component{
         }
     }
 
+    handleActiveTags(TagToRemove){ 
+        let ActiveTags = this.state.activeCategories.filter(tag => tag !== TagToRemove )
+        this.setState({
+            activeCategories: ActiveTags
+        },this.filter("all"))
+    }
+
     render(){
         return(
             <HomeContainer>
+        <ActiveTags Tags = {this.state.activeCategories} handler = {this.handleActiveTags} />
+
                             <StyledInput name = "search" placeholder = " חפש קטגוריה" value = {this.state.input} onChange = {this.handleChange} />
             <Modal handleChange = {this.handleChange} />
             <StyledContainer id ="project_list" overfl={this.state.overflow} >

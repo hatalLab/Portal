@@ -12,13 +12,15 @@ const Image = styled.img`
     right: 50px;
     visibility: ${props => props.Visible === false ? "hidden" : "visible" };
     z-index: 100;
+    cursor: pointer;
 `
 
 class back2Top extends Component {
     constructor() {
         super()
         this.state = {
-            Visible: false
+            Visible: false,
+            clicked: false
         }
         this.toggleVisibility = this.toggleVisibility.bind(this)
         this.handleClick = this.handleClick.bind(this)
@@ -33,17 +35,26 @@ class back2Top extends Component {
     }
 
     toggleVisibility() {
-        if (!this.state.Visible && window.pageYOffset > 100)
+        if (!this.state.Visible && !this.state.clicked && window.pageYOffset > 100)
             this.setState({
                 Visible: true
             })
-        else if (this.state.Visible && window.pageYOffset < 100)
+        else if(window.pageYOffset=== 0){
+            this.setState({
+                clicked: false
+            })
+        }
+         else if (this.state.Visible && window.pageYOffset < 100)
             this.setState({
                 Visible: false
             })
     }
 
     handleClick() {
+        this.setState({
+            Visible: false,
+            clicked: true
+        })
         window.scroll({
             top: 0,
             left: 0,

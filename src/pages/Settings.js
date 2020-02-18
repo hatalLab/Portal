@@ -18,6 +18,8 @@ const Container = styled.div`
     margin: 100px auto;
     direction: rtl;
 `
+const FieldContainer =styled.div`
+`
 const Row = styled.div`
     flex-direction: row;
 `
@@ -86,15 +88,15 @@ const Preferences = ({ values, errors, touched }) => {
             <Form>
 
             <Col>
-            
-            <Title>תחומי ידע</Title>
-            <Field name = "knowledge" component = { TagsInput } Tags = {tags} SelectedTags = { [] } />
-            {touched.knowledge && errors.knowledge && <StyledErrorMessage>{errors.knowledge}</StyledErrorMessage>}
+                <Title>תחומי ידע</Title>
+                <Field name = "knowledge" component = { TagsInput } Tags = {tags} SelectedTags = { [] } />
+            {/* {touched.knowledge && errors.knowledge && <StyledErrorMessage>{errors.knowledge}</StyledErrorMessage>} */}
 
             <Float>
-            <Title>תחומי עניין</Title>
-            <Field name = "interest" component = { TagsInput } Tags = {tags} SelectedTags = { [] } />
-            {touched.interest && errors.interest && <StyledErrorMessage>{errors.interest}</StyledErrorMessage>}
+               
+                    <Title>תחומי עניין</Title>
+                    <Field name = "interest" component = { TagsInput } Tags = {tags} SelectedTags = { [] } />
+
 
             </Float>
 
@@ -102,7 +104,7 @@ const Preferences = ({ values, errors, touched }) => {
             <Field name = "notifications" component = {Checkbox} Text = "שלחו לי מייל כאשר מתפרסמים פרויקטים שמעניינים אותי" />
             {touched.notifications && errors.notifications && <StyledErrorMessage>{errors.notifications}</StyledErrorMessage>}
 
-            <AwesomeButtonProgress
+            <br /><AwesomeButtonProgress
                                 
                                     type="primary"
                                     size="medium"

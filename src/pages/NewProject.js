@@ -53,6 +53,7 @@ const ImageCOntainer =styled.div`
     margin-top: 5vh;
 `
 
+
 const TextArea = ({ field, form, large, ...props}) => {
     return (
       <TextareaAutosize   style={{
@@ -74,7 +75,7 @@ const TextArea = ({ field, form, large, ...props}) => {
 
 const NewProjectForm = ({ values, errors, touched, ...props }) => {
     let history = useHistory()
-    console.log(history);
+    // console.log(history);
     
     return (
         <StyledFormContainer>
@@ -115,15 +116,13 @@ const NewProjectForm = ({ values, errors, touched, ...props }) => {
                        
                        <ImageCOntainer>
                             <Field name = 'input' component={UploadImage} image = {(props.image)} />
-                            {touched.input && errors.input && <StyledErrorMessage>{errors.input}</StyledErrorMessage>}
+                            
                        </ImageCOntainer>
                 </Row>
                        
-            {touched.categories && errors.categories && <StyledErrorMessage>{errors.categories}</StyledErrorMessage>}
              <Field name = "categories" component = { TagsInput } Tags = { tags } SelectedTags = {[]} />
 
             <Field name ="table" component ={ImplementationTable} />
-            {touched.table && errors.table && <StyledErrorMessage>{errors.table}</StyledErrorMessage>}
 
             <StyledRow>
                 {props.edit && <AwesomeButton type= "primary" onPress = {()=> history.goBack()}>סגירה</AwesomeButton>}
@@ -164,10 +163,12 @@ const FormikApp = withFormik(
         validationSchema: Yup.object().shape({
             name: Yup.string().required('name is required!'),
             description: Yup.string().min(15).required('description is required!'),
+            details: Yup.string().min(15).required('חובה לספק תיאור!'),
             input: Yup.mixed().required('image is required!'),
             //Yup.mixed() .test('fileSize', "File Size is too large", value => value.size <= FILE_SIZE) .test('fileType', "Unsupported File Format", value => SUPPORTED_FORMATS.includes(value.type) )
             platoon:Yup.string().required('platoon is required!'),
             categories: Yup.array().min(1).required('categories is required!'),
+            //table:Yup.mixed().oneOf([''],"empty").required('required')
             table:Yup.array().min(1).required('implementation is required!')
         }),
         validateOnBlur:true

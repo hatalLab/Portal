@@ -35,7 +35,9 @@ const StyledCheckbox = styled.div`
   background: ${props =>
     props.checked ? props.color || 'salmon' : props.background || 'papayawhip'};
   border-radius: ${props => (props.shape ? props.shape + '%' : '3px')};
+  border: ${props => props.border ? '1px solid ' + props.border : 'none'};
   transition: all 150ms;
+  cursor: pointer;
 
   ${HiddenCheckbox}:focus + & {
     box-shadow: 0 0 0 3px pink;
@@ -46,10 +48,10 @@ const StyledCheckbox = styled.div`
   }
 `
 
-const Checkbox = ({ className, checked, shape, color, background, ...props }) => (
+const Checkbox = ({ className, checked, shape, color, background, border, ...props }) => (
   <CheckboxContainer className={className}>
     <HiddenCheckbox checked={checked} {...props} />
-    <StyledCheckbox checked={checked} shape = {shape} color = {color} background = {background}>
+    <StyledCheckbox checked={checked} shape = {shape} color = {color} background = {background} border = {border}>
       <Icon viewBox="0 0 24 24">
         <polyline points="20 6 9 17 4 12" />
       </Icon>

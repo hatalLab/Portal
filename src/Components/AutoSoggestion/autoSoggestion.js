@@ -3,7 +3,7 @@ import Autosuggest from 'react-autosuggest'
 import parse from 'autosuggest-highlight/parse'
 import match from 'autosuggest-highlight/match'
 import Icon from  '../../static/images/search.png'
-import './AutoSoggestion.css'
+import x from '../../static/css/AutoSoggestion.css'
 import styled from 'styled-components'
 
 
@@ -11,8 +11,8 @@ const StyledContainer=styled.div`
 border: 1px solid #DDD;
 border-bottom: 2px solid #DDD;
   display: flex;
-  width:30%
-  margin: 0 auto;
+  width:30%;
+  margin: 1px auto;
   padding: 0 5px;
   flex-direction: row;
   border-radius: 25px;
@@ -20,18 +20,23 @@ border-bottom: 2px solid #DDD;
   display: flex;
   justify-content: space-between;
 `
+const SuggestionContainer = styled(StyledContainer)`
+  border: none;
+  padding: 0;
+  width: 28%;
+`
 
 const StyledInput = styled.input`
 direction: rtl;
 border: none;
 outline: none;
 margin-right: 20px;
-spellcheck=false;
+spellcheck:false;
 && {
 width: 90%;
 }
 &: focus {
-  borser: none;
+  border: none;
   outline: none;
 }
 `
@@ -49,13 +54,15 @@ function shouldRenderSuggestions() {
 }
 
 function renderSuggestionsContainer({ containerProps , children, query }) {
+  containerProps.className += " Try"
+ // console.log({...containerProps});
+  
   return (
-    <div {... containerProps}>
-      {children}
-      <div>
-        Press Enter to search <strong>{query}</strong>
+    <SuggestionContainer>
+      <div {... containerProps} >
+        {children}
       </div>
-    </div>
+    </SuggestionContainer>
   );
 }
 
@@ -181,6 +188,7 @@ const renderInputComponent = inputProps => (
           renderSuggestion={renderSuggestion}
           inputProps={inputProps}
           renderInputComponent={renderInputComponent}
+          renderSuggestionsContainer = {renderSuggestionsContainer}
         />
       )
     }

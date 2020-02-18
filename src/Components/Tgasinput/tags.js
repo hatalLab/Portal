@@ -23,6 +23,11 @@ const StyledHeading = styled.h4`
     flex-direction: row;
 `
 
+const StyledErrorMessage = styled.p`
+color: red;
+align-self: start;
+margin: 6px 0;
+text-align: start;`
 
 function RenderLayout (tagComponents, inputComponent) {
   return (
@@ -40,6 +45,18 @@ function RenderSelectionTag (props) {
   let {tag, key, disabled, onRemove, classNameRemove, getTagDisplayValue, ...other} = props
   return (
     <span key={key} {...other}  onClick={(e) => onRemove(key)}>
+      {getTagDisplayValue(tag)}
+      {!disabled &&
+        <a className={classNameRemove} onClick={(e) => onRemove(key)} />
+      }
+    </span>
+  )
+}
+
+function RenderActiveTag (handler,props) {
+  let {tag, key, disabled, onRemove, classNameRemove, getTagDisplayValue, ...other} = props
+  return (
+    <span key={key} {...other}  onClick={(e) => {onRemove(key); handler(tag);}}>
       {getTagDisplayValue(tag)}
       {!disabled &&
         <a className={classNameRemove} onClick={(e) => onRemove(key)} />
@@ -125,7 +142,7 @@ handleSelectedCategories(tags, changed, changedIndexes) {
             this.setState({
                 SelectedTags: newTags
             })
-            this.props.form.setFieldValue('categories',newTags)
+            this.props.form.setFieldValue(this.props.field.name,newTags)
         } else {
             //else it's old tag that mean it exists in temp. we need to remove from temp and selected tags and add it to tags
             newTags = this.state.Tags.slice()
@@ -137,7 +154,7 @@ handleSelectedCategories(tags, changed, changedIndexes) {
                 temporarySelected: temp,
                 SelectedTags: selected_tags
             })
-            this.props.form.setFieldValue('categories', selected_tags)
+            this.props.form.setFieldValue(this.props.field.name, selected_tags)
         }
     } else { // if new tag selected
         // that means that the tag doesn't exist in Tags and we need only to add it to selected tags
@@ -147,7 +164,7 @@ handleSelectedCategories(tags, changed, changedIndexes) {
             this.setState({
                 SelectedTags: selected_tags
             })
-            this.props.form.setFieldValue('categories',selected_tags)
+            this.props.form.setFieldValue(this.props.field.name,selected_tags)
         } else { //if it's old tag we need to remove the tag from tags and add it to selectedtags and temp
             newTags = this.state.Tags.filter(tag => tag !== changed)
             temp = this.state.temporarySelected.slice()
@@ -159,7 +176,7 @@ handleSelectedCategories(tags, changed, changedIndexes) {
                 temporarySelected: temp,
                 SelectedTags: selected_tags
             })
-            this.props.form.setFieldValue('categories',selected_tags)
+            this.props.form.setFieldValue(this.props.field.name,selected_tags)
         }
   }
   }
@@ -188,6 +205,7 @@ handleSelectedCategories(tags, changed, changedIndexes) {
                       tagProps={{className: 'react-tagsinput-tag edit-tag tag-label', classNameRemove: 'react-tagsinput-remove edit-tag'}}
                       renderLayout={RenderLayout}
                       />
+                      {this.props.form.touched[this.props.field.name] && this.props.form.errors[this.props.field.name] && <StyledErrorMessage>{this.props.form.errors[this.props.field.name]}</StyledErrorMessage>}
                       {this.state.SelectedTags.length > 0 && <StyledHeading>קטגוריות שנבחרו:</StyledHeading>}
                       <TagsInput 
                       value={this.state.SelectedTags} 
@@ -216,18 +234,43 @@ class ActiveTags extends React.Component {
       this.removeTags=this.removeTags.bind(this)
     }
 
-    
-    removeTags(tags,changed) {
+    componentDidMount(){
+      let tags = this.props.Tags.slice()
+      this.setState(
+        {
+          Tags:tags
+        }
+      )
+    }
+    shouldComponentUpdate(nextProps, nextState){
+      if(this.state.Tags.length !== nextProps.Tags.length)
+        return true
+      return false
+    }
+
+    static getDerivedStateFromProps(props, state){
+      return {Tags: props.Tags}
+    }
+
+    removeTags() {
         this.setState({
-          Tags:  tags
+          Tags:  []
         })
     }
    
     render() {
       return (
                   <StyledTagsContainer>
-                    <TagsInput renderTag={RenderSelectionTag} className = "selected-tags" value={this.state.SelectedTags} onChange={this.removeTags} inputProps = {{className: 'selected-tags-input',placeholder: ''}} tagProps={{className: 'react-tagsinput-tag edit-tag tag-label', classNameRemove: 'react-tagsinput-remove edit-tag'}}/>
-                  </StyledTagsContainer>
+                  <TagsInput 
+                      value= {this.state.Tags} 
+                      onChange={this.removeTags}
+                      renderTag = {(...props) => RenderActiveTag(this.props.handler,...props)} 
+                      className ="active-category"
+                      inputProps = {{className: 'allCategoriesInput',placeholder: ''}} 
+                      tagProps={{className: 'react-tagsinput-tag selected-tag tag-label', classNameRemove: 'react-tagsinput-remove selected-tag'}} 
+                      removeKeys={[]}
+                      {...this.props}
+                      />                  </StyledTagsContainer>
       )
     }
   }

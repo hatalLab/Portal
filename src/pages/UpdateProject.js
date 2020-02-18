@@ -9,11 +9,11 @@ function UpdateProject(){
     let history = useHistory()
     let params = useParams()
     let RouteMatch = useRouteMatch()
-    console.log( { location, history, params, RouteMatch } );
+    // console.log( { location, history, params, RouteMatch } );
     let i = 0;
     if(i===0 && location.data === undefined){
         history.goBack()
-        console.log('go back');
+        // console.log('go back');
         
     }
     const { data } = location
