@@ -53,6 +53,12 @@ const ImageCOntainer =styled.div`
     margin-top: 5vh;
 `
 
+const ButtonContainer = styled.div`
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`
 
 const TextArea = ({ field, form, large, ...props}) => {
     return (
@@ -125,6 +131,7 @@ const NewProjectForm = ({ values, errors, touched, ...props }) => {
             <Field name ="table" component ={ImplementationTable} />
 
             <StyledRow>
+                <ButtonContainer>
                 {props.edit && <AwesomeButton type= "primary" onPress = {()=> history.goBack()}>סגירה</AwesomeButton>}
                 <AwesomeButtonProgress
                     type = "primary"
@@ -140,6 +147,8 @@ const NewProjectForm = ({ values, errors, touched, ...props }) => {
                 >
                 שמירה
                 </AwesomeButtonProgress>
+
+                </ButtonContainer>
             </StyledRow>
             </Form>
         </StyledFormContainer>

@@ -5,6 +5,7 @@ import ModalPage from '../Components/Project_List/Modal'
 import { data as projectsData, tags, favoriteTags as FavoriteTags, interestedProjects } from '../static/data/rowData'
 import Comment from '../Components/Comments'
 import { ActiveTags } from '../Components/Tgasinput/tags'
+import AutoSuggestion from '../Components/AutoSoggestion/AutoSuggestionHomeSearch'
 // styled components
 
 // main container
@@ -328,10 +329,11 @@ class ControlledHomePage extends Component{
     render(){
         return(
             <HomeContainer>
+                <AutoSuggestion list = {projectsData} categories = {tags} />
+                            {/* <StyledInput name = "search" placeholder = " חפש קטגוריה" value = {this.state.input} onChange = {this.handleChange} /> */}
+            <Modal handleChange = {this.handleChange} />
         <ActiveTags Tags = {this.state.activeCategories} handler = {this.handleActiveTags} />
 
-                            <StyledInput name = "search" placeholder = " חפש קטגוריה" value = {this.state.input} onChange = {this.handleChange} />
-            <Modal handleChange = {this.handleChange} />
             <StyledContainer id ="project_list" overfl={this.state.overflow} >
                 <Comment>start of project list</Comment>
                 <StyledList id="mix_wrapper">

@@ -161,6 +161,7 @@ const Logo = styled.img`
   height: 100px;
 `;
 
+
 export default function App() {
   return (
     <StyledContainer>
@@ -171,10 +172,8 @@ export default function App() {
       </ImgContainer>
       <StyledLinksContainer>
         <StyledList>
-          {/* <StyledItem>
-            <StyledLink to="/">הגדרות</StyledLink>
-          </StyledItem> */}
-          <StyledItem>
+         
+          <StyledItem style={{marginRight:"40px"}} >
             <StyledLink to="/new-project">הוספת פרויקט חדש</StyledLink>
           </StyledItem>
           <StyledItem>
