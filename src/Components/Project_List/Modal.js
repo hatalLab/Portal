@@ -329,7 +329,7 @@ const Modal = (props) => {
                             <ModalTitle>תיאור הפרויקט:</ModalTitle>
                             <ModalPar>{props.data.description}</ModalPar>                        
                         </Col>
-                            <StyledImage src={require(`${props.data.img_src}`)}  alt ="logo"/>
+                            <StyledImage src={'./project-default.png'}  alt ="logo"/>
                     </Row>
                     <Row>
                         <Col>
