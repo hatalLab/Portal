@@ -48,8 +48,8 @@ const StyledImg = styled.img`
   width: 50px;
 `
 
-function shouldRenderSuggestions() {
-  return true
+function shouldRenderSuggestions(value) {
+  return value.trim().length > 0
 }
 
 function renderSuggestionsContainer({ containerProps, children, query }) {

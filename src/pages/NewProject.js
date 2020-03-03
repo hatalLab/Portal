@@ -81,8 +81,6 @@ const TextArea = ({ field, form, large, ...props}) => {
 
 const NewProjectForm = ({ values, errors, touched, ...props }) => {
     let history = useHistory()
-    // console.log(history);
-    
     return (
         <StyledFormContainer>
             <Form>
@@ -132,7 +130,12 @@ const NewProjectForm = ({ values, errors, touched, ...props }) => {
 
             <StyledRow>
                 <ButtonContainer>
-                {props.edit && <AwesomeButton type= "primary" onPress = {()=> history.goBack()}>סגירה</AwesomeButton>}
+                {/* {props.edit && <AwesomeButton type= "primary" onPress = {()=> history.goBack()}>סגירה</AwesomeButton>}
+                <AwesomeButton type = "secondary" onPress={() => history.push(
+                           {
+                                   pathname: "/preview",
+                                   data: props.data
+                               } )}>preview</AwesomeButton> */}
                 <AwesomeButtonProgress
                     type = "primary"
                     size = "medium"

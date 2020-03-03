@@ -346,7 +346,7 @@ const Modal = (props) => {
                         <AwesomeButton type="primary" onPress = {() => setImplementationModalShow(true)}>
                             מימוש לפי שלבים
                         </AwesomeButton>
-                       { Edit && <AwesomeButton type = "secondary" onPress={()=> history.push(
+                       { Edit && <AwesomeButton type = "secondary" onPress={() => history.push(
                            {
                                    pathname: "/edit-project",
                                    data: props.data
