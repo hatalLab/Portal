@@ -54,7 +54,7 @@ function shouldRenderSuggestions(value) {
 
 function renderSuggestionsContainer({ containerProps, children, query }) {
   containerProps.className += " Try"
-  console.log({ containerProps: containerProps })
+  // console.log({ containerProps: containerProps })
 
   return (
     <SuggestionContainer>
@@ -76,18 +76,18 @@ function escapeRegexCharacters(str) {
 }
 
 function getSuggestions(value, list, categories, creators) {
-  console.log("List: ", list, value)
-  console.log("get suggestion", { categories, creators })
+  // console.log("List: ", list, value)
+  // console.log("get suggestion", { categories, creators })
   const escapedValue = escapeRegexCharacters(value.trim())
 
   if (escapedValue === "") {
-    console.log("escaped", list)
+    // console.log("escaped", list)
     let newList = list.map(project => {
       return {
         found: project.front_title
       }
     })
-    console.log(newList)
+    // console.log(newList)
     return newList
   }
   const regex = new RegExp("^" + escapedValue, "i")
@@ -123,11 +123,11 @@ function getSuggestions(value, list, categories, creators) {
       })
     }
   }
-  console.log({ matchedCategories, matchedCreators })
+  // console.log({ matchedCategories, matchedCreators })
   let filteredList = newList.filter(item => item.details !== "not found")
   // newList.sort((a,b)=> b.year-a.year)
   let suggestionList = matchedCategories.concat(filteredList, matchedCreators)
-  console.log({ suggestionList })
+  // console.log({ suggestionList })
   return suggestionList
 }
 
@@ -180,7 +180,7 @@ class Soggestion extends React.Component {
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.state.list.length !== prevProps.list.length) {
-      console.log({ "prevProps.list": prevProps.list })
+      // console.log({ "prevProps.list": prevProps.list })
       let categories = prevProps.categories
 
       let creators = prevProps.list.map(project => project.contact)
@@ -190,7 +190,7 @@ class Soggestion extends React.Component {
       )
       //console.log({ unique })
 
-      console.log({ categories, unique })
+      // console.log({ categories, unique })
       this.setState({
         list: [...prevProps.list],
         categories: categories,
@@ -233,7 +233,7 @@ class Soggestion extends React.Component {
 
   render() {
     const { value, suggestions } = this.state
-    console.log({ Suggestion: suggestions })
+    // console.log({ Suggestion: suggestions })
     const inputProps = {
       placeholder: this.state.placeholder || "חפש",
       value,

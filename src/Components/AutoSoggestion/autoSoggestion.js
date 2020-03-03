@@ -98,7 +98,7 @@ const renderInputComponent = inputProps => (
   function renderSuggestion(suggestion, { query }) {
     const matches =match(suggestion.name, query);
     const parts = parse(suggestion.name, matches);
-    console.log({query,match, matches})
+    // console.log({query,match, matches})
   
     return (
       <span>

@@ -27,7 +27,7 @@ function Preview (){
     const history = useHistory()
     const { data: project } = location
 
-    console.log(project)
+    // console.log(project)
 
     return(
         <>

@@ -305,7 +305,7 @@ const Modal = (props) => {
 </SecondModal>
             <Background className="background" onClick = {() => {setModalShow(false); RestModal()}} open = {modalShow} />
             <StyledContainer className="container" onClick={()=>setModalShow(true)}>
-                <StyledImageWithHover src={require(`${props.data.img_src}`)}  alt="Avatar" className="image" />
+                <StyledImageWithHover src={'./project-default.png'}  alt="Avatar" className="image" />
                 <StyledMiddle className="middle">
                     <StyledText className="text" tabIndex = { focus ? "1" : "0"} ref = {ref} onMouseEnter = {handleHover} onMouseLeave = {handleBlur} >
                         <StyledJustifiedParagraph>
