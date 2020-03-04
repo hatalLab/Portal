@@ -11,7 +11,7 @@ const StyledContainer = styled.div`
   border-bottom: 2px solid #ddd;
   display: flex;
   width: 30%;
-  margin: 1px auto;
+  margin: 1px 0;
   padding: 0 5px;
   flex-direction: row;
   border-radius: 25px;

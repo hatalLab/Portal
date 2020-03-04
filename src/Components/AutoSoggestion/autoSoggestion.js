@@ -12,7 +12,7 @@ border: 1px solid #DDD;
 border-bottom: 2px solid #DDD;
   display: flex;
   width:30%;
-  margin: 1px auto;
+  margin: 1px 0;
   padding: 0 5px;
   flex-direction: row;
   border-radius: 25px;

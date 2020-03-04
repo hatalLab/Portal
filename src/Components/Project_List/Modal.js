@@ -62,7 +62,6 @@ const SecondModal= styled(ModalContainer)`
 
 const StyledImage = styled.img`
 &&{
-    height: 250px;
     width: 250px;
 }
 `
@@ -139,7 +138,6 @@ const StyledImageWithHover = styled.img`
     opacity: 1;
     display: block;
     width: ${ImageSize.width +'px'};
-    height: auto;
     transition: .5s ease;
     backface-visibility: hidden;`
 

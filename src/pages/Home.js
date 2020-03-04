@@ -22,8 +22,8 @@ const StyledRow = styled.div`
 
 // container of all categories - categories section
 const StyledBar = styled(StyledRow)`
-margin: 50px auto 0;
-width: 80vw;
+    margin: 50px auto 0;
+    width: 80vw;
     background-color: white;
     padding: 0;`
 
@@ -141,6 +141,11 @@ const StyledProjectContainer = styled.div`
 `
 const StyledWrapped =styled(StyledRow)`
     flex-wrap: wrap;`
+
+const SelectedTagsContainer = styled.div`
+    width: 80vw;
+    margin: 0 auto;
+`
 
 let numberOfTags = 10;
 
@@ -292,7 +297,7 @@ class ControlledHomePage extends Component{
         } else {
             console.log(`${name} clicked`)
             this.setState({
-                activeCategories: [name]
+                activeCategories: [...this.state.activeCategories, name]
             }, this.filter(name))
         }
     }
@@ -332,7 +337,9 @@ class ControlledHomePage extends Component{
                 <AutoSuggestion list = {projectsData} categories = {tags} />
                             {/* <StyledInput name = "search" placeholder = " חפש קטגוריה" value = {this.state.input} onChange = {this.handleChange} /> */}
             <Modal handleChange = {this.handleChange} />
-        <ActiveTags Tags = {this.state.activeCategories} handler = {this.handleActiveTags} />
+            <SelectedTagsContainer>
+                <ActiveTags Tags = {this.state.activeCategories} handler = {this.handleActiveTags} />
+            </SelectedTagsContainer>
 
             <StyledContainer id ="project_list" overfl={this.state.overflow} >
                 <Comment>start of project list</Comment>
