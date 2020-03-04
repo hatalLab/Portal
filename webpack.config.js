@@ -41,12 +41,14 @@ module.exports = (env) => {
     },
     plugins: [
       new HtmlWebPackPlugin({
-        template: "./public/index.html",
+        inject: false, 
+        template: path.join(__dirname, './public/index.html'),//"./public/index.html",
         filename: "./index.html",
-        favicon: './public/favicon.ico'
+        favicon: './public/zinnovation.ico',
       }),
       new InterpolateHtmlPlugin({
-        PUBLIC_URL: 'public' // can modify `static` to another name or get it from `process`
+        inject: false, 
+        PUBLIC_URL: 'public', // can modify `static` to another name or get it from `process`
     })
     ]
 };
