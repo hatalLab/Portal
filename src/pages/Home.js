@@ -6,6 +6,9 @@ import { data as projectsData, tags, favoriteTags as FavoriteTags, interestedPro
 import Comment from '../Components/Comments'
 import { ActiveTags } from '../Components/Tgasinput/tags'
 import AutoSuggestion from '../Components/AutoSoggestion/AutoSuggestionHomeSearch'
+// import { withRouter } from 'react-router-dom'
+
+
 // styled components
 
 // main container
@@ -153,7 +156,7 @@ let numberOfTags = 10;
 const Modal = (props) => {
     // state for should modal be open or not
     const [modalShow, setModalShow] = useState(false);
-    let tagsList = [], index, restTags =[...tags]
+    let tagsList = [], index, restTags =[...tags]//, modalTags=[]
     tagsList.push(<StyledTagContainer  key="all" className = "container"><StyledTag onClick ={event => props.handleChange(event)} name = "all" href="#">הכל</StyledTag></StyledTagContainer>)
     tagsList.push(<StyledTagContainer  key="new" className = "container"><StyledTag onClick ={event => props.handleChange(event)} name = "new" href="#">חדש</StyledTag></StyledTagContainer>)
     
@@ -172,6 +175,10 @@ const Modal = (props) => {
     // remove from rest tags the tags that we added to tags section in the last loop
     restTags.splice(0, TagsToAdd)
     tagsList.push(<StyledTagContainer key = "ModalOpen" onClick = {() => setModalShow(true)}> <StyledArrow>&#11167;</StyledArrow><StyledTag></StyledTag></StyledTagContainer>)
+  
+    // for(let tag of restTags){
+
+    // }
   return (
       <>
         <StyledBar>
@@ -179,7 +186,7 @@ const Modal = (props) => {
         </StyledBar>
         <Background onClick = {() => setModalShow(false)} open = {modalShow} />
         <ModalOpen open ={modalShow}>
-            <ModalContent AllTags = {restTags} handleChange={props.handleChange} />
+            <ModalContent AllTags = {restTags} handleChange={props.handleChange} close = {setModalShow}/>
         </ModalOpen>
       </>
   )
@@ -189,7 +196,7 @@ const Modal = (props) => {
 const ModalContent = (props) => {
     let list =[]
     for(let tag of props.AllTags){
-        list.push(<StyledTagContainer key = {tag}><StyledTag onClick = {event => props.handleChange(event)} href="#">{tag}</StyledTag></StyledTagContainer>)
+        list.push(<StyledTagContainer key = {tag} ><StyledTag onClick = {event => {props.handleChange(event); props.close(false)}} name = {tag} href="#">{tag}</StyledTag></StyledTagContainer>)
     }
     return (
         <StyledWrapped>
@@ -229,6 +236,7 @@ class ControlledHomePage extends Component{
 
     componentDidMount(){
         let temp=[], numberOfProjects = projectsData.length, categories, interest, index, match
+        // console.log({props: this.props})
 
         // loop over each project in projectsData
         for(let project of projectsData)
@@ -285,27 +293,45 @@ class ControlledHomePage extends Component{
         )
     }
 
+
+    // componentDidUpdate(prevProps) {
+    //     if (this.props.location !== prevProps.location) {
+    //       //console.log({ propsc: this.props})
+    //       if(this.props.location.pathname){
+
+    //       }
+    //     }
+    //   }
+
     // handle change in the input field
     handleChange (event){
-        event.preventDefault();
+        event.preventDefault()
         const {name, value, type, innerText} = event.target
-        //console.log(innerText);
+        const activeFilter = [...this.state.activeCategories, name]
+        
+        // if input field changed
         if(type){
             this.setState({
                 input:value
             },this.filter(value))
         } else {
             console.log(`${name} clicked`)
-            this.setState({
-                activeCategories: [...this.state.activeCategories, name]
-            }, this.filter(name))
+            if(name === "all") {
+                this.setState({
+                    activeCategories: []
+                },this.filter(["all"]))
+            } else {
+                this.setState({
+                    activeCategories: [...this.state.activeCategories, name]
+                }, this.filter(activeFilter))
+            }
         }
     }
 
     // filter the shown project list
-    filter = (value) => {
+    filter = (tags) => {
         let list=[]
-        if(value === "all"){
+        if(tags.includes("all")) {
             list = sortProjects(this.state.projectObject.slice()).map(item => item.project) 
             this.setState(
                 {
@@ -313,7 +339,7 @@ class ControlledHomePage extends Component{
                 }
             )
         } else {
-            let newProjectObj = this.state.projectObject.filter(item => item.categories.findIndex(str => str === value) > -1)
+            let newProjectObj = this.state.projectObject.filter(item => item.categories.some(category => tags.includes(category)))
             sortProjects(newProjectObj)
             list = newProjectObj.map(item => item.project)
             this.setState(
@@ -326,9 +352,15 @@ class ControlledHomePage extends Component{
 
     handleActiveTags(TagToRemove){ 
         let ActiveTags = this.state.activeCategories.filter(tag => tag !== TagToRemove )
-        this.setState({
-            activeCategories: ActiveTags
-        },this.filter("all"))
+        if(ActiveTags.length === 0) {
+            this.setState({
+                activeCategories: []
+            },this.filter(["all"]))
+        } else {
+            this.setState({
+                activeCategories: ActiveTags
+            },this.filter(ActiveTags))
+        }
     }
 
     render(){
@@ -361,5 +393,5 @@ const sortProjects = (obj) => {
 
 
 
-
 export default ControlledHomePage
+//export default withRouter(ControlledHomePage)

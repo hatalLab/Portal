@@ -8,8 +8,8 @@ import ImgSrc from '../static/images/back2top.png'
 const Image = styled.img`
     width: 50px;
     position: fixed;
-    bottom: 50px;
-    right: 50px;
+    bottom: 25px;
+    right: 20px;
     visibility: ${props => props.Visible === false ? "hidden" : "visible" };
     z-index: 100;
     cursor: pointer;
@@ -35,7 +35,7 @@ class back2Top extends Component {
     }
 
     toggleVisibility() {
-        if (!this.state.Visible && !this.state.clicked && window.pageYOffset > 100)
+        if (!this.state.Visible && window.pageYOffset > 100)
             this.setState({
                 Visible: true
             })
@@ -52,7 +52,6 @@ class back2Top extends Component {
 
     handleClick() {
         this.setState({
-            Visible: false,
             clicked: true
         })
         window.scroll({
@@ -60,6 +59,9 @@ class back2Top extends Component {
             left: 0,
             behavior: "smooth"
         });
+        this.setState({
+            clicked: false
+        })
     }
 
     render() {

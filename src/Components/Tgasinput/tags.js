@@ -216,6 +216,7 @@ handleSelectedCategories(tags, changed, changedIndexes) {
                       inputProps = {{className: 'selected-tag-input',placeholder: 'הוסף קטגוריה'}} 
                       tagProps={{className: 'react-tagsinput-tag selected-tag tag-label', classNameRemove: 'react-tagsinput-remove selected-tag'}} 
                       removeKeys={[]}
+                      addKeys = {[9,13]}
                       {...this.props}
                       />
                 </StyledTagsContainer>

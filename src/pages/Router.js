@@ -16,9 +16,6 @@ function Router(){
                             <BackToTop />
                 <Switch>
                    
-                    <Route exact path = "/">
-                        <HomePage />
-                    </Route>
                     <Route path = "/my-projects">
                         <MyProjects />
                     </Route>
@@ -37,6 +34,10 @@ function Router(){
 
                     <Route path = "/contact">
                         <Contact />
+                    </Route>
+
+                    <Route path = "/">
+                        <HomePage />
                     </Route>
                 </Switch>
 

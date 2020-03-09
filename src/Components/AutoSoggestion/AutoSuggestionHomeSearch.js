@@ -2,6 +2,7 @@ import React from "react"
 import Autosuggest from "react-autosuggest"
 import parse from "autosuggest-highlight/parse"
 import match from "autosuggest-highlight/match"
+import { withRouter } from "react-router-dom"
 import Icon from '../../static/images/search.png'
 import "../../static/css/AutoSoggestion.css"
 import styled from "styled-components"
@@ -48,12 +49,14 @@ const StyledImg = styled.img`
   width: 50px;
 `
 
+//const StyledSuggestionContainer = 
+
 function shouldRenderSuggestions(value) {
   return value.trim().length > 0
 }
 
 function renderSuggestionsContainer({ containerProps, children, query }) {
-  containerProps.className += " Try"
+  //containerProps.className += " Try"
   // console.log({ containerProps: containerProps })
 
   return (
@@ -76,7 +79,7 @@ function escapeRegexCharacters(str) {
 }
 
 function getSuggestions(value, list, categories, creators) {
-  // console.log("List: ", list, value)
+  //console.log("List: ", list, value)
   // console.log("get suggestion", { categories, creators })
   const escapedValue = escapeRegexCharacters(value.trim())
 
@@ -138,9 +141,9 @@ function getSuggestionValue(suggestion) {
 function renderSuggestion(suggestion, { query }) {
   const matches = match(suggestion.found, query)
   const parts = parse(suggestion.found, matches)
-
+//console.log({suggestion})
   return (
-    <span>
+    <span className= "spanAuto">
       {parts.map((part, index) => {
         const className = part.highlight
           ? "react-autosuggest__suggestion-match"
@@ -152,6 +155,7 @@ function renderSuggestion(suggestion, { query }) {
           </span>
         )
       })}
+      
     </span>
   )
 }
@@ -223,11 +227,17 @@ class Soggestion extends React.Component {
     })
   }
 
-  onSuggestionSelected(
-    event,
-    { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }
-  ) {
-    this.props.Handler(suggestionValue)
+  onSuggestionSelected = (event, { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }) => {
+    //this.props.Handler(suggestionValue)
+    let history = this.props.history
+    //console.log({event, suggestion, suggestionValue, suggestionIndex, sectionIndex, method })
+    if(suggestion.project){
+      history.push(`/project/${suggestion.project.Project_id}`)
+    } else if (suggestion.details === "category") {
+      history.push(`/tags/${suggestion.category}`)
+    } else if (suggestion.details === "creator name") {
+      history.push(`/creator/${suggestion.found}`)
+    }
     this.setState({ value: "" })
   }
 
@@ -257,4 +267,4 @@ class Soggestion extends React.Component {
   }
 }
 
-export default Soggestion
+export default withRouter(Soggestion)

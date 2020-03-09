@@ -8,9 +8,6 @@ const app = express()
 
 app.use(express.static(publicPath))
 
-// app.get('./project-image', (req,res) => {
-//     res.sendFile(path.join(publicPath,'project-default.png'))
-// })
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(publicPath,'index.html'))
